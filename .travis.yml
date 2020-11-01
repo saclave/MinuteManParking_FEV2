@@ -1,0 +1,13 @@
+sudo: false
+language: node_js
+node_js:
+- node
+git:
+  quiet: true
+deploy:
+  provider: heroku
+  api_key:
+    secure: qfYvT49Z7f14smWmtfHYj3o9NuaDT52hdXZx4/YssF66mSMWZYHPB/CldvrVYzFqJD8/0b1RlvlCIar8WFUcoEWIT03tdmZV6aMONr+FOipznaHKsOdmEBAT/mPJJ7KfQHfMmXvgx677Gplt/JjJtOy11mOrVRYjKEjt7NLr0Bwj/p887abta6dB+QxgcHSheHYlm7h0AtUouXcOZ36kN5Z5jUmyUCmkk0PMHEjIA3iI8+V1F9+zpQzP0XpaUXdIvuf648zE9m2/+f0tqpYnQyWidlO7khE6oZ0MY/t0Z3LwnONsyFP9jGK3rAarExhYNRHMkkhBrPhx7Pq3YslVdVXFGIxDXimt+uETRoRMNWjPv8tMTy5eTMxsrd2MAf9ty49YU48Br5pgCx8T0+79s6q1jCmmkAAMiv3zQ3dbk7Sk3zdIDx/Bm3ncK54a6c34vR23OkRbV1T8ruMf0oHMe2lRaEeUWqSxUMGUweqKh2nE8Q68rJc+8zXPoZ3OWpf+Z8JaevPRoww6uOku/PhAwpWeXHlfWh5Lf1UmZTEe6y9Yt7pcNs1GlLId+xlunlwNqcpPRU/8z7QBCqi/dImRonDBJfX3ygHLF6ibW87MDQW1TJgKQ/lvf6hVZpROc3c3KeMBJ8WNglMGdkE3g0gdXdQvyXrFBUMOOXB5qEq7Izc=
+  app: minute-man-parking-fe
+  on:
+    repo: saclave/MinuteManParkingV2_FE
