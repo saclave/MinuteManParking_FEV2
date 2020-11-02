@@ -5,6 +5,7 @@ import HomePageAboutUs from './HomePageAboutUs';
 import HomePageMap from './HomePageMap';
 import AuthenticatedHomePageSider from './AuthenticatedHomePageSider';
 import HomePageServices from './HomePageServices';
+import HomePageSteps from './HomePageSteps';
 
 import { Layout } from 'antd';
 
@@ -27,6 +28,7 @@ class AuthenticatedHomePage extends Component {
                             }}
                         >
                             <HomePageServices />
+                            <HomePageSteps />
                             <HomePageMap />
                             <HomePageAboutUs />
                         </Content>

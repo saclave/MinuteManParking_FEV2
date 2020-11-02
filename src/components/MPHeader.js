@@ -13,8 +13,6 @@ class MPHeader extends Component {
                 <div className="logo">
                     <img width={100} src={logo} />
                 </div>
-                <Menu theme="dark" mode="horizontal">
-                </Menu>
             </Header>
         );
     }

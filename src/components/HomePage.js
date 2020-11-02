@@ -6,8 +6,9 @@ import HomePageLoginContainer from '../containers/HomePageLoginContainer';
 import HomePageMap from './HomePageMap';
 import HomePageSider from './HomePageSider';
 import HomePageServices from './HomePageServices';
+import HomePageSteps from './HomePageSteps';
 
-import { Layout } from 'antd';
+import { Layout, Col, Row } from 'antd';
 
 const { Content } = Layout;
 
@@ -27,9 +28,20 @@ class HomePage extends Component {
                                 minHeight: 280,
                             }}
                         >
-                            <HomePageServices />
-                            <HomePageMap />
-                            <HomePageAboutUs />
+                            <Row>
+                                <Col xs={24}>
+                                    <HomePageServices />
+                                </Col>
+                                <Col xs={24}>
+                                    <HomePageSteps />
+                                </Col>
+                                <Col xs={24}>
+                                    <HomePageMap />
+                                </Col>
+                                <Col xs={24}>
+                                    <HomePageAboutUs />
+                                </Col>
+                            </Row>
                         </Content>
                     </Layout>
                     <HomePageLoginContainer />
