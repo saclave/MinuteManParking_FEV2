@@ -4,6 +4,7 @@ import AuthenticatedHomePage from '../components/AuthenticatedHomePage';
 import CreatePageContainer from '../container/CreatePageContainer';
 import UpdateUserProfileContainer from '../container/UpdateUserProfileContainer';
 import ViewPageContainer from '../container/ViewPageContainer';
+import ViewTransactionHistory from '../container/ViewTransactionHistory';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 class ApplicationRoutes extends Component {
@@ -17,6 +18,7 @@ class ApplicationRoutes extends Component {
                     <Route path="/create" component={CreatePageContainer} />
                     <Route path="/update" component={UpdateUserProfileContainer} />
                     <Route path="/view" component={ViewPageContainer} />
+                    <Route exact path="/viewTransaction" component={ViewTransactionHistory} />
                 </Switch>
             </BrowserRouter>
         );
