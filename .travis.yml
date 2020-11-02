@@ -4,6 +4,8 @@ node_js:
 - node
 git:
   quiet: true
+script:
+  - npm run build
 deploy:
   provider: heroku
   api_key:
