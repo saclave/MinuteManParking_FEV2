@@ -1,23 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
+import Login from './components/Login';
+import HomePage from './components/HomePage';
+import { BrowserRouter, Route,Switch } from 'react-router-dom';
+import MapPage from './components/MapPage';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <BrowserRouter>
+      <header>
+        <span style={{display: 'inline-block' }}>
+          <h1 id="appName"><img src={logo} width="60" alt="logo" />MinuteMan</h1>
+        </span>
+
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+        </Switch>
+
       </header>
+      </BrowserRouter>
     </div>
   );
 }
