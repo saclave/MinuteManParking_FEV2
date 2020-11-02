@@ -5,6 +5,7 @@ import CreatePageContainer from '../container/CreatePageContainer';
 import UpdateUserProfileContainer from '../container/UpdateUserProfileContainer';
 import ViewPageContainer from '../container/ViewPageContainer';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import PaymentPage from './PaymentPage';
 
 class ApplicationRoutes extends Component {
     render() {
@@ -17,6 +18,7 @@ class ApplicationRoutes extends Component {
                     <Route path="/create" component={CreatePageContainer} />
                     <Route path="/update" component={UpdateUserProfileContainer} />
                     <Route path="/view" component={ViewPageContainer} />
+                    <Route path="/payment" component={PaymentPage} />
                 </Switch>
             </BrowserRouter>
         );
