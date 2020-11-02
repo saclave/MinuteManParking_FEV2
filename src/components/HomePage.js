@@ -4,7 +4,6 @@ import { DesktopOutlined, QuestionCircleOutlined, CarOutlined, UsergroupAddOutli
 import Login from './Login';
 import '../css/HomePage.css';
 import About from './About';
-import MapPage from './MapPage';
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -100,7 +99,7 @@ class HomePage extends Component {
                             this.state.showMap ?
                                 <div id="map" >
                                     <div class="col-lg-1 col-centered">
-                                        <MapPage />
+                                     
                                     </div>
                                 </div>
                                 : null

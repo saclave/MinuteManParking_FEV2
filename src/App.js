@@ -2,8 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import Login from './components/Login';
 import HomePage from './components/HomePage';
+import ViewPage from './components/ViewPage';
 import { BrowserRouter, Route,Switch } from 'react-router-dom';
-import MapPage from './components/MapPage';
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
 
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route  path="/view" component={ViewPage} />
         </Switch>
 
       </header>
