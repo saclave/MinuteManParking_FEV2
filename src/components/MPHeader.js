@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Layout, Menu } from 'antd';
 
-import logo from '../images/minuteman-V2.png';
+import logo from '../images/logo.png';
 
 const { Header } = Layout;
 
