@@ -10,7 +10,7 @@ class HomePageServices extends Component {
     render() {
         return (
             <div className="home-page-content">
-                <HomePageContentTitle id="services" text="Services" />
+                <HomePageContentTitle id="services" text="WHAT WE OFFER" />
                 <Row>
                     <Col span={8}>
                         <Card hoverable cover={

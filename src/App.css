@@ -84,3 +84,19 @@
 .home-page-about-us-content {
   text-align: justify;
 }
+
+.blue-text {
+  color: #29b7df;
+}
+
+.container {
+  padding: 0 50px;
+}
+
+h1.ant-typography,
+h2.ant-typography,
+h3.ant-typography,
+h4.ant-typography,
+h5.ant-typography {
+  font-family: "Hind", sans-serif;
+}
