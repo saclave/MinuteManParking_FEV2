@@ -8,7 +8,7 @@ import HomePageSider from './HomePageSider';
 import HomePageServices from './HomePageServices';
 import HomePageSteps from './HomePageSteps';
 
-import { Layout, Col, Row } from 'antd';
+import { Layout, Col, Row, Image } from 'antd';
 
 const { Content } = Layout;
 
