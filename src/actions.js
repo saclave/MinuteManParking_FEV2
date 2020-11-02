@@ -7,10 +7,12 @@ export const getAccount = accounts => {
 
 export const authenticate = (account) => {
     return { type: AUTHENTICATE, payload: account }
+}
+
 export const addUser = accounts => {
-    return {type: "ADD_ACCOUNT", payload: accounts}
+    return { type: "ADD_ACCOUNT", payload: accounts }
 }
 
 export const updateUser = account => {
-    return {type: "UPDATE_ACCOUNT", payload: account}
+    return { type: "UPDATE_ACCOUNT", payload: account }
 }
