@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { HashLink } from 'react-router-hash-link';
 
 import { Affix, Layout, Menu } from 'antd';
-import { QuestionCircleOutlined, AreaChartOutlined, LaptopOutlined, InfoCircleOutlined, OrderedListOutlined } from '@ant-design/icons';
+import { QuestionCircleOutlined, AreaChartOutlined, AndroidOutlined, InfoCircleOutlined, OrderedListOutlined } from '@ant-design/icons';
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
@@ -19,11 +19,11 @@ class AuthenticatedHomePageSider extends Component {
                         style={{ height: '100%', borderRight: 0 }}
                     >
                         <SubMenu key="sub1" icon={<InfoCircleOutlined />} title="Other Info">
-                            <Menu.Item key="1" icon={<LaptopOutlined />}>
-                                <HashLink smooth to={{ pathname: '/', hash: '#services' }}>Services</HashLink>
+                            <Menu.Item key="1" icon={<AndroidOutlined />}>
+                                <HashLink smooth to={{ pathname: '/', hash: '#services' }}>What We Offer</HashLink>
                             </Menu.Item>
                             <Menu.Item key="2" icon={<OrderedListOutlined />}>
-                                <HashLink smooth to={{ pathname: '/', hash: '#how_it_works' }}>How it Works</HashLink>
+                                <HashLink smooth to={{ pathname: '/', hash: '#how_it_works' }}>How It Works</HashLink>
                             </Menu.Item>
                             <Menu.Item key="3" icon={<AreaChartOutlined />}>
                                 <HashLink smooth to={{ pathname: '/', hash: '#our_map' }}>Our Map</HashLink>
