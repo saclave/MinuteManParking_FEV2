@@ -4,19 +4,27 @@ import AuthenticatedHomePage from '../components/AuthenticatedHomePage';
 import CreatePageContainer from '../container/CreatePageContainer';
 import UpdateUserProfileContainer from '../container/UpdateUserProfileContainer';
 import ViewPageContainer from '../container/ViewPageContainer';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 class ApplicationRoutes extends Component {
     render() {
         const authenticated = this.props.authentication.authenticated;
-
+        const PrivateRoute = ({component: Component, restricted, ...rest}) => {
+            return (
+                <Route {...rest} render={props => (
+                    (authenticated) ?
+                    <Component {...props} />
+                    : <Redirect to="/" />
+                )} />
+            );
+        };  
         return (
             <BrowserRouter>
                 <Switch>
                     <Route exact path="/" component={(authenticated) ? AuthenticatedHomePage : HomePage} />
                     <Route path="/create" component={CreatePageContainer} />
                     <Route path="/update" component={UpdateUserProfileContainer} />
-                    <Route path="/view" component={ViewPageContainer ? AuthenticatedHomePage : HomePage} />
+                    <PrivateRoute path="/view" component={ViewPageContainer} />
                 </Switch>
             </BrowserRouter>
         );
