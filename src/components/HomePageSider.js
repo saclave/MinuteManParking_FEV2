@@ -18,10 +18,10 @@ class HomePageSider extends Component {
                         style={{ height: '100%', borderRight: 0 }}
                     >
                         <Menu.Item key="1" icon={<LaptopOutlined />}>
-                            <HashLink smooth to={{ pathname: '/', hash: '#services' }}>Services</HashLink>
+                            <HashLink smooth to={{ pathname: '/', hash: '#services' }}>What We Offer</HashLink>
                         </Menu.Item>
                         <Menu.Item key="2" icon={<OrderedListOutlined />}>
-                            <HashLink smooth to={{ pathname: '/', hash: '#how_it_works' }}>How it Works</HashLink>
+                            <HashLink smooth to={{ pathname: '/', hash: '#how_it_works' }}>How It Works</HashLink>
                         </Menu.Item>
                         <Menu.Item key="3" icon={<AreaChartOutlined />}>
                             <HashLink smooth to={{ pathname: '/', hash: '#our_map' }}>Our Map</HashLink>
