@@ -37,3 +37,52 @@
     transform: rotate(360deg);
   }
 }
+
+#components-layout-demo-top-side .logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.ant-layout-header {
+  background: #fff;
+}
+
+.ant-row-rtl #components-layout-demo-top-side .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
+}
+
+.site-layout-background {
+  background: #fff;
+}
+
+.home-page-content {
+  margin-bottom: 50px;
+}
+
+.home-page-login {
+  padding: 20px;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.ant-typography .home-page-content-title {
+  color: black;
+  pointer-events: none;
+  cursor: default;
+}
+
+.ant-card {
+  margin: 10px;
+}
+
+.home-page-about-us-content {
+  margin: 0 auto;
+  width: 600px;
+  text-align: justify;
+}
