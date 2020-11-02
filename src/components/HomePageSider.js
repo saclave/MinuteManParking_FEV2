@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { HashLink } from 'react-router-hash-link';
 
 import { Affix, Layout, Menu } from 'antd';
-import { QuestionCircleOutlined, AreaChartOutlined, LaptopOutlined, OrderedListOutlined } from '@ant-design/icons';
+import { QuestionCircleOutlined, AreaChartOutlined, AndroidOutlined, OrderedListOutlined } from '@ant-design/icons';
 
 const { Sider } = Layout;
 
@@ -17,7 +17,7 @@ class HomePageSider extends Component {
                         defaultOpenKeys={['sub1']}
                         style={{ height: '100%', borderRight: 0 }}
                     >
-                        <Menu.Item key="1" icon={<LaptopOutlined />}>
+                        <Menu.Item key="1" icon={<AndroidOutlined />}>
                             <HashLink smooth to={{ pathname: '/', hash: '#services' }}>What We Offer</HashLink>
                         </Menu.Item>
                         <Menu.Item key="2" icon={<OrderedListOutlined />}>
