@@ -7,6 +7,8 @@ const defaultAccounts = [
         password: '123',
         firstName: 'John Emmanuel',
         lastName: 'Bacalla',
+        age: '24',
+        email: 'hello@hi.com'
     }
 ]
 const accounts = (state = defaultAccounts, action) => {

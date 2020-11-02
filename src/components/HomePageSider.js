@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { HashLink } from 'react-router-hash-link';
-
 import { Affix, Layout, Menu } from 'antd';
 import { QuestionCircleOutlined, AreaChartOutlined, LaptopOutlined } from '@ant-design/icons';
 
