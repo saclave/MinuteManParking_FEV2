@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
-import { Affix, Form, Input, Layout, Button, Typography } from 'antd';
+import { Affix, Form, Input, Layout, Button, Typography, notification } from 'antd';
 
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
@@ -10,11 +10,35 @@ const { Sider } = Layout;
 const { Title } = Typography;
 
 class HomePageLogin extends Component {
-    render() {
-        const onFinish = values => {
-            console.log('Received values of form: ', values);
-        };
+    formRef = React.createRef();
 
+    onFinish = values => {
+        const account = this.getAccountByUsernameAndPassword(values.username, values.password);
+        if (account === undefined) {
+            this.formRef.current.resetFields();
+            notification.open({
+                message: 'Login Failed',
+                description: 'Your username or password is incorrect. Please try again.',
+            });
+
+            return;
+        }
+
+        this.props.authenticate(account);
+
+        notification.open({
+            message: 'Login Successful',
+            description: `Hi ${account.firstName}! Where are we gonna park your car today?`,
+        });
+    };
+
+    getAccountByUsernameAndPassword = (username, password) => {
+        return this.props.accounts.find(account =>
+            account.username === username &&
+            account.password === password);
+    }
+
+    render() {
         return (
             <Affix offsetTop={20}>
                 <Sider width={300} className="site-layout-background">
@@ -26,14 +50,15 @@ class HomePageLogin extends Component {
                             initialValues={{
                                 remember: true,
                             }}
-                            onFinish={onFinish}
+                            onFinish={this.onFinish}
+                            ref={this.formRef}
                         >
                             <Form.Item
                                 name="username"
                                 rules={[
                                     {
                                         required: true,
-                                        message: 'Please input your Username!',
+                                        message: 'Please input your username!',
                                     },
                                 ]}
                             >
@@ -44,7 +69,7 @@ class HomePageLogin extends Component {
                                 rules={[
                                     {
                                         required: true,
-                                        message: 'Please input your Password!',
+                                        message: 'Please input your password!',
                                     },
                                 ]}
                             >

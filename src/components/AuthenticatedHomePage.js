@@ -2,22 +2,21 @@ import React, { Component } from 'react';
 
 import MPHeader from './MPHeader';
 import HomePageAboutUs from './HomePageAboutUs';
-import HomePageLoginContainer from '../containers/HomePageLoginContainer';
 import HomePageMap from './HomePageMap';
-import HomePageSider from './HomePageSider';
+import AuthenticatedHomePageSider from './AuthenticatedHomePageSider';
 import HomePageServices from './HomePageServices';
 
 import { Layout } from 'antd';
 
 const { Content } = Layout;
 
-class HomePage extends Component {
+class AuthenticatedHomePage extends Component {
     render() {
         return (
             <Layout>
                 <MPHeader />
                 <Layout>
-                    <HomePageSider />
+                    <AuthenticatedHomePageSider />
                     <Layout style={{ padding: '0 24px 24px' }}>
                         <Content
                             className="site-layout-background"
@@ -32,11 +31,10 @@ class HomePage extends Component {
                             <HomePageAboutUs />
                         </Content>
                     </Layout>
-                    <HomePageLoginContainer />
                 </Layout>
             </Layout>
         );
     }
 }
 
-export default HomePage;
+export default AuthenticatedHomePage;
