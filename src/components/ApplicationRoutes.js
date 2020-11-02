@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import HomePage from '../components/HomePage';
 import AuthenticatedHomePage from '../components/AuthenticatedHomePage';
+import CreatePageContainer from '../container/CreatePageContainer';
+import UpdateUserProfileContainer from '../container/UpdateUserProfileContainer';
+import ViewPageContainer from '../container/ViewPageContainer';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 class ApplicationRoutes extends Component {
@@ -11,6 +14,9 @@ class ApplicationRoutes extends Component {
             <BrowserRouter>
                 <Switch>
                     <Route exact path="/" component={(authenticated) ? AuthenticatedHomePage : HomePage} />
+                    <Route path="/create" component={CreatePageContainer} />
+                    <Route path="/update" component={UpdateUserProfileContainer} />
+                    <Route path="/view" component={ViewPageContainer} />
                 </Switch>
             </BrowserRouter>
         );
