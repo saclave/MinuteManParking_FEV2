@@ -3,7 +3,9 @@ import './App.css';
 import Login from './components/Login';
 import HomePage from './components/HomePage';
 import { BrowserRouter, Route,Switch } from 'react-router-dom';
-import MapPage from './components/MapPage';
+import CreatePage from './components/CreatePage';
+import 'antd/dist/antd.css'
+import CreatePageContainer from './container/CreatePageContainer';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
 
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route exact path="/create" component={CreatePageContainer} />
+
         </Switch>
 
       </header>
