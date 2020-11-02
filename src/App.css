@@ -86,3 +86,12 @@
   width: 600px;
   text-align: justify;
 }
+
+Table {
+  color:black;
+  background-color: #b3e0f2; 
+}
+
+.table-div{
+  padding: 50px 50px 50px;
+}
