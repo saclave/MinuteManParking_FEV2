@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import * as parkDate from "../data/Manila-ParkingLot.json"
-import mapboxgl from 'mapbox-gl';
 import MPHeader from './MPHeader.js';
 
 export default function MapPage() {
