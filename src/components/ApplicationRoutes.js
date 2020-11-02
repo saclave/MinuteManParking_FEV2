@@ -16,7 +16,7 @@ class ApplicationRoutes extends Component {
                     <Route exact path="/" component={(authenticated) ? AuthenticatedHomePage : HomePage} />
                     <Route path="/create" component={CreatePageContainer} />
                     <Route path="/update" component={UpdateUserProfileContainer} />
-                    <Route path="/view" component={ViewPageContainer} />
+                    <Route path="/view" component={ViewPageContainer ? AuthenticatedHomePage : HomePage} />
                 </Switch>
             </BrowserRouter>
         );

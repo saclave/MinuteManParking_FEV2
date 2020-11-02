@@ -3,7 +3,7 @@ import { getAccount } from '../actions';
 import ViewPage from '../components/ViewPage';
 
 const mapStateToProps = state => ({
-    account: state.account
+    account: state.authentication.account
 });
 const ViewPageContainer = connect(mapStateToProps)(ViewPage);
 
