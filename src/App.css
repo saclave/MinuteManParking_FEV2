@@ -60,7 +60,7 @@
 }
 
 .home-page-content {
-  margin-bottom: 50px;
+  margin: 50px 0;
 }
 
 .home-page-login {
@@ -98,5 +98,5 @@ h2.ant-typography,
 h3.ant-typography,
 h4.ant-typography,
 h5.ant-typography {
-  font-family: "Hind", sans-serif;
+  font-family: "Comfortaa", cursive;
 }
