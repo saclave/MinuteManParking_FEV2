@@ -4,7 +4,7 @@ import AuthenticatedHomePage from '../components/AuthenticatedHomePage';
 import CreatePageContainer from '../container/CreatePageContainer';
 import UpdateUserProfileContainer from '../container/UpdateUserProfileContainer';
 import ViewPageContainer from '../container/ViewPageContainer';
-import ViewTransactionHistory from '../container/ViewTransactionHistory';
+import ViewTransactionHistory from '../components/ViewTransactionHistory';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 class ApplicationRoutes extends Component {
