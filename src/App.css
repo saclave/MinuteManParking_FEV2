@@ -174,10 +174,11 @@ h5.ant-typography {
 }
 
 .payment-page {
-  margin: 0 auto;
-  width: 200px;
+  margin: 35px auto;
+  padding: 25px 0;
+  width: 300px;
   text-align: center;
-  padding-right: 50px;
+  background: rgb(217,217,217,0.5);
 }
 
 #x-mark {

@@ -6,6 +6,7 @@ import { DollarCircleOutlined } from '@ant-design/icons';
 import gcash from '../images/gcash.png'
 import cards from '../images/cards.png'
 import { Redirect } from "react-router-dom";
+import { Card, Col, Row } from 'antd';
 
 import { Layout } from 'antd';
 
@@ -22,23 +23,15 @@ class PaymentPage extends Component {
     render() {
         const data = [
             {
-              title: 'GCash',
+              title: 'E-Load',
               description: 'E-Wallet',
               logo: gcash,
-            },
-            {
-              title: 'Credit Card',
-              description: 'Cards',
-              logo: cards,
-            },
+            }
           ];
         const menu = (
             <Menu onClick={handleMenuClick}>
               <Menu.Item key="1" icon={<DollarCircleOutlined />}>
-                GCash
-              </Menu.Item>
-              <Menu.Item key="2" icon={<DollarCircleOutlined />}>
-                Card
+                E-Load
               </Menu.Item>
             </Menu>
           );
@@ -70,26 +63,24 @@ class PaymentPage extends Component {
             <Layout>
               
                {this.renderRedirect()}
-                <div>
-                    <MPHeader />
-                    <h2>Payment Options</h2>
-                    <Layout>
-                        <div  className="payment-page">                      
-                        <List
-                            itemLayout="vertical"
-                            dataSource={data}
-                            renderItem={item => (
-                            <List.Item>
-                                <List.Item.Meta
-                                avatar={<Avatar src={item.logo} />}
-                                title={<a href="" onClick={onClick}>{item.title}</a>}
-                                description={item.description}
-                                />
-                            </List.Item>
-                            )}
-                        />
-                        </div>
-                    </Layout>
+                <div className="site-card-wrapper">
+                  <Row gutter={16}>
+                    <Col span={8}>
+                      <Card title={<a href="" onClick={onClick}>GCash/Paymaya</a>} bordered={false}>
+                      <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                      </Card>
+                    </Col>
+                    <Col span={8}>
+                      <Card title={<a href="" onClick={onClick}>Credit Card</a>} bordered={false}>
+                        <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                      </Card>
+                    </Col>
+                    <Col span={8}>
+                      <Card title={<a href="" onClick={onClick}>Cash on Deliver</a>} bordered={false}>
+                        <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                      </Card>
+                    </Col>
+                  </Row>
                 </div>
             </Layout>
         );
