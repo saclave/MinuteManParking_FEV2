@@ -6,6 +6,7 @@ import UpdateUserProfileContainer from '../container/UpdateUserProfileContainer'
 import ViewPageContainer from '../container/ViewPageContainer';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ViewTicketContainer from '../container/ViewTicketContainer';
+import PaymentPage from './PaymentPage';
 
 class ApplicationRoutes extends Component {
     render() {
@@ -19,6 +20,7 @@ class ApplicationRoutes extends Component {
                     <Route path="/update" component={UpdateUserProfileContainer} />
                     <Route path="/view" component={ViewPageContainer} />
                     <Route path="/ticket" component={ViewTicketContainer} />
+                    <Route path="/payment" component={PaymentPage} />
                 </Switch>
             </BrowserRouter>
         );
