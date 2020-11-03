@@ -6,7 +6,7 @@ import HomePageLoginContainer from '../containers/HomePageLoginContainer';
 import HomePageMap from './HomePageMap';
 import HomePageSider from './HomePageSider';
 import HomePageServices from './HomePageServices';
-
+import { Link } from 'react-router-dom';
 import { Layout } from 'antd';
 
 const { Content } = Layout;
@@ -32,6 +32,7 @@ class HomePage extends Component {
                             <HomePageAboutUs />
                         </Content>
                     </Layout>
+                    <Link smooth to={{ pathname: '/reserve' }}>reserve</Link>
                     <HomePageLoginContainer />
                 </Layout>
             </Layout>

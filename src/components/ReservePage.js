@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { Modal, Button, Input, Label } from 'antd';
 import Draggable from 'react-draggable';
-
+import { Redirect } from "react-router-dom";
 class ReservePage extends Component {
+  constructor(props) {
+    super(props); 
+  }
   state = {
-    visible: false,
+    visible: true,
     disabled: true,
+    redirect: false
   };
 
   showModal = () => {
@@ -15,10 +19,13 @@ class ReservePage extends Component {
   };
 
   handleOk = e => {
+    console.log("nag redirect");
     console.log(e);
     this.setState({
       visible: false,
+      redirect: true
     });
+    
   };
 
   handleCancel = e => {
@@ -28,10 +35,23 @@ class ReservePage extends Component {
     });
   };
 
+  setRedirect = () => {
+    this.setState({
+     
+    })
+  }
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/payment' />
+    }
+  }
   render() {
+ 
+    console.log(this.props.parkinglot)
     return (
       <div>
-        <Button onClick={this.showModal}>Reserve</Button>
+        {/* <Button onClick={this.showModal}>Reserve</Button> */}
+        {this.renderRedirect()}
         <Modal className="modal"
           title={
             <div
@@ -72,15 +92,15 @@ class ReservePage extends Component {
           ]}
         >
           <div className="reserve">
-            <h2>Parking Lot Name</h2>
-            <h3>Full Address of Parking Lot</h3>
+            <h2>{this.props.parkinglot.name}</h2>
+            <h3>{this.props.parkinglot.address}</h3>
           </div>
 
           <div className="available">
             <label name="reserveLabel" for="capacity">Capacity: </label>
-            <input type="text" id="reserveValues" value="20" disabled /><br />
+            <input type="text" id="reserveValues" value={this.props.parkinglot.capacity} disabled /><br />
             <label for="availableSize">Available: </label>
-            <input type="text" id="reserveValues" value="18" disabled /><br />
+            <input type="text" id="reserveValues" value={this.props.parkinglot.availability} disabled /><br />
           </div>
           <br />
         </Modal>

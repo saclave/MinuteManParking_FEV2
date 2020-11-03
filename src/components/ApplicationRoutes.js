@@ -8,6 +8,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ViewTicketContainer from '../container/ViewTicketContainer';
 import ReservePage from './ReservePage';
 import PaymentPage from './PaymentPage';
+import ReservePageContainer from '../container/ReservePageContainer';
+import PaymentPageContainer from '../container/PaymentPageContainer';
 
 class ApplicationRoutes extends Component {
     render() {
@@ -21,8 +23,8 @@ class ApplicationRoutes extends Component {
                     <Route path="/update" component={UpdateUserProfileContainer} />
                     <Route path="/view" component={ViewPageContainer} />
                     <Route path="/ticket" component={ViewTicketContainer} />
-                    <Route path="/reserve" component={ReservePage} />
-                    <Route path="/payment" component={PaymentPage} />
+                    <Route path="/reserve" component={ReservePageContainer} />
+                    <Route path="/payment" component={PaymentPageContainer} />
                 </Switch>
             </BrowserRouter>
         );
