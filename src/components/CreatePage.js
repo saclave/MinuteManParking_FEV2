@@ -3,7 +3,6 @@ import { Form, Input, Button,DatePicker, Select } from 'antd';
 import { v4 as uuidv4 } from 'uuid';
 import { Redirect } from "react-router-dom";
 
-
 class CreatePage extends Component {
   constructor(props) { 
     super(props);
@@ -41,7 +40,7 @@ class CreatePage extends Component {
                 return <Redirect to={this.state.redirect} />
               }
         return (
-            <div>
+            <div className="create-page-content">
                 <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
                     <Form.Item name="firstName" label="First Name" rules={[{ required: true }]} >
                         <Input />
