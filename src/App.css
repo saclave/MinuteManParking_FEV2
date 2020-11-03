@@ -58,10 +58,36 @@
 
 .ant-layout-footer {
   background: #fff;
+  margin-top: 300px;
 }
 
 .home-page-content {
   margin: 50px 0;
+  padding: 50px 0;
+}
+
+@media screen and (min-width: 640px) {
+  .home-page-content {
+    padding: 50px 25px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .home-page-content {
+    padding: 50px 50px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .home-page-content {
+    padding: 50px 100px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .home-page-content {
+    padding: 50px 150px;
+  }
 }
 
 .home-page-login {
@@ -79,10 +105,15 @@
   background: inherit;
 }
 
-.ant-typography .home-page-content-title {
-  color: black;
-  pointer-events: none;
-  cursor: default;
+.home-page-content .home-page-content-title {
+  margin-bottom: 60px;
+}
+
+.home-page-content-title-link {
+  display: block;
+  position: relative;
+  top: -175px;
+  visibility: hidden;
 }
 
 .footer-address {
@@ -116,12 +147,13 @@
 .map-div {
   padding: 20px 50px 50px;
 }
+
 h1.ant-typography,
 h2.ant-typography,
 h3.ant-typography,
 h4.ant-typography,
 h5.ant-typography {
-  font-family: "Comfortaa", cursive;
+  font-family: "Inter", sans-serif;
 }
 
 .mp-header .header-menu {
@@ -180,4 +212,32 @@ h5.ant-typography {
   background-color: transparent;
   border: 0px solid;
   text-align: center;
+}
+
+.ant-steps-item-process .ant-steps-item-icon {
+  background: #29b7df;
+  border-color: #29b7df;
+}
+
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-active,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-active,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-open,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-open,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-selected,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-selected {
+  color: #29b7df;
+  border-bottom-color: #29b7df;
+}
+
+.ant-menu-horizontal > .ant-menu-item-selected a,
+.ant-menu-horizontal > .ant-menu-item a:hover,
+.ant-menu-item a:hover,
+.ant-menu-item:hover,
+.ant-menu-item-active,
+.ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
+.ant-menu-submenu-active,
+.ant-menu-submenu-title:hover {
+  color: #29b7df;
 }

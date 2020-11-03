@@ -11,22 +11,22 @@ import picTicket from '../images/icon-ticket.png';
 class HomePageServices extends Component {
     render() {
         return (
-            <div className="home-page-content container">
+            <div className="home-page-content">
                 <Row justify="space-around">
-                    <Col xs={0} lg={3} xl={5}></Col>
-                    <Col xs={9} lg={5} xl={3}>
+                    <Col xs={0} lg={3} xl={3}></Col>
+                    <Col xs={9} lg={6} xl={5}>
                         <MPCard title="Map Indicators" image={picIndicator}
                             description="Integrated with a map where you can see your current location and of parking lots around you." />
                     </Col>
-                    <Col xs={9} lg={5} xl={3}>
+                    <Col xs={9} lg={6} xl={5}>
                         <MPCard title="Reservation System" image={picReservation}
                             description="Parking slot reservation at your fingertips." />
                     </Col>
-                    <Col xs={9} lg={5} xl={3}>
+                    <Col xs={9} lg={6} xl={5}>
                         <MPCard title="E-Ticket System" image={picTicket}
                             description="Paperless ticket generation upon reservation" />
                     </Col>
-                    <Col xs={0} lg={3} xl={5}></Col>
+                    <Col xs={0} lg={3} xl={3}></Col>
                 </Row>
             </div>
         );

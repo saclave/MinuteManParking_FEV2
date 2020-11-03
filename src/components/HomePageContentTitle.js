@@ -11,10 +11,9 @@ class HomePageContentTitle extends Component {
 
     render() {
         return (
-            <Title>
-                <a id={this.props.id} className="home-page-content-title">
-                    {this.props.text}
-                </a>
+            <Title className="home-page-content-title">
+                {this.props.text}
+                <a id={this.props.id} className="home-page-content-title-link"></a>
             </Title>
         );
     }

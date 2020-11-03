@@ -12,12 +12,11 @@ class HomePageAboutUs extends Component {
         return (
             <div className="home-page-content">
                 <Row>
-                    <Col xs={24} xl={12} rasterOrder={0}>
+                    <Col xs={24} xl={12}>
                         <div className="container">
                             <Title>
-                                <a id="about_us" className="home-page-content-title">
-                                    <Highlighter>PARK</Highlighter> IN LESS THAN A <Highlighter>MINUTE</Highlighter>!
-                            </a>
+                                <Highlighter>PARK</Highlighter> IN LESS THAN A <Highlighter>MINUTE</Highlighter>!
+                                <a id="about_us" className="home-page-content-title-link"></a>
                             </Title>
                             <div className="home-page-about-us-content">
                                 <Paragraph>Hello there! We are Woody & Friends. We have seen the hassle of drivers in finding a parking space here in the Philippines and we were driven to devise a way to help drivers avoid the stresses of finding a decent parking slot.</Paragraph>
@@ -27,7 +26,7 @@ class HomePageAboutUs extends Component {
                             </div>
                         </div>
                     </Col>
-                    <Col xs={24} xl={12} rasterOrder={1}>
+                    <Col xs={24} xl={12}>
                         <div className="container">
                             <Image
                                 preview={false}

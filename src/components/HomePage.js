@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import MPHeader from './MPHeader';
 import HomePageAboutUs from './HomePageAboutUs';
-import HomePageLoginContainer from '../containers/HomePageLoginContainer';
 import HomePageMap from './HomePageMap';
 import HomePageSider from './HomePageSider';
 import HomePageServices from './HomePageServices';
@@ -27,14 +26,15 @@ class HomePage extends Component {
                         margin: 0,
                         minHeight: 280,
                     }}>
-                    <Row>
-                        <Col xs={24}>
-                            <HomePageServices />
-                            <HomePageMap />
+                    <HomePageServices />
                             <HomePageAboutUs />
+                            <HomePageOtherServices />
+                            <HomePageSteps />
                         </Content>
                     </Layout>
                     <Link smooth to={{ pathname: '/reserve' }}>reserve</Link>
+                </Content>
+                <HomePageFooter />
             </Layout>
         );
     }
