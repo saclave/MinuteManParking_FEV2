@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { Form, Input, Button,DatePicker, Select } from 'antd';
 import { v4 as uuidv4 } from 'uuid';
+import { Redirect } from "react-router-dom";
+
 
 class CreatePage extends Component {
   constructor(props) { 
     super(props);
+    this.state = { redirect: null };
 }
     render() {
         const layout = {
@@ -28,9 +31,15 @@ class CreatePage extends Component {
             this.props.addUser(account);
             console.log(id);
             console.log(values);
-        };
+            this.setState({ redirect: "/" });
+            console.log("nag redirect");
 
+        };
+            
             const { Option } = Select;  
+            if (this.state.redirect) {
+                return <Redirect to={this.state.redirect} />
+              }
         return (
             <div>
                 <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
