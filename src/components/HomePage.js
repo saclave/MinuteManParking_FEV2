@@ -25,20 +25,10 @@ class HomePage extends Component {
                         margin: 0,
                         minHeight: 280,
                     }}>
-                    <Row>
-                        <Col xs={24}>
-                            <HomePageServices />
-                        </Col>
-                        <Col xs={24}>
-                            <HomePageAboutUs />
-                        </Col>
-                        <Col xs={24}>
-                            <HomePageOtherServices />
-                        </Col>
-                        <Col xs={24}>
-                            <HomePageSteps />
-                        </Col>
-                    </Row>
+                    <HomePageServices />
+                    <HomePageAboutUs />
+                    <HomePageOtherServices />
+                    <HomePageSteps />
                 </Content>
                 <HomePageFooter />
             </Layout>
