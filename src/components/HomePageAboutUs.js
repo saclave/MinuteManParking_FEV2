@@ -15,9 +15,8 @@ class HomePageAboutUs extends Component {
                     <Col xs={24} xl={12}>
                         <div className="container">
                             <Title>
-                                <a id="about_us" className="home-page-content-title" style={{ color: 'black' }}>
-                                    <Highlighter>PARK</Highlighter> IN LESS THAN A <Highlighter>MINUTE</Highlighter>!
-                            </a>
+                                <Highlighter>PARK</Highlighter> IN LESS THAN A <Highlighter>MINUTE</Highlighter>!
+                                <a id="about_us" className="home-page-content-title-link"></a>
                             </Title>
                             <div className="home-page-about-us-content">
                                 <Paragraph>Hello there! We are Woody & Friends. We have seen the hassle of drivers in finding a parking space here in the Philippines and we were driven to devise a way to help drivers avoid the stresses of finding a decent parking slot.</Paragraph>

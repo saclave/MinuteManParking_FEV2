@@ -109,10 +109,11 @@
   margin-bottom: 60px;
 }
 
-.ant-typography .home-page-content-title-link {
-  color: black;
-  pointer-events: none;
-  cursor: default;
+.home-page-content-title-link {
+  display: block;
+  position: relative;
+  top: -175px;
+  visibility: hidden;
 }
 
 .footer-address {
