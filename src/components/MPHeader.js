@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 import { Col, Row, Layout, Menu } from 'antd';
 import {
-    QuestionCircleOutlined, AreaChartOutlined, AndroidOutlined,
-    OrderedListOutlined, LoginOutlined, UserAddOutlined, UserOutlined
+    QuestionCircleOutlined, AndroidOutlined, OrderedListOutlined,
+    LoginOutlined, UserAddOutlined, UserOutlined
 } from '@ant-design/icons';
 
 import { Link } from 'react-router-dom';
@@ -25,11 +25,11 @@ class MPHeader extends Component {
                             <Menu.Item key="1" icon={<QuestionCircleOutlined />}>
                                 <HashLink smooth to={{ pathname: '/', hash: '#about_us' }}>About Us</HashLink>
                             </Menu.Item>
-                            <Menu.Item key="2" icon={<OrderedListOutlined />}>
-                                <HashLink smooth to={{ pathname: '/', hash: '#how_it_works' }}>How It Works</HashLink>
+                            <Menu.Item key="2" icon={<AndroidOutlined />}>
+                                <HashLink smooth to={{ pathname: '/', hash: '#other_services' }}>Other Services</HashLink>
                             </Menu.Item>
-                            <Menu.Item key="3" icon={<AreaChartOutlined />}>
-                                <HashLink smooth to={{ pathname: '/', hash: '#our_map' }}>Our Map</HashLink>
+                            <Menu.Item key="3" icon={<OrderedListOutlined />}>
+                                <HashLink smooth to={{ pathname: '/', hash: '#how_it_works' }}>How It Works</HashLink>
                             </Menu.Item>
                         </Menu>
                     </Col>

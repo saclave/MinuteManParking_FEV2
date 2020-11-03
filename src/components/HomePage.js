@@ -5,6 +5,7 @@ import HomePageAboutUs from './HomePageAboutUs';
 import HomePageMap from './HomePageMap';
 import HomePageServices from './HomePageServices';
 import HomePageSteps from './HomePageSteps';
+import HomePageOtherServices from './HomePageOtherServices';
 
 import { Layout, Col, Row, Image } from 'antd';
 import picHeader from '../images/header.jpg'
@@ -31,10 +32,10 @@ class HomePage extends Component {
                             <HomePageAboutUs />
                         </Col>
                         <Col xs={24}>
-                            <HomePageSteps />
+                            <HomePageOtherServices />
                         </Col>
                         <Col xs={24}>
-                            <HomePageMap />
+                            <HomePageSteps />
                         </Col>
                     </Row>
                 </Content>
