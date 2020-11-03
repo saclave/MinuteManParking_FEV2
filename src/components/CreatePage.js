@@ -6,7 +6,7 @@ import HeaderlessPageContent from './HeaderlessPageContent';
 
 import {
     Form, Input, Button, DatePicker,
-    Select, Typography
+    Select, Typography, notification
 } from 'antd';
 
 import { v4 as uuidv4 } from 'uuid';
@@ -32,6 +32,12 @@ class CreatePage extends Component {
         this.props.addUser(account);
         console.log(id);
         console.log(values);
+
+        notification.open({
+            message: 'Registration Successful',
+            description: 'Please login to your account',
+        });
+
         this.setState({ redirect: "/" });
         console.log("nag redirect");
     };
