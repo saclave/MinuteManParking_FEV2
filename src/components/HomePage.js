@@ -4,11 +4,11 @@ import MPHeader from './MPHeader';
 import HomePageAboutUs from './HomePageAboutUs';
 import HomePageLoginContainer from '../containers/HomePageLoginContainer';
 import HomePageMap from './HomePageMap';
-import HomePageSider from './HomePageSider';
 import HomePageServices from './HomePageServices';
 import HomePageSteps from './HomePageSteps';
 
 import { Layout, Col, Row, Image } from 'antd';
+import picHeader from '../images/header.jpg'
 
 const { Content } = Layout;
 
@@ -17,8 +17,8 @@ class HomePage extends Component {
         return (
             <Layout>
                 <MPHeader />
+                <Image src={picHeader} preview={false} />
                 <Layout>
-                    <HomePageSider />
                     <Layout style={{ padding: '0 24px 24px' }}>
                         <Content
                             className="site-layout-background"

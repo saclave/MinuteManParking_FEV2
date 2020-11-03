@@ -7,10 +7,31 @@ import { QuestionCircleOutlined, AreaChartOutlined, AndroidOutlined, OrderedList
 const { Sider } = Layout;
 
 class HomePageSider extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            collapsed: false,
+        };
+    }
+
+    componentDidMount() {
+        this.updateCollapse();
+        window.addEventListener('resize', this.updateCollapse);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.updateCollapse);
+    }
+
+    updateCollapse = () => {
+        const collapsed = window.innerWidth >= 992 ? false : true
+        this.setState({ collapsed });
+    }
+
     render() {
         return (
             <Affix offsetTop={20}>
-                <Sider width={200} className="site-layout-background">
+                <Sider width={200} className="site-layout-background" collapsible collapsed={this.state.collapsed}>
                     <Menu
                         mode="inline"
                         defaultSelectedKeys={['1']}
