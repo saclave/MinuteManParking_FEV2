@@ -7,6 +7,7 @@ import HomePageMap from './HomePageMap';
 import HomePageSider from './HomePageSider';
 import HomePageServices from './HomePageServices';
 import HomePageSteps from './HomePageSteps';
+import HomePageFooter from './HomePageFooter';
 
 import { Layout, Col, Row, Image } from 'antd';
 
@@ -46,6 +47,7 @@ class HomePage extends Component {
                     </Layout>
                     <HomePageLoginContainer />
                 </Layout>
+                <HomePageFooter/>
             </Layout>
         );
     }
