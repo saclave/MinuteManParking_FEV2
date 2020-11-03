@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { Form, Input, Button, Typography, notification, Layout } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { getUserByUsernameAndPassword } from '../apis/accounts'
 
 const { Title } = Typography;
 
@@ -11,23 +12,27 @@ class LoginPage extends Component {
     formRef = React.createRef();
 
     onFinish = values => {
-        const account = this.getAccountByUsernameAndPassword(values.username, values.password);
-        if (account === undefined) {
-            this.formRef.current.resetFields();
+        getUserByUsernameAndPassword(values.username, values.password).then(response => {
+            console.log(response);
+            if (response.data === "") {
+                this.formRef.current.resetFields();
+                notification.open({
+                    message: 'Login Failed',
+                    description: 'Your username or password is incorrect. Please try again.',
+                });
+
+                return;
+            }
+
+            this.props.authenticate(response.data);
+
             notification.open({
-                message: 'Login Failed',
-                description: 'Your username or password is incorrect. Please try again.',
+                message: 'Login Successful',
+                description: `Hi ${response.data.firstName}! Where are we gonna park your car today?`,
             });
-        }
 
-        this.props.authenticate(account);
-
-        notification.open({
-            message: 'Login Successful',
-            description: `Hi ${account.firstName}! Where are we gonna park your car today?`,
+            this.props.history.push('/');
         });
-
-        this.props.history.push('/');
     };
 
     getAccountByUsernameAndPassword = (username, password) => {

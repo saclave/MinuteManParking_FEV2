@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Input, Button, DatePicker, Select } from 'antd';
+import { updateUser, getAll } from '../apis/accounts';
 
 class UpdateUserProfile extends Component {
-    
-    isIdExist = (id) => {
-        const accounts = this.props.accounts.filter(account => account.id === id);
-        console.log(this.props.accounts);
-        return accounts.length > 0;
-    }
 
     render() {
         const layout = {
@@ -25,11 +20,13 @@ class UpdateUserProfile extends Component {
         };
 
         const onFinish = values => {
-            const id = values.id;
-            if (this.isIdExist(id)){
-                console.log(values);
+            const id = this.props.account.id;
+            updateUser(id, {
+                firstName: values.firstName, lastName: values.lastName,
+                username: values.username, password: values.password, email: values.email, gender: values.gender, birthdate: values.birthday, cash: 500
+            }).then(() => {
                 this.props.updateUser(values);
-            }
+            });
         };
 
         const { Option } = Select;
@@ -37,9 +34,6 @@ class UpdateUserProfile extends Component {
         return (
             <div>
                 <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
-                    <Form.Item name='id' label="User Id" rules={[{ required: true }]} >
-                        <Input />
-                    </Form.Item>
                     <Form.Item name='firstName' label="First Name" rules={[{ required: true }]} >
                         <Input />
                     </Form.Item>

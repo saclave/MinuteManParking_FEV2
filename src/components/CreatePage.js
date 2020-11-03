@@ -1,36 +1,37 @@
 import React, { Component } from 'react';
-import { Form, Input, Button,DatePicker, Select } from 'antd';
+import { Form, Input, Button, DatePicker, Select } from 'antd';
 import { v4 as uuidv4 } from 'uuid';
 import { Redirect } from "react-router-dom";
 import { addUser } from "../apis/accounts"
 
 
 class CreatePage extends Component {
-  constructor(props) { 
-    super(props);
-    this.state = { redirect: null };
-}
+    constructor(props) {
+        super(props);
+        this.state = { redirect: null };
+    }
     render() {
         const layout = {
             labelCol: { span: 8 },
             wrapperCol: { span: 9 },
-          };
-          const config = {
+        };
+        const config = {
             rules: [{ type: 'object', required: true, message: 'Please select birthday!' }],
-          };
-          const validateMessages = {
+        };
+        const validateMessages = {
             required: '${label} is required!',
             types: {
-              email: '${label} is not validate email!',
+                email: '${label} is not validate email!',
             },
-          };
-          const onFinish = values => {   
+        };
+        const onFinish = values => {
             const id = uuidv4();
-            const account = {firstName: values.firstName, lastName: values.lastName, 
-                username: values.username, password: values.password, email: values.email, gender: values.gender, birthdate: values.birthday};
+            const account = {
+                firstName: values.firstName, lastName: values.lastName,
+                username: values.username, password: values.password, email: values.email, gender: values.gender, birthdate: values.birthday, cash: 100
+            };
 
-            addUser(account).then(response => {
-                console.log(response);
+            addUser(account).then(() => {
                 this.props.addUser(account);
             });
             console.log(id);
@@ -39,11 +40,11 @@ class CreatePage extends Component {
             console.log("nag redirect");
 
         };
-            
-            const { Option } = Select;  
-            if (this.state.redirect) {
-                return <Redirect to={this.state.redirect} />
-              }
+
+        const { Option } = Select;
+        if (this.state.redirect) {
+            return <Redirect to={this.state.redirect} />
+        }
         return (
             <div>
                 <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
