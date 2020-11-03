@@ -22,12 +22,12 @@ const defaultParkingLot = [
         
     }
 ]
-const defaultTicket = {
+const defaultTicket = [{
     slot: 'S1234SDF',
     time: '',
     date: '',
 }
-
+]
 const accounts = (state = defaultAccounts, action) => {
     switch (action.type) {
         case "ADD_ACCOUNT":

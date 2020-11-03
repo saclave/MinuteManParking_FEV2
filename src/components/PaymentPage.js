@@ -48,23 +48,27 @@ class PaymentPage extends Component {
           }
         const onClick = () => {
             alert("you paid!")
+            
             const availability = this.props.parkinglot.availability - 1;
             const load = this.props.account.load - this.props.parkinglot.price;
             var today = new Date(),
             time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds(),
             date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-            
+            //const slot = this.props.ticket.slot;
             this.props.updateParkinglot({...this.props.parkinglot, availability});
             this.props.updateUser({...this.props.account, load});
-            this.props.updateTicket({...this.props.ticket, date})
+
+            this.props.updateTicket({...this.props.ticket, date, time});
+
             console.log(this.props.parkinglot)
             this.setState({
               redirect: true
             });
         }
-        
+        console.log(this.props.ticket)
         return (
             <Layout>
+              
                {this.renderRedirect()}
                 <div>
                     <MPHeader />
@@ -78,7 +82,7 @@ class PaymentPage extends Component {
                             <List.Item>
                                 <List.Item.Meta
                                 avatar={<Avatar src={item.logo} />}
-                                title={<a href="#" onClick={onClick}>{item.title}</a>}
+                                title={<a href="" onClick={onClick}>{item.title}</a>}
                                 description={item.description}
                                 />
                             </List.Item>

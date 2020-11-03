@@ -11,7 +11,7 @@ const mapDispatchToProps = (dispatch) =>({
 const mapStateToProps = state =>({
     parkinglot: state.parkinglots[0],
     account: state.authentication.account,
-    ticket: state.tickets[0]
+    ticket: state.tickets[0],
 })
 
 const PaymentPageContainer = connect(mapStateToProps, mapDispatchToProps) (PaymentPage)
