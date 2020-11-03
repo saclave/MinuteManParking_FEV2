@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import MPHeader from './MPHeader';
 import HomePageAboutUs from './HomePageAboutUs';
-import HomePageSider from './HomePageSider';
 import HomePageMap from './HomePageMap';
 import HomePageServices from './HomePageServices';
 import HomePageSteps from './HomePageSteps';
@@ -39,7 +38,6 @@ class HomePage extends Component {
                         </Col>
                     </Row>
                 </Content>
-                <HomePageSider />
             </Layout>
         );
     }
