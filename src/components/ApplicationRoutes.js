@@ -10,6 +10,7 @@ import ViewPageContainer from '../container/ViewPageContainer';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ViewTicketContainer from '../container/ViewTicketContainer';
+import MapPage from './MapPage';
 import ReservePage from './ReservePage';
 import PaymentPage from './PaymentPage';
 
@@ -25,6 +26,7 @@ class ApplicationRoutes extends Component {
                     <Route path="/register" component={CreatePageContainer} />
                     <Route path="/update" component={UpdateUserProfileContainer} />
                     <Route path="/view" component={ViewPageContainer} />
+                    <Route path="/viewMap" component={MapPage} />
                     <Route path="/ticket" component={ViewTicketContainer} />
                     <Route path="/reserve" component={ReservePage} />
                     <Route path="/payment" component={PaymentPage} />

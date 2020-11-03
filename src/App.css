@@ -108,6 +108,14 @@
   padding: 0 50px;
 }
 
+#car-logo{
+  width: 30px;
+  height: 20px;
+}
+
+.map-div{
+  padding: 20px 50px 50px;
+}
 h1.ant-typography,
 h2.ant-typography,
 h3.ant-typography,
