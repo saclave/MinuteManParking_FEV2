@@ -18,27 +18,36 @@ import PaymentPageContainer from '../container/PaymentPageContainer';
 class ApplicationRoutes extends Component {
     render() {
         const authenticated = this.props.authentication.authenticated;
-        const PrivateRoute = ({component: Component, restricted, ...rest}) => {
+        const PrivateRoute = ({ component: Component, restricted, ...rest }) => {
             return (
                 <Route {...rest} render={props => (
                     (authenticated) ?
-                    <Component {...props} />
-                    : <Redirect to="/" />
+                        <Component {...props} />
+                        : <Redirect to="/" />
                 )} />
             );
-        };  
+        };
+        const ProtectedRoute = ({ component: Component, restricted, ...rest }) => {
+            return (
+                <Route {...rest} render={props => (
+                    (authenticated)
+                        ? <Redirect to="/" />
+                        : <Component {...props} />
+                )} />
+            );
+        };
         return (
             <BrowserRouter>
                 <Switch>
                     <Route exact path="/" component={(authenticated) ? AuthenticatedHomePage : HomePage} />
-                    <Route path="/login" component={LoginPageContainer} />
-                    <Route path="/register" component={CreatePageContainer} />
-                    <Route path="/update" component={UpdateUserProfileContainer} />
+                    <ProtectedRoute path="/login" component={LoginPageContainer} />
+                    <ProtectedRoute path="/register" component={CreatePageContainer} />
+                    <PrivateRoute path="/update" component={UpdateUserProfileContainer} />
                     <PrivateRoute path="/view" component={ViewPageContainer} />
-                    <Route path="/viewMap" component={MapPage} />
-                    <Route path="/ticket" component={ViewTicketContainer} />
-                    <Route path="/reserve" component={ReservePageContainer} />
-                    <Route path="/payment" component={PaymentPageContainer} />
+                    <PrivateRoute path="/viewMap" component={MapPage} />
+                    <PrivateRoute path="/ticket" component={ViewTicketContainer} />
+                    <PrivateRoute path="/reserve" component={ReservePageContainer} />
+                    <PrivateRoute path="/payment" component={PaymentPageContainer} />
                 </Switch>
             </BrowserRouter>
         );
