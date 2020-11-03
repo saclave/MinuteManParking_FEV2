@@ -19,6 +19,8 @@ class LoginPage extends Component {
                 message: 'Login Failed',
                 description: 'Your username or password is incorrect. Please try again.',
             });
+
+            return;
         }
 
         this.props.authenticate(account);
