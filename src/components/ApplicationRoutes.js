@@ -7,8 +7,7 @@ import LoginPageContainer from '../containers/LoginPageContainer';
 import CreatePageContainer from '../container/CreatePageContainer';
 import UpdateUserProfileContainer from '../container/UpdateUserProfileContainer';
 import ViewPageContainer from '../container/ViewPageContainer';
-
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import ViewTicketContainer from '../container/ViewTicketContainer';
 import MapPage from './MapPage';
 import ReservePage from './ReservePage';
@@ -17,7 +16,15 @@ import PaymentPage from './PaymentPage';
 class ApplicationRoutes extends Component {
     render() {
         const authenticated = this.props.authentication.authenticated;
-
+        const PrivateRoute = ({component: Component, restricted, ...rest}) => {
+            return (
+                <Route {...rest} render={props => (
+                    (authenticated) ?
+                    <Component {...props} />
+                    : <Redirect to="/" />
+                )} />
+            );
+        };  
         return (
             <BrowserRouter>
                 <Switch>
@@ -25,7 +32,7 @@ class ApplicationRoutes extends Component {
                     <Route path="/login" component={LoginPageContainer} />
                     <Route path="/register" component={CreatePageContainer} />
                     <Route path="/update" component={UpdateUserProfileContainer} />
-                    <Route path="/view" component={ViewPageContainer} />
+                    <PrivateRoute path="/view" component={ViewPageContainer} />
                     <Route path="/viewMap" component={MapPage} />
                     <Route path="/ticket" component={ViewTicketContainer} />
                     <Route path="/reserve" component={ReservePage} />
