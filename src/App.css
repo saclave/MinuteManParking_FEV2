@@ -104,3 +104,7 @@ h4.ant-typography,
 h5.ant-typography {
   font-family: "Comfortaa", cursive;
 }
+
+.menu-right .ant-menu-item::after {
+  border-right: 0;
+}

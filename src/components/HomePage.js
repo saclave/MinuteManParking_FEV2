@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import MPHeader from './MPHeader';
 import HomePageAboutUs from './HomePageAboutUs';
-import HomePageLoginContainer from '../containers/HomePageLoginContainer';
+import HomePageSider from './HomePageSider';
 import HomePageMap from './HomePageMap';
 import HomePageServices from './HomePageServices';
 import HomePageSteps from './HomePageSteps';
@@ -17,35 +17,29 @@ class HomePage extends Component {
         return (
             <Layout>
                 <MPHeader />
-                <Image src={picHeader} preview={false} />
-                <Layout>
-                    <Layout style={{ padding: '0 24px 24px' }}>
-                        <Content
-                            className="site-layout-background"
-                            style={{
-                                padding: 24,
-                                margin: 0,
-                                minHeight: 280,
-                            }}
-                        >
-                            <Row>
-                                <Col xs={24}>
-                                    <HomePageServices />
-                                </Col>
-                                <Col xs={24}>
-                                    <HomePageSteps />
-                                </Col>
-                                <Col xs={24}>
-                                    <HomePageMap />
-                                </Col>
-                                <Col xs={24}>
-                                    <HomePageAboutUs />
-                                </Col>
-                            </Row>
-                        </Content>
-                    </Layout>
-                    <HomePageLoginContainer />
-                </Layout>
+                <Content className="site-layout-background"
+                    style={{
+                        padding: 24,
+                        margin: 0,
+                        minHeight: 280,
+                    }}>
+                    <Image src={picHeader} preview={false} />
+                    <Row>
+                        <Col xs={24}>
+                            <HomePageServices />
+                        </Col>
+                        <Col xs={24}>
+                            <HomePageSteps />
+                        </Col>
+                        <Col xs={24}>
+                            <HomePageMap />
+                        </Col>
+                        <Col xs={24}>
+                            <HomePageAboutUs />
+                        </Col>
+                    </Row>
+                </Content>
+                <HomePageSider />
             </Layout>
         );
     }
