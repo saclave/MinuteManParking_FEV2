@@ -38,15 +38,12 @@
   }
 }
 
-#components-layout-demo-top-side .logo {
-  float: left;
-  width: 120px;
-  height: 31px;
-  margin: 16px 24px 16px 0;
-  background: rgba(255, 255, 255, 0.3);
+.ant-layout-header {
+  background: #fff;
+  padding: 0;
 }
 
-.ant-layout-header {
+.site-layout .site-layout-background {
   background: #fff;
 }
 
@@ -60,15 +57,22 @@
 }
 
 .home-page-content {
-  margin-bottom: 50px;
+  margin: 50px 0;
 }
 
 .home-page-login {
   padding: 20px;
 }
 
-.header {
-  margin-bottom: 20px;
+.mp-header {
+  background: rgba(255, 255, 255, 0.95);
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+}
+
+.mp-header .ant-menu {
+  background: inherit;
 }
 
 .ant-typography .home-page-content-title {
@@ -82,9 +86,35 @@
 }
 
 .home-page-about-us-content {
-  margin: 0 auto;
-  width: 600px;
   text-align: justify;
+}
+
+.blue-text {
+  color: #29b7df;
+}
+
+.container {
+  padding: 0 50px;
+}
+
+h1.ant-typography,
+h2.ant-typography,
+h3.ant-typography,
+h4.ant-typography,
+h5.ant-typography {
+  font-family: "Comfortaa", cursive;
+}
+
+.mp-header .header-menu {
+  float: left;
+}
+
+.mp-header .header-menu-right {
+  float: right;
+}
+
+.home-page-banner {
+  margin-top: 66px;
 }
 
 .payment-page {

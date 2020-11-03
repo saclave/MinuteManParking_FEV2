@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 
 import MPHeader from './MPHeader';
 import HomePageAboutUs from './HomePageAboutUs';
-import HomePageLoginContainer from '../containers/HomePageLoginContainer';
 import HomePageMap from './HomePageMap';
-import HomePageSider from './HomePageSider';
 import HomePageServices from './HomePageServices';
+import HomePageSteps from './HomePageSteps';
+import HomePageOtherServices from './HomePageOtherServices';
 
-import { Layout } from 'antd';
+import { Layout, Col, Row, Image } from 'antd';
+import picHeader from '../images/header.jpg'
 
 const { Content } = Layout;
 
@@ -16,24 +17,28 @@ class HomePage extends Component {
         return (
             <Layout>
                 <MPHeader />
-                <Layout>
-                    <HomePageSider />
-                    <Layout style={{ padding: '0 24px 24px' }}>
-                        <Content
-                            className="site-layout-background"
-                            style={{
-                                padding: 24,
-                                margin: 0,
-                                minHeight: 280,
-                            }}
-                        >
+                <Image className="home-page-banner" src={picHeader} preview={false} />
+                <Content className="site-layout-background"
+                    style={{
+                        padding: 24,
+                        margin: 0,
+                        minHeight: 280,
+                    }}>
+                    <Row>
+                        <Col xs={24}>
                             <HomePageServices />
-                            <HomePageMap />
+                        </Col>
+                        <Col xs={24}>
                             <HomePageAboutUs />
-                        </Content>
-                    </Layout>
-                    <HomePageLoginContainer />
-                </Layout>
+                        </Col>
+                        <Col xs={24}>
+                            <HomePageOtherServices />
+                        </Col>
+                        <Col xs={24}>
+                            <HomePageSteps />
+                        </Col>
+                    </Row>
+                </Content>
             </Layout>
         );
     }

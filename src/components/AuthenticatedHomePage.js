@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import MPHeader from './MPHeader';
 import HomePageAboutUs from './HomePageAboutUs';
 import HomePageMap from './HomePageMap';
-import AuthenticatedHomePageSider from './AuthenticatedHomePageSider';
 import HomePageServices from './HomePageServices';
+import HomePageSteps from './HomePageSteps';
 
 import { Layout } from 'antd';
 
@@ -16,7 +16,6 @@ class AuthenticatedHomePage extends Component {
             <Layout>
                 <MPHeader />
                 <Layout>
-                    <AuthenticatedHomePageSider />
                     <Layout style={{ padding: '0 24px 24px' }}>
                         <Content
                             className="site-layout-background"
@@ -27,6 +26,7 @@ class AuthenticatedHomePage extends Component {
                             }}
                         >
                             <HomePageServices />
+                            <HomePageSteps />
                             <HomePageMap />
                             <HomePageAboutUs />
                         </Content>
