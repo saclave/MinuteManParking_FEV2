@@ -6,6 +6,7 @@ import HomePageMap from './HomePageMap';
 import HomePageServices from './HomePageServices';
 import HomePageSteps from './HomePageSteps';
 import HomePageOtherServices from './HomePageOtherServices';
+import HomePageFooter from './HomePageFooter';
 
 import { Layout, Col, Row, Image } from 'antd';
 import picHeader from '../images/header.jpg'
@@ -39,6 +40,8 @@ class HomePage extends Component {
                         </Col>
                     </Row>
                 </Content>
+            </Layout>
+                <HomePageFooter/>
             </Layout>
         );
     }
