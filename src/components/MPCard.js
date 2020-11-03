@@ -7,10 +7,10 @@ const { Meta } = Card;
 class MPCard extends Component {
     render() {
         return (
-            <Card hoverable cover={
+            <Card bordered={false} cover={
                 <Image alt={this.props.title} src={this.props.image} preview={false} />
             }>
-                <Meta title={this.props.title} />
+                <Meta title={this.props.title} description={this.props.description} />
             </Card>
         );
     }
