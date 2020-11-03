@@ -40,8 +40,7 @@ class HomePage extends Component {
                         </Col>
                     </Row>
                 </Content>
-            </Layout>
-                <HomePageFooter/>
+                <HomePageFooter />
             </Layout>
         );
     }
