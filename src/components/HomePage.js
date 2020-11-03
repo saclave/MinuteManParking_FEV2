@@ -28,13 +28,13 @@ class HomePage extends Component {
                             <HomePageServices />
                         </Col>
                         <Col xs={24}>
+                            <HomePageAboutUs />
+                        </Col>
+                        <Col xs={24}>
                             <HomePageSteps />
                         </Col>
                         <Col xs={24}>
                             <HomePageMap />
-                        </Col>
-                        <Col xs={24}>
-                            <HomePageAboutUs />
                         </Col>
                     </Row>
                 </Content>
