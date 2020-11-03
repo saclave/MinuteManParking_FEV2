@@ -12,10 +12,10 @@ class HomePageAboutUs extends Component {
         return (
             <div className="home-page-content">
                 <Row>
-                    <Col xs={24} xl={12} rasterOrder={0}>
+                    <Col xs={24} xl={12}>
                         <div className="container">
                             <Title>
-                                <a id="about_us" className="home-page-content-title">
+                                <a id="about_us" className="home-page-content-title" style={{ color: 'black' }}>
                                     <Highlighter>PARK</Highlighter> IN LESS THAN A <Highlighter>MINUTE</Highlighter>!
                             </a>
                             </Title>
@@ -27,7 +27,7 @@ class HomePageAboutUs extends Component {
                             </div>
                         </div>
                     </Col>
-                    <Col xs={24} xl={12} rasterOrder={1}>
+                    <Col xs={24} xl={12}>
                         <div className="container">
                             <Image
                                 preview={false}

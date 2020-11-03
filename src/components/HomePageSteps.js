@@ -28,7 +28,7 @@ class HomePageSteps extends Component {
         const direction = this.state.width >= 992 ? 'horizontal' : 'vertical';
 
         return (
-            <div className="home-page-content container">
+            <div className="home-page-content">
                 <HomePageContentTitle id="how_it_works" text="HOW IT WORKS" />
                 <Steps direction={direction}>
                     <Step title="Authenticate" description="Login to your account or register." />

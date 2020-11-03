@@ -11,7 +11,7 @@ import picTicket from '../images/icon-ticket.png';
 class HomePageServices extends Component {
     render() {
         return (
-            <div className="home-page-content container">
+            <div className="home-page-content">
                 <Row justify="space-around">
                     <Col xs={0} lg={3} xl={5}></Col>
                     <Col xs={9} lg={5} xl={3}>

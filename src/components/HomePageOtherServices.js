@@ -12,7 +12,7 @@ import picMicrotransactions from '../images/microtransactions.png';
 class HomePageOtherServices extends Component {
     render() {
         return (
-            <div className="home-page-content container">
+            <div className="home-page-content">
                 <HomePageContentTitle id="other_services" text="OTHER SERVICES" />
                 <Row justify="space-around">
                     <Col xs={0} lg={3} xl={3}></Col>
