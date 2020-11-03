@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Input, Button,DatePicker, Select } from 'antd';
 import { v4 as uuidv4 } from 'uuid';
 import { Redirect } from "react-router-dom";
+import { addUser } from "../apis/accounts"
 
 
 class CreatePage extends Component {
@@ -25,10 +26,13 @@ class CreatePage extends Component {
           };
           const onFinish = values => {   
             const id = uuidv4();
-            const account = {id: id, firstName: values.firstName, lastName: values.lastName, 
-                userName: values.username, passWord: values.password, email: values.email, gender: values.gender, birthday: values.birthday};
+            const account = {firstName: values.firstName, lastName: values.lastName, 
+                username: values.username, password: values.password, email: values.email, gender: values.gender, birthdate: values.birthday};
 
-            this.props.addUser(account);
+            addUser(account).then(response => {
+                console.log(response);
+                this.props.addUser(account);
+            });
             console.log(id);
             console.log(values);
             this.setState({ redirect: "/" });
