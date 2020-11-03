@@ -5,12 +5,20 @@ import { Menu, Dropdown, Button, message } from 'antd';
 import { DollarCircleOutlined } from '@ant-design/icons';
 import gcash from '../images/gcash.png'
 import cards from '../images/cards.png'
+import { Redirect } from "react-router-dom";
 
 import { Layout } from 'antd';
 
 class PaymentPage extends Component {
     
-
+  state = {
+    redirect: false
+  };
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/ticket' />
+    }
+  }
     render() {
         const data = [
             {
@@ -39,22 +47,34 @@ class PaymentPage extends Component {
             console.log('click', e);
           }
         const onClick = () => {
-            alert("you paid!");
-        }
+            alert("you paid!")
+            
+            const availability = this.props.parkinglot.availability - 1;
+            const load = this.props.account.load - this.props.parkinglot.price;
+            var today = new Date(),
+            time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds(),
+            date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+            //const slot = this.props.ticket.slot;
+            this.props.updateParkinglot({...this.props.parkinglot, availability});
+            this.props.updateUser({...this.props.account, load});
 
+            this.props.updateTicket({...this.props.ticket, date, time});
+
+            console.log(this.props.parkinglot)
+            this.setState({
+              redirect: true
+            });
+        }
+        console.log(this.props.ticket)
         return (
             <Layout>
+              
+               {this.renderRedirect()}
                 <div>
                     <MPHeader />
                     <h2>Payment Options</h2>
                     <Layout>
-                        <div  className="payment-page">
-                        {/* <Dropdown overlay={menu} style={{ width: '280px' }}>
-                            <Button>
-                                Payment <DownOutlined />
-                            </Button>
-                        </Dropdown> */}
-                        
+                        <div  className="payment-page">                      
                         <List
                             itemLayout="vertical"
                             dataSource={data}
@@ -62,7 +82,7 @@ class PaymentPage extends Component {
                             <List.Item>
                                 <List.Item.Meta
                                 avatar={<Avatar src={item.logo} />}
-                                title={<a href="#" onClick={onClick}>{item.title}</a>}
+                                title={<a href="" onClick={onClick}>{item.title}</a>}
                                 description={item.description}
                                 />
                             </List.Item>

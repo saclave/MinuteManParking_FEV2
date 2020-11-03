@@ -8,18 +8,19 @@ import { Modal, Button, Card, Space } from 'antd';
 class ViewTicket extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            time: '12:45',
-            date: '5/21/2020',
-            ticket: '#13CFD3',
-            slotName: '5A',
-            lotName: 'Moa Parking',
-            rate: '50',
-            visible: false,
-            disabled:true,
-
-        }
+      
     } 
+    state = {
+      // time: 'sefsef',
+      // date: 'fsese',
+      // ticket: '#13CFD3',
+      // slotName: '5A',
+      // lotName: 'Moa Parking',
+      // rate: '50',
+      visible: false,
+      disabled:true,
+
+  }
     showModal = () => {
         this.setState({
           visible: true,
@@ -35,7 +36,7 @@ class ViewTicket extends Component {
     
 
     render() {
-        
+      console.log(this.props.parkinglot);
         const { Meta } = Card;
         return (
             <div>
@@ -43,7 +44,7 @@ class ViewTicket extends Component {
             <Modal className="modal"
               title={
                 <div >
-                  Ticket:  {this.state.ticket}
+                  Ticket:  aawdawd
                 </div>
               }
               visible={this.state.visible}
@@ -56,10 +57,11 @@ class ViewTicket extends Component {
               ]}
             >
               <div className="reserve">
-                <h2>Parking: {this.state.lotName} </h2>
-                <h4>{this.state.date}</h4>
-                <h4>Slot: {this.state.slotName}</h4>
-                <h4>Rate: {this.state.rate} /hr</h4>
+                <h2>Parking: {this.props.parkinglot.name} </h2>
+                <h4>slot: {this.props.ticket.slot}</h4>
+                <h4>Time in: {this.props.ticket.time}</h4>
+                <h4>Date: {this.props.ticket.date} </h4>
+                <h4>Rate: {this.props.parkinglot.price}/hr</h4>
               </div>
               <br />
             </Modal>

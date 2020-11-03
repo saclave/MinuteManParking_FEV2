@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 
 import MPHeader from './MPHeader';
 import HomePageAboutUs from './HomePageAboutUs';
+import HomePageLoginContainer from '../containers/HomePageLoginContainer';
 import HomePageMap from './HomePageMap';
+import HomePageSider from './HomePageSider';
 import HomePageServices from './HomePageServices';
 import HomePageSteps from './HomePageSteps';
+import { Link } from 'react-router-dom';
 import HomePageOtherServices from './HomePageOtherServices';
 import HomePageFooter from './HomePageFooter';
-
 import { Layout, Col, Row, Image } from 'antd';
 import picHeader from '../images/header.jpg'
 
@@ -28,19 +30,11 @@ class HomePage extends Component {
                     <Row>
                         <Col xs={24}>
                             <HomePageServices />
-                        </Col>
-                        <Col xs={24}>
+                            <HomePageMap />
                             <HomePageAboutUs />
-                        </Col>
-                        <Col xs={24}>
-                            <HomePageOtherServices />
-                        </Col>
-                        <Col xs={24}>
-                            <HomePageSteps />
-                        </Col>
-                    </Row>
-                </Content>
-                <HomePageFooter />
+                        </Content>
+                    </Layout>
+                    <Link smooth to={{ pathname: '/reserve' }}>reserve</Link>
             </Layout>
         );
     }

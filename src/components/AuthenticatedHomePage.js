@@ -6,7 +6,6 @@ import HomePageMap from './HomePageMap';
 import HomePageServices from './HomePageServices';
 import { Link } from 'react-router-dom';
 import HomePageSteps from './HomePageSteps';
-
 import { Layout } from 'antd';
 
 const { Content } = Layout;
@@ -32,7 +31,7 @@ class AuthenticatedHomePage extends Component {
                             <HomePageAboutUs />
                         </Content>
                     </Layout>
-                    <Link smooth to={{ pathname: '/view' }}>profile</Link>
+                    <Link smooth to={{ pathname: '/reserve' }}>reserve</Link>
                 </Layout>
             </Layout>
         );
