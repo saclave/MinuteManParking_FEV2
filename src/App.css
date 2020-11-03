@@ -38,6 +38,10 @@
   }
 }
 
+body{
+  background-image: url('./images/background.png');
+}
+
 .ant-layout-header {
   background: #fff;
   padding: 0;
@@ -147,6 +151,7 @@
 .map-div {
   padding: 20px 50px 50px;
 }
+
 
 h1.ant-typography,
 h2.ant-typography,
