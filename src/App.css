@@ -95,3 +95,25 @@
 .map-div{
   padding: 20px 50px 50px;
 }
+
+#x-mark{
+  width: 30px;
+  height: 20px;
+}
+
+#blue-btn{
+  background-color: #00E6E6;
+}
+#red-btn{
+  background-color: #F08080;
+}
+
+.towing-pop{
+  padding: 5px;
+  background-color: #FFCCCC;
+}
+
+.parking-pop{
+  padding: 5px;
+  background-color: #CCFFFF;
+}
