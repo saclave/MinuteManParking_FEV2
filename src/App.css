@@ -38,15 +38,12 @@
   }
 }
 
-#components-layout-demo-top-side .logo {
-  float: left;
-  width: 120px;
-  height: 31px;
-  margin: 16px 24px 16px 0;
-  background: rgba(255, 255, 255, 0.3);
+.ant-layout-header {
+  background: #fff;
+  padding: 0;
 }
 
-.ant-layout-header {
+.site-layout .site-layout-background {
   background: #fff;
 }
 
@@ -59,20 +56,69 @@
   background: #fff;
 }
 
+.ant-layout-footer {
+  background: #fff;
+  margin-top: 300px;
+}
+
 .home-page-content {
-  margin-bottom: 50px;
+  margin: 50px 0;
+  padding: 50px 0;
+}
+
+@media screen and (min-width: 640px) {
+  .home-page-content {
+    padding: 50px 25px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .home-page-content {
+    padding: 50px 50px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .home-page-content {
+    padding: 50px 100px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .home-page-content {
+    padding: 50px 150px;
+  }
 }
 
 .home-page-login {
   padding: 20px;
 }
 
-.header {
-  margin-bottom: 20px;
+.mp-header {
+  background: rgba(255, 255, 255, 0.95);
+  position: fixed;
+  z-index: 1;
+  width: 100%;
 }
 
-.ant-typography .home-page-content-title {
+.mp-header .ant-menu {
+  background: inherit;
+}
+
+.home-page-content .home-page-content-title {
+  margin-bottom: 60px;
+}
+
+.home-page-content-title-link {
+  display: block;
+  position: relative;
+  top: -175px;
+  visibility: hidden;
+}
+
+.footer-address {
   color: black;
+  font-size: 10;
   pointer-events: none;
   cursor: default;
 }
@@ -82,7 +128,116 @@
 }
 
 .home-page-about-us-content {
-  margin: 0 auto;
-  width: 600px;
   text-align: justify;
+}
+
+.blue-text {
+  color: #29b7df;
+}
+
+.container {
+  padding: 0 50px;
+}
+
+#car-logo {
+  width: 30px;
+  height: 20px;
+}
+
+.map-div {
+  padding: 20px 50px 50px;
+}
+
+h1.ant-typography,
+h2.ant-typography,
+h3.ant-typography,
+h4.ant-typography,
+h5.ant-typography {
+  font-family: "Inter", sans-serif;
+}
+
+.mp-header .header-menu {
+  float: left;
+}
+
+.mp-header .header-menu-right {
+  float: right;
+}
+
+.home-page-banner {
+  margin-top: 66px;
+}
+
+.payment-page {
+  margin: 0 auto;
+  width: 200px;
+  text-align: center;
+  padding-right: 50px;
+}
+
+#x-mark {
+  width: 30px;
+  height: 20px;
+}
+
+#blue-btn {
+  background-color: #00e6e6;
+}
+#red-btn {
+  background-color: #f08080;
+}
+
+.towing-pop {
+  padding: 5px;
+  background-color: #ffcccc;
+}
+
+.parking-pop {
+  padding: 5px;
+  background-color: #ccffff;
+}
+
+.reserve {
+  text-align: center;
+  border: 3px solid blue;
+}
+
+.available {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 20px;
+}
+
+#reserveValues {
+  background-color: transparent;
+  border: 0px solid;
+  text-align: center;
+}
+
+.ant-steps-item-process .ant-steps-item-icon {
+  background: #29b7df;
+  border-color: #29b7df;
+}
+
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-active,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-active,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-open,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-open,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-selected,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-selected {
+  color: #29b7df;
+  border-bottom-color: #29b7df;
+}
+
+.ant-menu-horizontal > .ant-menu-item-selected a,
+.ant-menu-horizontal > .ant-menu-item a:hover,
+.ant-menu-item a:hover,
+.ant-menu-item:hover,
+.ant-menu-item-active,
+.ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
+.ant-menu-submenu-active,
+.ant-menu-submenu-title:hover {
+  color: #29b7df;
 }

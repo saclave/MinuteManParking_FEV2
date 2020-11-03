@@ -1,59 +1,32 @@
 import React, { Component } from 'react';
 
-import HomePageContentTitle from './HomePageContentTitle';
+import MPCard from './MPCard';
 
-import { Card, Col, Row } from 'antd';
+import { Col, Row } from 'antd';
 
-const { Meta } = Card;
+import picIndicator from '../images/icon-map-indicator.png';
+import picReservation from '../images/icon-reservation.png';
+import picTicket from '../images/icon-ticket.png';
 
 class HomePageServices extends Component {
     render() {
         return (
             <div className="home-page-content">
-                <HomePageContentTitle id="services" text="Services" />
-                <Row>
-                    <Col span={8}>
-                        <Card hoverable cover={
-                            <img
-                                alt="parking-lot"
-                                src="https://thumbs.dreamstime.com/b/parking-lot-car-area-isometric-cartoon-vector-illustration-173721678.jpg"
-                            />
-                        }
-                        >
-                            <Meta
-                                // title="Parking Lots"
-                                description="Helps you search for parking lots"
-                            />
-                        </Card>
+                <Row justify="space-around">
+                    <Col xs={0} lg={3} xl={3}></Col>
+                    <Col xs={9} lg={6} xl={5}>
+                        <MPCard title="Map Indicators" image={picIndicator}
+                            description="Integrated with a map where you can see your current location and of parking lots around you." />
                     </Col>
-                    <Col span={8}>
-                        <Card hoverable cover={
-                            <img
-                                alt="parking-slot"
-                                src="https://www.restonnow.com/files/2016/08/DSC03348.jpg"
-                            />
-                        }
-                        >
-                            <Meta
-                                // title="Parking Slot"
-                                description="Shows you the realtime available slots of a parking lot"
-                            />
-                        </Card>
+                    <Col xs={9} lg={6} xl={5}>
+                        <MPCard title="Reservation System" image={picReservation}
+                            description="Parking slot reservation at your fingertips." />
                     </Col>
-                    <Col span={8}>
-                        <Card hoverable cover={
-                            <img
-                                alt="parking-slot"
-                                src="https://thumbs.dreamstime.com/b/parking-lot-area-car-road-sign-concept-isoometric-cartoon-vector-illustration-173851550.jpg"
-                            />
-                        }
-                        >
-                            <Meta
-                                // title="Parking Slot"
-                                description="Reserves you a parking slot"
-                            />
-                        </Card>
+                    <Col xs={9} lg={6} xl={5}>
+                        <MPCard title="E-Ticket System" image={picTicket}
+                            description="Paperless ticket generation upon reservation" />
                     </Col>
+                    <Col xs={0} lg={3} xl={3}></Col>
                 </Row>
             </div>
         );

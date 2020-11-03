@@ -7,7 +7,7 @@ const mapDispatchToProps = (dispatch) =>({
 })
 
 const mapStateToProps = state =>({
-    accounts : state.accounts
+    account: state.authentication.account
 })
 
 const UpdateUserProfileContainer = connect(mapStateToProps, mapDispatchToProps) (UpdateUserProfile)
