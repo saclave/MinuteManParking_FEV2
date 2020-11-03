@@ -16,13 +16,13 @@ class HomePage extends Component {
         return (
             <Layout>
                 <MPHeader />
+                <Image className="home-page-banner" src={picHeader} preview={false} />
                 <Content className="site-layout-background"
                     style={{
                         padding: 24,
                         margin: 0,
                         minHeight: 280,
                     }}>
-                    <Image src={picHeader} preview={false} />
                     <Row>
                         <Col xs={24}>
                             <HomePageServices />

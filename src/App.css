@@ -65,7 +65,7 @@
 }
 
 .mp-header {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.95);
   position: fixed;
   z-index: 1;
   width: 100%;
@@ -111,4 +111,8 @@ h5.ant-typography {
 
 .mp-header .header-menu-right {
   float: right;
+}
+
+.home-page-banner {
+  margin-top: 66px;
 }
