@@ -28,3 +28,6 @@ export const updateTicket = ticket => {
 export const getTicket = ticket => {
     return { type: "GET_TICKET", payload: ticket };
 }
+export const addCar = cars => {
+    return { type: "ADD_CAR", payload: cars }
+}

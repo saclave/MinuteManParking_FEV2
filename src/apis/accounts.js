@@ -17,6 +17,10 @@ const getAll = () => {
     return api.get(`/users`);
 }
 
+const addCar = (car) => {
+    return api.post("/cars", car)
+}
+
 export {
-    addUser, updateUser, getUserByUsernameAndPassword, getAll
+    addUser, updateUser, getUserByUsernameAndPassword, getAll, addCar
 }
