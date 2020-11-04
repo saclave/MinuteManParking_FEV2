@@ -5,7 +5,6 @@ import MPHeaderContainer from '../containers/MPHeaderContainer';
 import HomePageAboutUs from './HomePageAboutUs';
 import HomePageServices from './HomePageServices';
 import HomePageSteps from './HomePageSteps';
-import { Link } from 'react-router-dom';
 import HomePageOtherServices from './HomePageOtherServices';
 import HomePageFooter from './HomePageFooter';
 import { Layout, Image } from 'antd';
@@ -29,7 +28,6 @@ class HomePage extends Component {
                     <HomePageAboutUs />
                     <HomePageOtherServices />
                     <HomePageSteps />
-                    <Link smooth to={{ pathname: '/reserve' }}>reserve</Link>
                 </Content>
                 <HomePageFooter />
             </Layout >
