@@ -42,6 +42,8 @@ const accounts = (state = defaultAccounts, action) => {
 }
 const parkinglots = (state = defaultParkingLot, action) => {
     switch (action.type) {
+        case "ADD_PARKING_LOT":
+            return action.payload;
         case "UPDATE_PARKING_LOT":
             return action.payload;
         case "GET_PARKINGLOT":
