@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { List, Avatar } from 'antd';
 import MPHeader from './MPHeader';
-import { Menu, Dropdown, Button, message } from 'antd';
+import { Menu, Dropdown, Button, message, Typography } from 'antd';
 import { DollarCircleOutlined } from '@ant-design/icons';
 import gcash from '../images/gcash.png'
 import cards from '../images/cards.png'
 import { Redirect } from "react-router-dom";
 import { Card, Col, Row } from 'antd';
+import HeaderlessPageContent from './HeaderlessPageContent';
 
 import { Layout } from 'antd';
+const { Title } = Typography;
 
 class PaymentPage extends Component {
     
@@ -60,29 +62,19 @@ class PaymentPage extends Component {
         }
         console.log(this.props.ticket)
         return (
-            <Layout>
-              
+          <HeaderlessPageContent>
                {this.renderRedirect()}
+               <Title>Payment</Title>
                 <div className="site-card-wrapper">
-                  <Row gutter={16}>
-                    <Col span={8}>
+                  <Row gutter={16} className="site-card-wrapper">
+                    <Col span={24}>
                       <Card title={<a href="" onClick={onClick}>GCash/Paymaya</a>} bordered={false}>
-                      <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-                      </Card>
-                    </Col>
-                    <Col span={8}>
-                      <Card title={<a href="" onClick={onClick}>Credit Card</a>} bordered={false}>
-                        <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-                      </Card>
-                    </Col>
-                    <Col span={8}>
-                      <Card title={<a href="" onClick={onClick}>Cash on Deliver</a>} bordered={false}>
-                        <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                      <Avatar src={gcash} />
                       </Card>
                     </Col>
                   </Row>
                 </div>
-            </Layout>
+          </HeaderlessPageContent>
         );
     }
 }
