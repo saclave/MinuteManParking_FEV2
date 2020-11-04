@@ -55,11 +55,11 @@ class MPHeader extends Component {
                                 this.props.authenticated
                                     ?
                                     <SubMenu key="sub2" icon={<UserOutlined />} title={this.props.account.firstName}>
-                                        <Menu.Item key="5" icon={<LogoutOutlined />}>
-                                            <a onClick={this.onLogout}>Logout</a>
-                                        </Menu.Item>
-                                        <Menu.Item key="6" icon={<UserOutlined />}>
+                                        <Menu.Item key="5" icon={<UserOutlined />}>
                                             <ViewProfileContainer />
+                                        </Menu.Item>
+                                        <Menu.Item key="6" icon={<LogoutOutlined />}>
+                                            <a onClick={this.onLogout}>Logout</a>
                                         </Menu.Item>
                                     </SubMenu>
                                     :
