@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 
-import HomePageFooter from './HomePageFooter';
-
 import MPHeaderContainer from '../containers/MPHeaderContainer';
 
 import { Link } from 'react-router-dom';
-import { Layout, Input, Image, Row, Col } from 'antd';
+import { Layout, Input, Image } from 'antd';
 
 import sampleMap from '../images/sample-map.png';
 
-const { Sider, Content } = Layout;
+const { Sider } = Layout;
 const { Search } = Input;
 
 class LetsParkPage extends Component {
