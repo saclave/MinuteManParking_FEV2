@@ -1,36 +1,59 @@
 import React, { Component } from 'react';
-import MPHeader from './MPHeader';
-import { Table } from 'antd';
+import { Link } from 'react-router-dom';
+
+import { Button, Modal, Table } from 'antd';
 
 class ViewTransactionHistory extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = { visible: false, redirect: null };
+    }
+
+    showModal = () => {
+        this.setState({
+            visible: true,
+        });
+    };
+
+    handleOk = e => {
+        console.log(e);
+        this.setState({
+            visible: false,
+        });
+    };
+
+    handleCancel = e => {
+        console.log(e);
+        this.setState({
+            visible: false,
+        });
+    };
+
     render() {
         const columns = [
             {
                 title: 'Transaction ID',
                 dataIndex: 'transactId',
-                key: 'id',
-                render: text => <b>{text}</b>,
+                key: 'id'
             },
             {
                 title: 'Parking Lot Name',
                 dataIndex: 'parkingLotName',
-                key: 'text',
-                render: text => <b>{text}</b>,
+                key: 'text'
             },
             {
                 title: 'Ticket ID',
                 dataIndex: 'ticketId',
-                key: 'id',
-                render: text => <b>{text}</b>,
+                key: 'id'
             },
             {
                 title: 'Trasaction Date',
                 dataIndex: 'transactDate',
-                key: 'id',
-                render: text => <b>{text}</b>,
+                key: 'id'
             }];
 
-        const dataSource = [
+        const data = [
             {
                 key: '1',
                 parkingLotName: 'A-01',
@@ -118,16 +141,25 @@ class ViewTransactionHistory extends Component {
         ];
 
         return (
-            <div className="table-div">
-                <div className="first">
-                    <MPHeader />
-                </div>
-                <Table id="done"
-                    columns={columns}
-                    dataSource={dataSource}
-                    pagination={{ pageSize: 10 }}
-                    scroll={{ y: 550 }} />
-            </div>
+            <>
+                <Link onClick={this.showModal}>
+                    Transaction History
+                </Link>
+                <Modal
+                    title="Transaction History"
+                    visible={this.state.visible}
+                    onCancel={this.handleCancel}
+                    footer={<Button key="back" onClick={this.handleCancel}>Close</Button>}
+                    width={700}
+                >
+                    <Table columns={columns}
+                        dataSource={data}
+                        pagination={{ pageSize: 10 }}
+                        scroll={{ y: 400 }}
+                        simple
+                        bordered />
+                </Modal>
+            </>
         );
     }
 }

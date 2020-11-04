@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import ViewProfileContainer from '../containers/ViewPageContainer';
+import ViewProfileContainer from '../containers/ViewProfileContainer';
+import ViewTransactionHistory from './ViewTransactionHistory';
 
 import { Col, Row, Layout, Menu } from 'antd';
 import {
@@ -59,7 +60,7 @@ class MPHeader extends Component {
                                             <ViewProfileContainer />
                                         </Menu.Item>
                                         <Menu.Item key="7" icon={<HistoryOutlined />}>
-                                            <a>Transaction History</a>
+                                            <ViewTransactionHistory />
                                         </Menu.Item>
                                         <Menu.Divider />
                                         <Menu.Item key="6" icon={<LogoutOutlined />}>
