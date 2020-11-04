@@ -2,31 +2,27 @@ import React, { Component } from 'react';
 
 import MPHeaderContainer from '../containers/MPHeaderContainer';
 
-import HomePageAboutUs from './HomePageAboutUs';
-import HomePageMap from './HomePageMap';
-import HomePageServices from './HomePageServices';
 import { Link } from 'react-router-dom';
-import HomePageSteps from './HomePageSteps';
-import { Layout } from 'antd';
+import { Layout, Input } from 'antd';
 
-const { Content } = Layout;
+const { Content, Sider } = Layout;
+const { Search } = Input;
 
 class LetsParkPage extends Component {
     render() {
         return (
             <Layout>
                 <MPHeaderContainer />
-                <Content
-                    className="site-layout-background"
-                    style={{
-                        padding: 24,
-                        margin: 0,
-                        minHeight: 280,
-                    }}
-                >
+                <Content>
+                    <Sider theme="light" width={200}
+                        style={{ marginTop: 65 }} collapsible>
+                        <Search placeholder="input search loading default" loading />
+                    </Sider>
+                    <Content>
+                        <Link smooth to={{ pathname: '/reserve' }}>reserve</Link>
+                        <Link smooth to={{ pathname: '/update' }}>update</Link>
+                    </Content>
                 </Content>
-                <Link smooth to={{ pathname: '/reserve' }}>reserve</Link>
-                <Link smooth to={{ pathname: '/update' }}>update</Link>
             </Layout>
         );
     }
