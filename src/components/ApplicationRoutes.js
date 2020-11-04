@@ -8,6 +8,7 @@ import CreatePageContainer from '../container/CreatePageContainer';
 import UpdateUserProfileContainer from '../container/UpdateUserProfileContainer';
 import ViewPageContainer from '../container/ViewPageContainer';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import ViewTransactionHistory from '../components/ViewTransactionHistory';
 import ViewTicketContainer from '../container/ViewTicketContainer';
 import MapPage from './MapPage';
 import ReservePage from './ReservePage';

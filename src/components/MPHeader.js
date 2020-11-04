@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { Col, Row, Layout, Menu } from 'antd';
 import {
     QuestionCircleOutlined, AndroidOutlined, OrderedListOutlined,
