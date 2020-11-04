@@ -16,6 +16,7 @@ import PaymentPage from './PaymentPage';
 import ReservePageContainer from '../container/ReservePageContainer';
 import PaymentPageContainer from '../container/PaymentPageContainer';
 import MapPageContainer from '../container/MapPageContainer';
+import TopUpPageContainer from '../container/TopupPageContainer';
 
 class ApplicationRoutes extends Component {
     render() {
@@ -47,11 +48,12 @@ class ApplicationRoutes extends Component {
                     <PrivateRoute path="/park" component={LetsParkPage} />
                     <PrivateRoute path="/edit" component={UpdateUserProfileContainer} />
                     <PrivateRoute path="/update" component={UpdateUserProfileContainer} />
-                    <PrivateRoute path="/view" component={ViewPageContainer} />
+                    <PrivateRoute path="/view" component={ViewProfileContainer} />
                     <PrivateRoute path="/viewMap" component={MapPageContainer} />
                     <PrivateRoute path="/ticket" component={ViewTicketContainer} />
                     <PrivateRoute path="/reserve" component={ReservePageContainer} />
                     <PrivateRoute path="/payment" component={PaymentPageContainer} />
+                    <PrivateRoute path="/topup" component={TopUpPageContainer} />
                 </Switch>
             </BrowserRouter>
         );
