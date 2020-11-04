@@ -14,9 +14,9 @@ class LetsParkPage extends Component {
             <Layout>
                 <MPHeaderContainer />
                 <Content>
-                    <Sider theme="light" width={200}
-                        style={{ marginTop: 65 }} collapsible>
-                        <Search placeholder="input search loading default" loading />
+                    <Sider theme="light" width={300}
+                        style={{ marginTop: 65, padding: 20 }}>
+                        <Search placeholder="Search for parking lots here" />
                     </Sider>
                     <Content>
                         <Link smooth to={{ pathname: '/reserve' }}>reserve</Link>
