@@ -38,6 +38,10 @@
   }
 }
 
+body {
+  background-image: url("./images/background.png");
+}
+
 .ant-layout-header {
   background: #fff;
   padding: 0;
@@ -64,6 +68,11 @@
 .home-page-content {
   margin: 50px 0;
   padding: 50px 0;
+}
+
+.headerless-page-content {
+  background: rgba(255, 255, 255, 0.5);
+  height: 100vh;
 }
 
 @media screen and (min-width: 640px) {
@@ -240,4 +249,14 @@ h5.ant-typography {
 .ant-menu-submenu-active,
 .ant-menu-submenu-title:hover {
   color: #29b7df;
+}
+
+.ant-btn.ant-btn-primary {
+  background: #29b7df;
+  border-color: #29b7df;
+}
+
+.ant-btn.ant-btn-primary:hover {
+  background: #4bc9ec;
+  border-color: #4bc9ec;
 }
