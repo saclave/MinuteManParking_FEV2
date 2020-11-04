@@ -1,5 +1,6 @@
 export const GET_ACCOUNT_BY_USERNAME_AND_PASSWORD = "GET_ACCOUNT_BY_USERNAME_AND_PASSWORD";
 export const AUTHENTICATE = "AUTHENTICATE";
+export const SELECTED_PARKINGLOT = "SELECTED_PARKINGLOT";
 
 export const getAccount = accounts => {
     return { type: "GET_ACCOUNT", payload: accounts };
@@ -7,6 +8,9 @@ export const getAccount = accounts => {
 
 export const authenticate = (account) => {
     return { type: AUTHENTICATE, payload: account }
+}
+export const selectedParkingLot = (parkinglot) => {
+    return { type: SELECTED_PARKINGLOT, payload: parkinglot }
 }
 
 export const addUser = accounts => {
@@ -44,3 +48,4 @@ export const getParkingLotById = (id) => {
 export const initParkinglots = parkinglots => {
     return{ type: "INIT_PARKINGLOT", payload: parkinglots}
 }
+

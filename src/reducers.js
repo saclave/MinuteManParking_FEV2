@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { AUTHENTICATE } from './actions';
+import { AUTHENTICATE, SELECTED_PARKINGLOT } from './actions';
 
 const defaultAccounts = [
     {
@@ -85,10 +85,23 @@ const defaultAuthentication = {
     authenticated: false,
     account: null
 }
+const defaultSelectedParking = {
+    selectedParking: false,
+    parkinglot: null
+}
+
 const authentication = (state = defaultAuthentication, action) => {
     switch (action.type) {
         case AUTHENTICATE:
             return { authenticated: true, account: action.payload };
+        default:
+            return state;
+    }
+}
+const selectedParkingLot = (state = defaultSelectedParking, action) => {
+    switch (action.type) {
+        case SELECTED_PARKINGLOT:
+            return { selectedParking: true, parkinglot: action.payload };
         default:
             return state;
     }
@@ -100,5 +113,6 @@ export default combineReducers({
     authentication,
     parkinglots,
     tickets,
-    cars
+    cars,
+    selectedParkingLot
 });

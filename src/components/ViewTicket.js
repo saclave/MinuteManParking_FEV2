@@ -40,7 +40,7 @@ class ViewTicket extends Component {
         const { Meta } = Card;
         return (
             <div>
-            <Button onClick={this.showModal}>Reserve</Button>
+            <Button onClick={this.showModal}>Ticket</Button>
             <Modal className="modal"
               title={
                 <div >

@@ -29,6 +29,9 @@ class MapV4Page extends Component {
         // get parking lot by id
         // getParkingLotById(this.state.selectedPark.id).the
         console.log(this.state.selectedPark.id)
+
+        this.props.selectedParkingLot(this.state.selectedPark);
+
         this.props.history.push('/reserve');
     }
 

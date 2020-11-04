@@ -6,6 +6,7 @@ import { DollarCircleOutlined } from '@ant-design/icons';
 import gcash from '../images/gcash.png'
 import cards from '../images/cards.png'
 import { Redirect } from "react-router-dom";
+import { addTicket } from "../apis/accounts"
 
 import { Layout } from 'antd';
 
@@ -59,11 +60,12 @@ class PaymentPage extends Component {
             this.props.updateUser({...this.props.account, cash});
 
 
+            const ticket = {carId: this.props.car.id ,timeIn:time, timeOut:time, name:"pangalan", amount: this.props.parkinglot.price};
 
-            const slot = "1233";
-            const ticket = {slot: slot, date:date,time:time};
-
-            this.props.addTicket(ticket);
+            addTicket(ticket).then(() => {
+              this.props.addTicket(ticket);
+          });
+            
 
             console.log(this.props.parkinglot)
             this.setState({
