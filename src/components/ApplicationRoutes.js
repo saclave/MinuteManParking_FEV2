@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
+import HomePage from '../components/HomePage';
 import LetsParkPage from './LetsParkPage';
 
-import HomePage from '../components/HomePage';
 import LoginPageContainer from '../containers/LoginPageContainer';
 import CreatePageContainer from '../container/CreatePageContainer';
 import UpdateUserProfileContainer from '../container/UpdateUserProfileContainer';
@@ -13,6 +13,7 @@ import ViewTicketContainer from '../container/ViewTicketContainer';
 import ReservePageContainer from '../container/ReservePageContainer';
 import PaymentPageContainer from '../container/PaymentPageContainer';
 import MapPageContainer from '../container/MapPageContainer';
+import TopUpPageContainer from '../container/TopupPageContainer';
 
 class ApplicationRoutes extends Component {
     render() {
@@ -43,10 +44,13 @@ class ApplicationRoutes extends Component {
                     <ProtectedRoute path="/register" component={CreatePageContainer} />
                     <PrivateRoute path="/park" component={LetsParkPage} />
                     <PrivateRoute path="/edit" component={UpdateUserProfileContainer} />
+                    <PrivateRoute path="/update" component={UpdateUserProfileContainer} />
+                    <PrivateRoute path="/view" component={ViewProfileContainer} />
                     <PrivateRoute path="/viewMap" component={MapPageContainer} />
                     <PrivateRoute path="/ticket" component={ViewTicketContainer} />
                     <PrivateRoute path="/reserve" component={ReservePageContainer} />
                     <PrivateRoute path="/payment" component={PaymentPageContainer} />
+                    <PrivateRoute path="/topup" component={TopUpPageContainer} />
                     <PrivateRoute path="/history" component={ViewTransactionHistory} />
                 </Switch>
             </BrowserRouter>

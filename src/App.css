@@ -179,9 +179,9 @@ h5.ant-typography {
 
 .payment-page {
   margin: 0 auto;
-  width: 200px;
+  width: 250px;
   text-align: center;
-  padding-right: 50px;
+  background: rgba(255, 255, 255, 0.5);
 }
 
 #x-mark {
