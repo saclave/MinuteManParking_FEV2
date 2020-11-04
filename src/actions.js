@@ -49,3 +49,6 @@ export const initParkinglots = parkinglots => {
     return{ type: "INIT_PARKINGLOT", payload: parkinglots}
 }
 
+
+
+

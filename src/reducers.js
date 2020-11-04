@@ -24,12 +24,8 @@ const defaultParkingLot = [
         latitude: 14.5371,
     }
 ]
-const defaultTicket = [{
-    slot: 'S1234SDF',
-    time: '',
-    date: '',
-}
-]
+
+
 const defaultCar = [{
     platenumber: 'WTP231',
     brand: 'Honda',
@@ -62,7 +58,7 @@ const parkinglots = (state = defaultParkingLot, action) => {
             return state;
     }
 }
-const tickets = (state = defaultTicket, action) => {
+const tickets = (state = [], action) => {
     switch (action.type) {
         case "ADD_TICKET":
             return [...state, action.payload];
@@ -72,7 +68,7 @@ const tickets = (state = defaultTicket, action) => {
             return state;
     }
 }
-const cars = (state = defaultCar, action) => {
+const cars = (state = [], action) => {
     switch (action.type) {
         case "ADD_CAR":
             return [...state, action.payload];
@@ -106,6 +102,7 @@ const selectedParkingLot = (state = defaultSelectedParking, action) => {
             return state;
     }
 }
+
 
 
 export default combineReducers({

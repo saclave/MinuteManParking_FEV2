@@ -3,20 +3,13 @@ import { EditOutlined, SettingOutlined } from '@ant-design/icons';
 import QRCode from 'qrcode.react';
 import Draggable from 'react-draggable';
 import { Modal, Button, Card, Space } from 'antd';
-
+import { Redirect } from "react-router-dom";
 
 class ViewTicket extends Component {
     constructor(props) {
         super(props);
-      
     } 
     state = {
-      // time: 'sefsef',
-      // date: 'fsese',
-      // ticket: '#13CFD3',
-      // slotName: '5A',
-      // lotName: 'Moa Parking',
-      // rate: '50',
       visible: false,
       disabled:true,
 
@@ -36,7 +29,10 @@ class ViewTicket extends Component {
     
 
     render() {
-      console.log(this.props.parkinglot);
+      console.log(this.props.ticket);
+      if(this.props.ticket === undefined){
+          return <Redirect to='/' />
+      }
         const { Meta } = Card;
         return (
             <div>
@@ -58,10 +54,10 @@ class ViewTicket extends Component {
             >
               <div className="reserve">
                 <h2>Parking: {this.props.parkinglot.name} </h2>
-                <h4>slot: {this.props.ticket.slot}</h4>
-                <h4>Time in: {this.props.ticket.time}</h4>
-                <h4>Date: {this.props.ticket.date} </h4>
-                <h4>Rate: {this.props.parkinglot.price}/hr</h4>
+                <h4>slot: {this.props.ticket.parkingSlotId}</h4>
+                <h4>Time in: {this.props.ticket.timeIn}</h4>
+                <h4>Name: {this.props.ticket.name} </h4>
+                <h4>Amount: {this.props.parkinglot.price}/hr</h4>
               </div>
               <br />
             </Modal>

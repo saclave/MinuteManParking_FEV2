@@ -33,8 +33,11 @@ const addTicket = (ticket) => {
     return api.post('/tickets', ticket);
 }
 
+const updateAvailability = (id, availability) => {
+    return api.put(`/slots/${id}`, {availability: !availability});
+} 
 
 
 export {
-    addUser, updateUser, getUserByUsernameAndPassword, getAll, getParkingLots, addCar, getParkingLotById, addTicket
+    addUser, updateUser, getUserByUsernameAndPassword, getAll, getParkingLots, addCar, getParkingLotById, addTicket, updateAvailability
 }
