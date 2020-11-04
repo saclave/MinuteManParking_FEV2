@@ -6,7 +6,7 @@ import { Col, Row, Layout, Menu } from 'antd';
 import {
     QuestionCircleOutlined, AndroidOutlined, OrderedListOutlined,
     LoginOutlined, UserAddOutlined, UserOutlined, AreaChartOutlined,
-    LogoutOutlined
+    LogoutOutlined, HistoryOutlined
 } from '@ant-design/icons';
 
 import { Link } from 'react-router-dom';
@@ -57,6 +57,9 @@ class MPHeader extends Component {
                                     <SubMenu key="sub2" icon={<UserOutlined />} title={this.props.account.firstName}>
                                         <Menu.Item key="5" icon={<UserOutlined />}>
                                             <ViewProfileContainer />
+                                        </Menu.Item>
+                                        <Menu.Item key="7" icon={<HistoryOutlined />}>
+                                            <a>Transaction History</a>
                                         </Menu.Item>
                                         <Menu.Item key="6" icon={<LogoutOutlined />}>
                                             <a onClick={this.onLogout}>Logout</a>
