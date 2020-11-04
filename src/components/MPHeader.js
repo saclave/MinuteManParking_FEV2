@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Col, Row, Layout, Menu } from 'antd';
 import {
     QuestionCircleOutlined, AndroidOutlined, OrderedListOutlined,
-    LoginOutlined, UserAddOutlined, UserOutlined
+    LoginOutlined, UserAddOutlined, UserOutlined, AreaChartOutlined
 } from '@ant-design/icons';
 
 import { Link } from 'react-router-dom';
@@ -22,6 +22,12 @@ class MPHeader extends Component {
                             mode="horizontal"
                             className="header-menu"
                         >
+                            {
+                                this.props.authenticated &&
+                                <Menu.Item key="0" icon={<AreaChartOutlined />}>
+                                    <Link smooth to={{ pathname: '/park' }}>Let's Park</Link>
+                                </Menu.Item>
+                            }
                             <Menu.Item key="1" icon={<QuestionCircleOutlined />}>
                                 <HashLink smooth to={{ pathname: '/', hash: '#about_us' }}>About Us</HashLink>
                             </Menu.Item>

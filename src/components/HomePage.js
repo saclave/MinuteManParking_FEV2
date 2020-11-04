@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import MPHeader from './MPHeader';
+import MPHeaderContainer from '../containers/MPHeaderContainer';
+
 import HomePageAboutUs from './HomePageAboutUs';
 import HomePageServices from './HomePageServices';
 import HomePageSteps from './HomePageSteps';
@@ -16,7 +17,7 @@ class HomePage extends Component {
     render() {
         return (
             <Layout>
-                <MPHeader />
+                <MPHeaderContainer />
                 <Image className="home-page-banner" src={picHeader} preview={false} />
                 <Content className="site-layout-background"
                     style={{
