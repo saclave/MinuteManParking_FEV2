@@ -53,6 +53,7 @@ class PaymentPage extends Component {
             alert("you paid!")
             
             const availability = this.props.parkinglot.availability - 1;
+            console.log("Price: "+this.props.parkinglot.price);
             const cash = this.props.account.cash - this.props.parkinglot.price;
             var today = new Date(),
             time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds(),
@@ -81,7 +82,7 @@ class PaymentPage extends Component {
                 <div className="site-card-wrapper">
                   <Row gutter={16} >
                     <Col span={24}>
-                      <Card bordered={true} className="payment-page">
+                      <Card bordered={true} className="payment-page" title={`Remaining Balance: ${this.props.account.cash}`}>
                       <DollarCircleOutlined style={{ fontSize: '16px' }} /> <Button type="link" onClick={onClick}>E-Load</Button>
                       </Card>
                     </Col>
