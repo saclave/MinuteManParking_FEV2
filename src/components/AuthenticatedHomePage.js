@@ -31,8 +31,9 @@ class AuthenticatedHomePage extends Component {
                             <HomePageAboutUs />
                         </Content>
                     </Layout>
-                    <Link smooth to={{ pathname: '/reserve' }}>reserve</Link>
+                    <Link smooth to={{ pathname: '/viewMap' }}>Map</Link>
                     <Link smooth to={{ pathname: '/update' }}>update</Link>
+                    <Link smooth to={{ pathname: '/reserve' }}>Parking Lot</Link>
                 </Layout>
             </Layout>
         );

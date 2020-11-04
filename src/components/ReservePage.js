@@ -100,7 +100,7 @@ class ReservePage extends Component {
             <label name="reserveLabel" for="capacity">Capacity: </label>
             <input type="text" id="reserveValues" value={this.props.parkinglot.capacity} disabled /><br />
             <label for="availableSize">Available: </label>
-            <input type="text" id="reserveValues" value={this.props.parkinglot.availability} disabled /><br />
+            <input type="text" id="reserveValues" value={this.props.parkinglot.available} disabled /><br />
           </div>
           <br />
         </Modal>

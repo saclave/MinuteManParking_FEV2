@@ -50,11 +50,11 @@ class ViewTicket extends Component {
               visible={this.state.visible}
               onOk={this.handleOk}
               modalRender={modal => <Draggable disabled={this.state.disabled}>{modal}</Draggable>}
-              footer={[
-                <Button key="submit" type="primary" onClick={this.handleOk}>
-                  Ok
-                </Button>
-              ]}
+              // footer={[
+              //   <Button key="submit" type="primary" onClick={this.handleOk}>
+              //     Ok
+              //   </Button>
+              // ]}
             >
               <div className="reserve">
                 <h2>Parking: {this.props.parkinglot.name} </h2>

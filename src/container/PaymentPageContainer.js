@@ -1,11 +1,11 @@
 import {connect} from "react-redux";
 import PaymentPage from "../components/PaymentPage";
-import {updateParkinglot, updateUser, updateTicket} from "../actions";
+import {updateParkinglot, updateUser, addTicket} from "../actions";
 
 const mapDispatchToProps = (dispatch) =>({
     updateParkinglot: (parkinglot) => {dispatch(updateParkinglot(parkinglot))},
     updateUser: (account) => {dispatch(updateUser(account))},
-    updateTicket: (ticket) => {dispatch(updateTicket(ticket))}
+    addTicket: (ticket) => {dispatch(addTicket(ticket))}
 })
 
 const mapStateToProps = state =>({

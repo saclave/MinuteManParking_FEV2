@@ -50,15 +50,20 @@ class PaymentPage extends Component {
             alert("you paid!")
             
             const availability = this.props.parkinglot.availability - 1;
-            const load = this.props.account.load - this.props.parkinglot.price;
+            const cash = this.props.account.cash - this.props.parkinglot.price;
             var today = new Date(),
             time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds(),
             date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
             //const slot = this.props.ticket.slot;
             this.props.updateParkinglot({...this.props.parkinglot, availability});
-            this.props.updateUser({...this.props.account, load});
+            this.props.updateUser({...this.props.account, cash});
 
-            this.props.updateTicket({...this.props.ticket, date, time});
+
+
+            const slot = "1233";
+            const ticket = {slot: slot, date:date,time:time};
+
+            this.props.addTicket(ticket);
 
             console.log(this.props.parkinglot)
             this.setState({
@@ -82,10 +87,12 @@ class PaymentPage extends Component {
                             <List.Item>
                                 <List.Item.Meta
                                 avatar={<Avatar src={item.logo} />}
-                                title={<a href="" onClick={onClick}>{item.title}</a>}
+                                title={item.title}
                                 description={item.description}
                                 />
+                                <Button onClick={onClick}>Click me</Button>
                             </List.Item>
+                            
                             )}
                         />
                         </div>

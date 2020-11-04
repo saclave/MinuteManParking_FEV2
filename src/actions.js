@@ -16,15 +16,27 @@ export const addUser = accounts => {
 export const updateUser = account => {
     return { type: "UPDATE_ACCOUNT", payload: account }
 }
+
+export const addParkinglot = parkinglot => {
+    return { type: "ADD_PARKING_LOT", payload: parkinglot }
+}
+
 export const updateParkinglot = parkinglot => {
     return { type: "UPDATE_PARKING_LOT", payload: parkinglot }
 }
 export const getParkinglot = parkinglot => {
     return { type: "GET_PARKINGLOT", payload: parkinglot };
 }
-export const updateTicket = ticket => {
-    return { type: "UPDATE_TICKET", payload: ticket }
+export const addTicket = ticket => {
+    return { type: "ADD_TICKET", payload: ticket }
 }
 export const getTicket = ticket => {
     return { type: "GET_TICKET", payload: ticket };
+}
+export const addCar = cars => {
+    return { type: "ADD_CAR", payload: cars }
+}
+
+export const initParkinglots = parkinglots => {
+    return{ type: "INIT_PARKINGLOT", payload: parkinglots}
 }

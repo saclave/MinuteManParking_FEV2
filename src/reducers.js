@@ -9,23 +9,31 @@ const defaultAccounts = [
         lastName: 'Bacalla',
         age: '24',
         email: 'hello@hi.com',
-        load: '50'
+        cash: '50'
     }
 ]
 const defaultParkingLot = [
     {
+        id: '01111',
         name: 'moa parking',
         address: 'adasdasda',
         availability: '10',
         capacity: '20',
         price: '10',
-        
+        longitude: 120.9835,
+        latitude: 14.5371,
     }
 ]
 const defaultTicket = [{
     slot: 'S1234SDF',
     time: '',
     date: '',
+}
+]
+const defaultCar = [{
+    platenumber: 'WTP231',
+    brand: 'Honda',
+    color: 'Red',
 }
 ]
 const accounts = (state = defaultAccounts, action) => {
@@ -42,20 +50,32 @@ const accounts = (state = defaultAccounts, action) => {
 }
 const parkinglots = (state = defaultParkingLot, action) => {
     switch (action.type) {
+        case "ADD_PARKING_LOT":
+            return action.payload;
         case "UPDATE_PARKING_LOT":
-            return action.payload;
-        case "GET_PARKINGLOT":
-            return action.payload;
+            return [...state, action.payload];
+        case "INIT_PARKINGLOT":
+            return action.payload; 
+        // case "GET_PARKINGLOT":
+        //     return action.payload;
         default:
             return state;
     }
 }
 const tickets = (state = defaultTicket, action) => {
     switch (action.type) {
-        case "UPDATE_TICKET":
-            return action.payload;
+        case "ADD_TICKET":
+            return [...state, action.payload];
         case "GET_TICKET":
             return action.payload;
+        default:
+            return state;
+    }
+}
+const cars = (state = defaultCar, action) => {
+    switch (action.type) {
+        case "ADD_CAR":
+            return [...state, action.payload];
         default:
             return state;
     }
@@ -77,5 +97,6 @@ export default combineReducers({
     accounts,
     authentication,
     parkinglots,
-    tickets
+    tickets,
+    cars
 });
