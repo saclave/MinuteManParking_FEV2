@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { List, Avatar } from 'antd';
 import MPHeader from './MPHeader';
-import { Menu, Dropdown, Button, message } from 'antd';
+import { Menu, Dropdown, Button, message, Typography } from 'antd';
 import { DollarCircleOutlined } from '@ant-design/icons';
 import gcash from '../images/gcash.png'
 import cards from '../images/cards.png'
-import { Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom"; 
+import { Card, Col, Row } from 'antd';
+import HeaderlessPageContent from './HeaderlessPageContent';
 
-import { Layout } from 'antd';
+import { Layout } from 'antd'; 
+const { Title } = Typography;
 
 class PaymentPage extends Component {
     
@@ -72,33 +75,46 @@ class PaymentPage extends Component {
         }
         console.log(this.props.ticket)
         return (
-            <Layout>
-              
+            <HeaderlessPageContent>
                {this.renderRedirect()}
-                <div>
-                    <MPHeader />
-                    <h2>Payment Options</h2>
-                    <Layout>
-                        <div  className="payment-page">                      
-                        <List
-                            itemLayout="vertical"
-                            dataSource={data}
-                            renderItem={item => (
-                            <List.Item>
-                                <List.Item.Meta
-                                avatar={<Avatar src={item.logo} />}
-                                title={item.title}
-                                description={item.description}
-                                />
-                                <Button onClick={onClick}>Click me</Button>
-                            </List.Item>
-                            
-                            )}
-                        />
-                        </div>
-                    </Layout>
+               <Title>Payment</Title>
+                <div className="site-card-wrapper">
+                  <Row gutter={16} >
+                    <Col span={24}>
+                      <Card bordered={true} className="payment-page">
+                      <DollarCircleOutlined style={{ fontSize: '16px' }} /> <Button type="link" onClick={onClick}>E-Load</Button>
+                      </Card>
+                    </Col>
+                  </Row>
                 </div>
-            </Layout>
+          </HeaderlessPageContent>
+            // <Layout>
+              
+            //    {this.renderRedirect()}
+            //     <div>
+            //         <MPHeader />
+            //         <h2>Payment Options</h2>
+            //         <Layout>
+            //             <div  className="payment-page">                      
+            //             <List
+            //                 itemLayout="vertical"
+            //                 dataSource={data}
+            //                 renderItem={item => (
+            //                 <List.Item>
+            //                     <List.Item.Meta
+            //                     avatar={<Avatar src={item.logo} />}
+            //                     title={item.title}
+            //                     description={item.description}
+            //                     />
+            //                     <Button onClick={onClick}>Click me</Button>
+            //                 </List.Item>
+                            
+            //                 )}
+            //             />
+            //             </div>
+            //         </Layout>
+            //     </div>
+            // </Layout>
         );
     }
 }
