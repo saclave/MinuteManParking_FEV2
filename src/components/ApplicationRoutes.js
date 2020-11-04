@@ -22,7 +22,7 @@ class ApplicationRoutes extends Component {
                 <Route {...rest} render={props => (
                     (authenticated) ?
                         <Component {...props} />
-                        : <Redirect to="/" />
+                        : <Redirect to="/login" />
                 )} />
             );
         };
