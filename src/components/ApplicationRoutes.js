@@ -8,7 +8,7 @@ import LetsParkPage from './LetsParkPage';
 import LoginPageContainer from '../containers/LoginPageContainer';
 import CreatePageContainer from '../container/CreatePageContainer';
 import UpdateUserProfileContainer from '../container/UpdateUserProfileContainer';
-import ViewTransactionHistory from '../components/ViewTransactionHistory';
+import ViewTransactionHistory from './ViewTransactionHistory';
 import ViewTicketContainer from '../container/ViewTicketContainer';
 import ReservePageContainer from '../container/ReservePageContainer';
 import PaymentPageContainer from '../container/PaymentPageContainer';
