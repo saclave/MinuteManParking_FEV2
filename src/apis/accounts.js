@@ -25,6 +25,10 @@ const getParkingLots = () => {
     return api.get(`/lots`);
 }
 
+const getHazardZones = () => {
+    return api.get(`/hazards`);
+}
+
 export {
-    addUser, updateUser, getUserByUsernameAndPassword, getAll, getParkingLots, addCar
+    addUser, updateUser, getUserByUsernameAndPassword, getAll, getParkingLots, addCar, getHazardZones
 }

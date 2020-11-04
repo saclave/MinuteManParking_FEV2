@@ -45,3 +45,7 @@ export const addCar = cars => {
 export const initParkinglots = parkinglots => {
     return{ type: "INIT_PARKINGLOT", payload: parkinglots}
 }
+
+export const initHazards = hazards => {
+    return{ type: "INIT_HAZARD", payload: hazards}
+}
