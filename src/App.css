@@ -179,9 +179,9 @@ h5.ant-typography {
 
 .payment-page {
   margin: 0 auto;
-  width: 200px;
+  width: 250px;
   text-align: center;
-  padding-right: 50px;
+  background: rgba(255, 255, 255, 0.5);
 }
 
 #x-mark {
@@ -262,6 +262,61 @@ a {
   border-color: #4bc9ec;
 }
 
+.ant-btn:hover {
+  color: #29b7df;
+  border-color: #4bc9ec;
+}
+
 a:hover {
   color: #4bc9ec;
+}
+
+.profile-image {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.profile-image img {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.park-page-map-container {
+  min-height: 300px;
+  max-height: 880px;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+#div-map {
+  position: absolute;
+  left: 220px;
+}
+
+#geocoder-div {
+  position: absolute;
+  top: 60px;
+  left: 25px;
+}
+
+.react-geocoder {
+  /* background-color: #61dafb; */
+}
+
+.react-geocoder-results {
+  background-color: #ffcccc;
+}
+
+.react-geocoder-item {
+  width: 170px;
+  background-color: #61dafb;
+  border: 1px solid black;
+  cursor: context-menu;
 }

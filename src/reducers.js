@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { AUTHENTICATE } from './actions';
+import { AUTHENTICATE, LOGOUT, SELECTED_PARKINGLOT } from './actions';
 
 const defaultAccounts = [
     {
@@ -24,12 +24,17 @@ const defaultParkingLot = [
         latitude: 14.5371,
     }
 ]
-const defaultTicket = [{
-    slot: 'S1234SDF',
-    time: '',
-    date: '',
-}
+
+const defaultHazard = [
+    {
+        id: '01111',
+        type: 'TRAFFIC',
+        longitude: 120.9880,
+        latitude: 14.5329,
+        address: 'PASAY',
+    }
 ]
+
 const defaultCar = [{
     platenumber: 'WTP231',
     brand: 'Honda',
@@ -55,14 +60,24 @@ const parkinglots = (state = defaultParkingLot, action) => {
         case "UPDATE_PARKING_LOT":
             return [...state, action.payload];
         case "INIT_PARKINGLOT":
-            return action.payload; 
-        // case "GET_PARKINGLOT":
-        //     return action.payload;
+            return action.payload;
+        case "GET_PARKINGLOT_ID":
+            return action.payload;
         default:
             return state;
     }
 }
-const tickets = (state = defaultTicket, action) => {
+
+const hazards = (state = defaultHazard, action) => {
+    switch (action.type) {
+        case "INIT_HAZARD":
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
+const tickets = (state = [], action) => {
     switch (action.type) {
         case "ADD_TICKET":
             return [...state, action.payload];
@@ -72,7 +87,7 @@ const tickets = (state = defaultTicket, action) => {
             return state;
     }
 }
-const cars = (state = defaultCar, action) => {
+const cars = (state = [], action) => {
     switch (action.type) {
         case "ADD_CAR":
             return [...state, action.payload];
@@ -85,18 +100,38 @@ const defaultAuthentication = {
     authenticated: false,
     account: null
 }
+const defaultSelectedParking = {
+    selectedParking: false,
+    parkinglot: null
+}
+
 const authentication = (state = defaultAuthentication, action) => {
     switch (action.type) {
         case AUTHENTICATE:
             return { authenticated: true, account: action.payload };
+        case LOGOUT:
+            return { authenticated: false, account: null };
         default:
             return state;
     }
 }
+const selectedParkingLot = (state = defaultSelectedParking, action) => {
+    switch (action.type) {
+        case SELECTED_PARKINGLOT:
+            return { selectedParking: true, parkinglot: action.payload };
+        default:
+            return state;
+    }
+}
+
+
+
 export default combineReducers({
     accounts,
     authentication,
     parkinglots,
     tickets,
-    cars
+    cars,
+    selectedParkingLot,
+    hazards
 });

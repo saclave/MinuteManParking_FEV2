@@ -25,6 +25,36 @@ const getParkingLots = () => {
     return api.get(`/lots`);
 }
 
+const getParkingLotById = (id) => {
+    return api.get(`/lots/${id}`);
+}
+
+const getHazardZones = () => {
+    return api.get(`/hazards`);
+}
+
+const getTicketsByUserId = (id) => {
+    return api.get(`/users/${id}/ticketList`);
+}
+
+const addTicket = (ticket) => {
+    return api.post('/tickets', ticket);
+}
+
+const updateAvailability = (id, availability) => {
+    return api.put(`/slots/${id}`, { availability: !availability });
+}
+
 export {
-    addUser, updateUser, getUserByUsernameAndPassword, getAll, getParkingLots, addCar
+    addUser,
+    updateUser,
+    getUserByUsernameAndPassword,
+    getAll,
+    getParkingLots,
+    addCar,
+    getTicketsByUserId,
+    getParkingLotById,
+    getHazardZones,
+    addTicket,
+    updateAvailability,
 }

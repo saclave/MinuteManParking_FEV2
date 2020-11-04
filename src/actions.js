@@ -1,5 +1,7 @@
 export const GET_ACCOUNT_BY_USERNAME_AND_PASSWORD = "GET_ACCOUNT_BY_USERNAME_AND_PASSWORD";
 export const AUTHENTICATE = "AUTHENTICATE";
+export const LOGOUT = "LOGOUT";
+export const SELECTED_PARKINGLOT = "SELECTED_PARKINGLOT";
 
 export const getAccount = accounts => {
     return { type: "GET_ACCOUNT", payload: accounts };
@@ -7,6 +9,13 @@ export const getAccount = accounts => {
 
 export const authenticate = (account) => {
     return { type: AUTHENTICATE, payload: account }
+}
+
+export const logout = () => {
+    return { type: LOGOUT }
+}
+export const selectedParkingLot = (parkinglot) => {
+    return { type: SELECTED_PARKINGLOT, payload: parkinglot }
 }
 
 export const addUser = accounts => {
@@ -37,6 +46,14 @@ export const addCar = cars => {
     return { type: "ADD_CAR", payload: cars }
 }
 
+export const getParkingLotById = (id) => {
+    return{ type: "GET_PARKINGLOT_ID", payload: id}
+}
+
 export const initParkinglots = parkinglots => {
     return{ type: "INIT_PARKINGLOT", payload: parkinglots}
+}
+
+export const initHazards = hazards => {
+    return{ type: "INIT_HAZARD", payload: hazards}
 }
