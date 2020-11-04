@@ -287,3 +287,10 @@ a:hover {
   -webkit-user-select: none;
   -ms-user-select: none;
 }
+
+.park-page-map-container {
+  min-height: 300px;
+  max-height: 880px;
+  object-fit: cover;
+  overflow: hidden;
+}
