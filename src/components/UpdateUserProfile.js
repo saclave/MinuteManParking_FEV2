@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Input, Button, DatePicker, Select, Modal, Row, Col } from 'antd';
 import { updateUser, getAll, addCar } from '../apis/accounts';
+import { Form, Input, Button, DatePicker, Select, notification } from 'antd';
+import { updateUser } from '../apis/accounts';
 import HeaderlessPageComponent from '../components/HeaderlessPageContent'
 import Draggable from 'react-draggable';
 import { Redirect } from "react-router-dom";
@@ -54,10 +56,33 @@ class UpdateUserProfile extends Component {
         const onFinish = values => {
             const id = this.props.account.id;
             updateUser(id, {
-                firstName: values.firstName, lastName: values.lastName,
-                username: values.username, password: values.password, email: values.email, gender: values.gender, birthdate: values.birthday, cash: 500
-            }).then(() => {
-                this.props.updateUser(values);
+                firstName: values.firstName, 
+                lastName: values.lastName,
+                username: values.username, 
+                password: values.password, 
+                email: values.email, 
+                gender: values.gender, 
+                birthdate: values.birthday, 
+                cash: this.props.account.cash
+            }).then((response) => {
+                if(response.data.usernameExist){
+                    notification.open({
+                        message: 'Update Failed',
+                        description: 'Username already exist',
+                    });
+                }
+                if(response.data.emailExist){
+                    notification.open({
+                        message: 'Update Failed',
+                        description: 'Email already exist',
+                    });
+                }
+                if(response.data.emailExist === undefined && response.data.usernameExist === undefined){
+                    this.props.updateUser(values);
+                    notification.open({
+                        message: 'Update Successful',
+                    });
+                }
             });
         };
         const onCarFinish = values => {
