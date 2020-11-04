@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
 import {
-    Modal, Button, Table, Divider,
-    Row, Col, Image, Typography
+    Modal, Button, Table, Divider, Tooltip,
+    Row, Col, Image, Typography, Space
 } from 'antd';
 
-import { EditOutlined } from '@ant-design/icons';
+import { EditOutlined, DollarCircleOutlined } from '@ant-design/icons';
 
 const { Title } = Typography;
 
@@ -14,7 +14,7 @@ class ViewProfile extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { visible: false, redirect: false };
+        this.state = { visible: false, redirect: null };
     }
 
     showModal = () => {
@@ -38,12 +38,16 @@ class ViewProfile extends Component {
     };
 
     onEdit = () => {
-        this.setState({ redirect: true });
+        this.setState({ redirect: '/edit' });
+    }
+
+    onTopup = () => {
+        this.setState({ redirect: '/topup' });
     }
 
     renderRedirect = () => {
-        if (this.state.redirect) {
-            return <Redirect to='/edit' />
+        if (this.state.redirect !== null) {
+            return <Redirect to={this.state.redirect} />
         }
     }
 
@@ -86,8 +90,14 @@ class ViewProfile extends Component {
                             <Title level={4}>{`${this.props.account.firstName} ${this.props.account.lastName}`}</Title>
                             <p>{`${this.props.account.username} / ${this.props.account.email}`}</p>
                             <p>{`${this.props.account.age} years old`}</p>
-                            <Button icon={<EditOutlined />}
-                                onClick={this.onEdit}>Edit</Button>
+                            <Space size={4}>
+                                <Button icon={<EditOutlined />}
+                                    onClick={this.onEdit}>Edit</Button>
+                                <Tooltip placement="right" title="Click here to topup">
+                                    <Button icon={<DollarCircleOutlined />}
+                                        onClick={this.onTopup}>{` ${this.props.account.cash}`}</Button>
+                                </Tooltip>
+                            </Space>
                         </Col>
                         <Col span={24}>
                             <Divider orientation="left">Registered cars:</Divider>
