@@ -27,8 +27,8 @@ export const updateParkinglot = parkinglot => {
 export const getParkinglot = parkinglot => {
     return { type: "GET_PARKINGLOT", payload: parkinglot };
 }
-export const updateTicket = ticket => {
-    return { type: "UPDATE_TICKET", payload: ticket }
+export const addTicket = ticket => {
+    return { type: "ADD_TICKET", payload: ticket }
 }
 export const getTicket = ticket => {
     return { type: "GET_TICKET", payload: ticket };
