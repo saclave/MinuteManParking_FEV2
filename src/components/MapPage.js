@@ -3,8 +3,10 @@ import ReactMapGL, { Marker, Popup, GeolocateControl, NavigationControl } from "
 import * as parkDate from "../data/Manila-ParkingLot.json";
 import * as towingZone from "../data/Manila-Towing.json";
 import { getParkingLots, getParkingLotById } from '../apis/accounts';
+import { getParkingLots, getHazardZones } from '../apis/accounts';
+import Geocoder from "react-mapbox-gl-geocoder";
 
-class MapV4Page extends Component {
+class MapPage extends Component {
 
     constructor(props) {
         super(props);
@@ -21,7 +23,12 @@ class MapV4Page extends Component {
         getParkingLots().then(response => {
             console.log(response.data);
             this.props.initParkinglots(response.data)
-        })
+        });
+
+        getHazardZones().then(response => {
+            console.log(response.data);
+            this.props.initHazards(response.data)
+        });
     }
 
     addReserveParking = () => {
@@ -40,11 +47,43 @@ class MapV4Page extends Component {
         this.setState({ towingPark: null })
     }
 
+    onSelected = (viewport, item) => {
+        this.setState({
+            viewport
+        })
+    }
+
+
+    onSelectHazardType = (hazard) => {
+        const hazardType = hazard.type;
+        console.log(hazardType);
+        if(hazardType === "TRAFFIC" ) {
+            return "/traffic.png";
+        }
+        if(hazardType === "TOWAWAY" ) {
+            return "/tow-away.png";
+        }
+        if(hazardType === "STOP" ) {
+            return "/stop.png";
+        }
+        if(hazardType === "ROUNDABOUT" ) {
+            return "/roundabout.png";
+        }
+        if(hazardType === "PARKING" ) {
+            return "/public-parking.png";
+        }
+    }
+
     render() {
         const { viewport } = this.state;
-        // console.log("OOOOOOOOOOOOOOOOOOOOOOOOOO", this.props);
-        // const parkingLotList = this.props.parkinglot
+        console.log("OOOOOOOOOOOOOOOOOOOOOOOOOO", this.state);
+        const params = {
+            country: "ph"
+        }
+
         return (
+            <div>
+            <div id="div-map">
             <ReactMapGL {...viewport}
                 mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
                 width="100vw"
@@ -73,27 +112,28 @@ class MapV4Page extends Component {
                     </Marker>
                 ))}
 
-                {towingZone.features.map(towing => (
+                {this.props.hazards.map(hazard => (
                     <Marker
-                        key={towing.properties.PARK_ID}
-                        latitude={towing.geometry.coordinates[1]}
-                        longitude={towing.geometry.coordinates[0]}
+                        key={hazard.id}
+                        latitude={hazard.latitude}
+                        longitude={hazard.longitude}
                     >
                         <button
                             id="red-btn"
                             className="marker-btn"
                             onClick={e => {
                                 e.preventDefault();
-                                this.setState({ towingPark: towing })
+                                this.setState({ towingPark: hazard })
                             }}>
-                            <img id="x-mark" src="/x-mark.svg" alt="Towing Icon" />
+
+                            <img id="x-mark" src={this.onSelectHazardType(hazard)} alt="Towing Icon" />
                         </button>
                     </Marker>
                 ))}
 
                 {this.state.towingPark ? (
-                    <Popup latitude={this.state.towingPark.geometry.coordinates[1]}
-                        longitude={this.state.towingPark.geometry.coordinates[0]}
+                    <Popup latitude={this.state.towingPark.latitude}
+                        longitude={this.state.towingPark.longitude}
                         // onClose={() => {
                         //     // setTowingPark(null);
                         //     // setSelectedPark(null);
@@ -102,8 +142,8 @@ class MapV4Page extends Component {
                         closeButton={false}
                     >
                         <div className="towing-pop">
-                            <h2>{this.state.towingPark.properties.NAME}</h2>
-                            <p>{this.state.towingPark.properties.ADDRESS}</p>
+                            <h2>{this.state.towingPark.type}</h2>
+                            <p>{this.state.towingPark.address}</p>
                             <button id="red-btn" onClick={this.onCloseParking}>Close</button>
                         </div>
                     </Popup>
@@ -135,8 +175,25 @@ class MapV4Page extends Component {
                     />
                 </div>
             </ReactMapGL>
+            </div>
+
+                <div id="geocoder-div">
+                    <Geocoder
+                        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+                        onSelected={this.onSelected}
+                        viewport={viewport}
+                        updateInputOnSelect={true}
+                        hideOnSelect={true}
+                        initialInputValue="Enter Location..."
+                        value=""
+                        queryParams={params}
+                        position="top-left"
+                        limit={8}
+                    />
+                </div>
+            </div>
         );
     }
 }
 
-export default MapV4Page;
+export default MapPage;

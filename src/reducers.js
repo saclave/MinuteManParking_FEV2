@@ -26,6 +26,15 @@ const defaultParkingLot = [
     }
 ]
 
+const defaultHazard = [
+    {
+        id: '01111',
+        type: 'TRAFFIC',
+        longitude: 120.9880,
+        latitude: 14.5329,
+        address: 'PASAY',
+    }
+]
 
 const defaultCar = [{
     platenumber: 'WTP231',
@@ -52,7 +61,7 @@ const parkinglots = (state = defaultParkingLot, action) => {
         case "UPDATE_PARKING_LOT":
             return [...state, action.payload];
         case "INIT_PARKINGLOT":
-            return action.payload; 
+            return action.payload;
         case "GET_PARKINGLOT_ID":
             return action.payload;
         default:
@@ -60,6 +69,16 @@ const parkinglots = (state = defaultParkingLot, action) => {
     }
 }
 const tickets = (state = [], action) => {
+const hazards = (state = defaultHazard, action) => {
+    switch (action.type) {
+        case "INIT_HAZARD":
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
+const tickets = (state = defaultTicket, action) => {
     switch (action.type) {
         case "ADD_TICKET":
             return [...state, action.payload];
@@ -115,4 +134,5 @@ export default combineReducers({
     tickets,
     cars,
     selectedParkingLot
+    hazards
 });

@@ -294,3 +294,29 @@ a:hover {
   object-fit: cover;
   overflow: hidden;
 }
+
+#div-map {
+  position: absolute;
+  left: 220px; 
+}
+
+#geocoder-div{
+  position: absolute;
+  top: 60px;
+  left: 25px; 
+}
+
+.react-geocoder{
+  /* background-color: #61dafb; */
+}
+
+.react-geocoder-results{
+  background-color: #ffcccc;
+}
+
+.react-geocoder-item {
+  width: 170px;
+  background-color: #61dafb;
+  border: 1px solid black;
+  cursor: context-menu;
+}
