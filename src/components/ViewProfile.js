@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
 import {
-    Modal, Button, Table,
-    Divider, Row, Col, Image
+    Modal, Button, Table, Divider,
+    Row, Col, Image, Typography
 } from 'antd';
 
 import { EditOutlined } from '@ant-design/icons';
+
+const { Title } = Typography;
 
 class ViewProfile extends Component {
     constructor(props) {
@@ -81,10 +83,9 @@ class ViewProfile extends Component {
                             </div>
                         </Col>
                         <Col span={12}>
-                            <p>{this.props.account.username}</p>
-                            <p>{`${this.props.account.firstName} ${this.props.account.lastName}`}</p>
-                            <p>{`${this.props.account.age} yrs old`}</p>
-                            <p>{this.props.account.email}</p>
+                            <Title level={4}>{`${this.props.account.firstName} ${this.props.account.lastName}`}</Title>
+                            <p>{`${this.props.account.username} / ${this.props.account.email}`}</p>
+                            <p>{`${this.props.account.age} years old`}</p>
                             <Button icon={<EditOutlined />}
                                 onClick={this.onEdit}>Edit</Button>
                         </Col>
