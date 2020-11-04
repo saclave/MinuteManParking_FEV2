@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import { AUTHENTICATE, LOGOUT } from './actions';
+import { AUTHENTICATE, SELECTED_PARKINGLOT } from './actions';
 
 const defaultAccounts = [
     {
@@ -24,12 +25,8 @@ const defaultParkingLot = [
         latitude: 14.5371,
     }
 ]
-const defaultTicket = [{
-    slot: 'S1234SDF',
-    time: '',
-    date: '',
-}
-]
+
+
 const defaultCar = [{
     platenumber: 'WTP231',
     brand: 'Honda',
@@ -56,13 +53,13 @@ const parkinglots = (state = defaultParkingLot, action) => {
             return [...state, action.payload];
         case "INIT_PARKINGLOT":
             return action.payload; 
-        // case "GET_PARKINGLOT":
-        //     return action.payload;
+        case "GET_PARKINGLOT_ID":
+            return action.payload;
         default:
             return state;
     }
 }
-const tickets = (state = defaultTicket, action) => {
+const tickets = (state = [], action) => {
     switch (action.type) {
         case "ADD_TICKET":
             return [...state, action.payload];
@@ -72,7 +69,7 @@ const tickets = (state = defaultTicket, action) => {
             return state;
     }
 }
-const cars = (state = defaultCar, action) => {
+const cars = (state = [], action) => {
     switch (action.type) {
         case "ADD_CAR":
             return [...state, action.payload];
@@ -85,6 +82,11 @@ const defaultAuthentication = {
     authenticated: false,
     account: null
 }
+const defaultSelectedParking = {
+    selectedParking: false,
+    parkinglot: null
+}
+
 const authentication = (state = defaultAuthentication, action) => {
     switch (action.type) {
         case AUTHENTICATE:
@@ -95,10 +97,22 @@ const authentication = (state = defaultAuthentication, action) => {
             return state;
     }
 }
+const selectedParkingLot = (state = defaultSelectedParking, action) => {
+    switch (action.type) {
+        case SELECTED_PARKINGLOT:
+            return { selectedParking: true, parkinglot: action.payload };
+        default:
+            return state;
+    }
+}
+
+
+
 export default combineReducers({
     accounts,
     authentication,
     parkinglots,
     tickets,
-    cars
+    cars,
+    selectedParkingLot
 });
