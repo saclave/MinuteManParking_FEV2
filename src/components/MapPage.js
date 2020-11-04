@@ -25,8 +25,8 @@ class MapV4Page extends Component {
     }
 
     addReserveParking = () => {
-        console.log("qweqwe");
-        // this.props.history.push('/reserve');
+        // console.log("qweqwe");
+        this.props.history.push('/reserve');
     }
 
     onCloseParking = () => {

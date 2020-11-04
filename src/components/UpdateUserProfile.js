@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Form, Input, Button, DatePicker, Select, Modal, Row, Col } from 'antd';
+import { Form, Input, Button, DatePicker, Select, Modal, Row, Col, notification } from 'antd';
 import { updateUser, getAll, addCar } from '../apis/accounts';
-import { Form, Input, Button, DatePicker, Select, notification } from 'antd';
-import { updateUser } from '../apis/accounts';
 import HeaderlessPageComponent from '../components/HeaderlessPageContent'
 import Draggable from 'react-draggable';
 import { Redirect } from "react-router-dom";

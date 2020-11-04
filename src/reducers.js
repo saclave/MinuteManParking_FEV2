@@ -9,7 +9,7 @@ const defaultAccounts = [
         lastName: 'Bacalla',
         age: '24',
         email: 'hello@hi.com',
-        load: '50'
+        cash: '50'
     }
 ]
 const defaultParkingLot = [
