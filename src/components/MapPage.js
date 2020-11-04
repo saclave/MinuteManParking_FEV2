@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactMapGL, { Marker, Popup, GeolocateControl, NavigationControl } from "react-map-gl";
 import * as parkDate from "../data/Manila-ParkingLot.json";
 import * as towingZone from "../data/Manila-Towing.json";
-import { getParkingLots } from '../apis/accounts';
+import { getParkingLots, getParkingLotById } from '../apis/accounts';
 
 class MapV4Page extends Component {
 
@@ -26,6 +26,9 @@ class MapV4Page extends Component {
 
     addReserveParking = () => {
         // console.log("qweqwe");
+        // get parking lot by id
+        // getParkingLotById(this.state.selectedPark.id).the
+        console.log(this.state.selectedPark.id)
         this.props.history.push('/reserve');
     }
 
@@ -59,6 +62,7 @@ class MapV4Page extends Component {
                                 // this.setState( {setSelectedPark: park} )
                                 // this.setState( {setTowingPark: null} )
                                 this.setState({ selectedPark: parkinglot })
+
                             }}
                         >
                             <img id="car-logo" src="/car-front.svg" alt="Parking Lot Icon" />

@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
-import { initParkinglots } from '../actions';
+import { initParkinglots, getParkingLotById } from '../actions';
 import MapPage from '../components/MapPage';
-import { getParkingLots } from '../apis/accounts';
+
 
 
 const mapDispatchToProps = (dispatch) =>({
     initParkinglots: (parkinglots) => {dispatch(initParkinglots(parkinglots))},
+    getParkingLotById: (id) => {dispatch(getParkingLotById(id))}
 })
 
 const mapStateToProps = state =>({

@@ -37,6 +37,10 @@ export const addCar = cars => {
     return { type: "ADD_CAR", payload: cars }
 }
 
+export const getParkingLotById = (id) => {
+    return{ type: "GET_PARKINGLOT_ID", payload: id}
+}
+
 export const initParkinglots = parkinglots => {
     return{ type: "INIT_PARKINGLOT", payload: parkinglots}
 }

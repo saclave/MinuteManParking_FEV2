@@ -56,8 +56,8 @@ const parkinglots = (state = defaultParkingLot, action) => {
             return [...state, action.payload];
         case "INIT_PARKINGLOT":
             return action.payload; 
-        // case "GET_PARKINGLOT":
-        //     return action.payload;
+        case "GET_PARKINGLOT_ID":
+            return action.payload;
         default:
             return state;
     }
@@ -93,6 +93,8 @@ const authentication = (state = defaultAuthentication, action) => {
             return state;
     }
 }
+
+
 export default combineReducers({
     accounts,
     authentication,
