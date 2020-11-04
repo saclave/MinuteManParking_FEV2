@@ -25,6 +25,16 @@ const getParkingLots = () => {
     return api.get(`/lots`);
 }
 
+const getTicketsByUserId = (id) => {
+    return api.get(`/users/${id}/ticketList`);
+}
+
 export {
-    addUser, updateUser, getUserByUsernameAndPassword, getAll, getParkingLots, addCar
+    addUser,
+    updateUser,
+    getUserByUsernameAndPassword,
+    getAll,
+    getParkingLots,
+    addCar,
+    getTicketsByUserId
 }
