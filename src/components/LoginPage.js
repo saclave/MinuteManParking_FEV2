@@ -32,7 +32,7 @@ class LoginPage extends Component {
                 description: `Hi ${response.data.firstName}! Where are we gonna park your car today?`,
             });
 
-            this.props.history.push('/');
+            this.props.history.push('/park');
         });
     };
 

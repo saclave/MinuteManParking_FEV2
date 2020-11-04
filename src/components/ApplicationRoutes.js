@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
 import HomePage from '../components/HomePage';
-import AuthenticatedHomePage from '../components/AuthenticatedHomePage';
+import LetsParkPage from './LetsParkPage';
 
 import LoginPageContainer from '../containers/LoginPageContainer';
 import CreatePageContainer from '../container/CreatePageContainer';
 import UpdateUserProfileContainer from '../container/UpdateUserProfileContainer';
-import ViewPageContainer from '../container/ViewPageContainer';
+import ViewProfileContainer from '../containers/ViewPageContainer';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import ViewTransactionHistory from '../components/ViewTransactionHistory';
 import ViewTicketContainer from '../container/ViewTicketContainer';
@@ -25,7 +25,7 @@ class ApplicationRoutes extends Component {
                 <Route {...rest} render={props => (
                     (authenticated) ?
                         <Component {...props} />
-                        : <Redirect to="/" />
+                        : <Redirect to="/login" />
                 )} />
             );
         };
@@ -41,9 +41,11 @@ class ApplicationRoutes extends Component {
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route exact path="/" component={(authenticated) ? AuthenticatedHomePage : HomePage} />
+                    <Route exact path="/" component={HomePage} />
                     <ProtectedRoute path="/login" component={LoginPageContainer} />
                     <ProtectedRoute path="/register" component={CreatePageContainer} />
+                    <PrivateRoute path="/park" component={LetsParkPage} />
+                    <PrivateRoute path="/edit" component={UpdateUserProfileContainer} />
                     <PrivateRoute path="/update" component={UpdateUserProfileContainer} />
                     <PrivateRoute path="/view" component={ViewPageContainer} />
                     <PrivateRoute path="/viewMap" component={MapPageContainer} />

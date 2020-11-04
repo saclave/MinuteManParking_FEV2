@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { AUTHENTICATE } from './actions';
+import { AUTHENTICATE, LOGOUT } from './actions';
 
 const defaultAccounts = [
     {
@@ -89,6 +89,8 @@ const authentication = (state = defaultAuthentication, action) => {
     switch (action.type) {
         case AUTHENTICATE:
             return { authenticated: true, account: action.payload };
+        case LOGOUT:
+            return { authenticated: false, account: null };
         default:
             return state;
     }
