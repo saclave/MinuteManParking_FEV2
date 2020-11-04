@@ -36,3 +36,7 @@ export const getTicket = ticket => {
 export const addCar = cars => {
     return { type: "ADD_CAR", payload: cars }
 }
+
+export const initParkinglots = parkinglots => {
+    return{ type: "INIT_PARKINGLOT", payload: parkinglots}
+}

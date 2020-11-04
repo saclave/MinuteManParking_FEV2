@@ -14,12 +14,14 @@ const defaultAccounts = [
 ]
 const defaultParkingLot = [
     {
+        id: '01111',
         name: 'moa parking',
         address: 'adasdasda',
         availability: '10',
         capacity: '20',
         price: '10',
-        
+        longitude: 120.9835,
+        latitude: 14.5371,
     }
 ]
 const defaultTicket = [{
@@ -52,8 +54,10 @@ const parkinglots = (state = defaultParkingLot, action) => {
             return action.payload;
         case "UPDATE_PARKING_LOT":
             return [...state, action.payload];
-        case "GET_PARKINGLOT":
-            return action.payload;
+        case "INIT_PARKINGLOT":
+            return action.payload; 
+        // case "GET_PARKINGLOT":
+        //     return action.payload;
         default:
             return state;
     }

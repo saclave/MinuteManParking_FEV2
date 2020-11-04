@@ -19,8 +19,11 @@ const getAll = () => {
 
 const addCar = (car) => {
     return api.post("/cars", car)
+const getParkingLots = () => {
+    return api.get(`/lots`);
 }
 
 export {
+    addUser, updateUser, getUserByUsernameAndPassword, getAll, getParkingLots
     addUser, updateUser, getUserByUsernameAndPassword, getAll, addCar
 }

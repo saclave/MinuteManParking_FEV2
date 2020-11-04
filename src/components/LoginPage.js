@@ -14,7 +14,7 @@ class LoginPage extends Component {
 
     onFinish = values => {
         getUserByUsernameAndPassword(values.username, values.password).then(response => {
-            console.log(response);
+            // console.log(response);
             if (response.data === "") {
                 this.formRef.current.resetFields();
                 notification.open({
