@@ -10,8 +10,6 @@ import {
     Select, Typography, notification
 } from 'antd';
 
-import { v4 as uuidv4 } from 'uuid';
-
 import { UserOutlined, LockOutlined, MailOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
@@ -24,25 +22,41 @@ class CreatePage extends Component {
     }
 
     onFinish = values => {
-        const id = uuidv4();
             const account = {
-                firstName: values.firstName, lastName: values.lastName,
-                username: values.username, password: values.password, email: values.email, gender: values.gender, birthdate: values.birthday, cash: 100
+                firstName: values.firstName, 
+                lastName: values.lastName,
+                username: values.username, 
+                password: values.password, 
+                email: values.email, 
+                gender: values.gender, 
+                birthdate: values.birthday, 
+                cash: 100
             };
 
-            addUser(account).then(() => {
-                this.props.addUser(account);
+            addUser(account).then((response) => {
+                if(response.data.usernameExist){
+                    notification.open({
+                        message: 'Registration Failed',
+                        description: 'Username already exist',
+                    });
+                }
+                if(response.data.emailExist){
+                    notification.open({
+                        message: 'Registration Failed',
+                        description: 'Email already exist',
+                    });
+                }
+                if(response.data.emailExist === undefined && response.data.usernameExist === undefined){
+                    this.props.addUser(account);
+                    notification.open({
+                        message: 'Registration Successful',
+                        description: 'Please login to your account',
+                    });
+            
+                    this.setState({ redirect: "/" });
+                    console.log("nag redirect");
+                }
             });
-        console.log(id);
-        console.log(values);
-
-        notification.open({
-            message: 'Registration Successful',
-            description: 'Please login to your account',
-        });
-
-        this.setState({ redirect: "/" });
-        console.log("nag redirect");
     };
 
     render() {
