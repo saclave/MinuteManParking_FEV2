@@ -61,6 +61,7 @@ class MPHeader extends Component {
                                         <Menu.Item key="7" icon={<HistoryOutlined />}>
                                             <a>Transaction History</a>
                                         </Menu.Item>
+                                        <Menu.Divider />
                                         <Menu.Item key="6" icon={<LogoutOutlined />}>
                                             <a onClick={this.onLogout}>Logout</a>
                                         </Menu.Item>
