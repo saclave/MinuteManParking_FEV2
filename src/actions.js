@@ -33,3 +33,7 @@ export const updateTicket = ticket => {
 export const getTicket = ticket => {
     return { type: "GET_TICKET", payload: ticket };
 }
+
+export const initParkinglots = parkinglots => {
+    return{ type: "INIT_PARKINGLOT", payload: parkinglots}
+}

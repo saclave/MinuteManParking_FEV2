@@ -14,12 +14,14 @@ const defaultAccounts = [
 ]
 const defaultParkingLot = [
     {
+        id: '01111',
         name: 'moa parking',
         address: 'adasdasda',
         availability: '10',
         capacity: '20',
         price: '10',
-        
+        longitude: 120.9835,
+        latitude: 14.5371,
     }
 ]
 const defaultTicket = [{
@@ -32,7 +34,7 @@ const accounts = (state = defaultAccounts, action) => {
     switch (action.type) {
         case "ADD_ACCOUNT":
             return [...state, action.payload];
-        case "UPDATE_ACCOUNT":
+        case "UPDATE_ACCOUNT": // x
             return action.payload;
         case "GET_ACCOUNT":
             return action.payload;
@@ -40,14 +42,18 @@ const accounts = (state = defaultAccounts, action) => {
             return state;
     }
 }
+
+// create new reducer from returning list and returning one object
 const parkinglots = (state = defaultParkingLot, action) => {
     switch (action.type) {
         case "ADD_PARKING_LOT":
             return action.payload;
-        case "UPDATE_PARKING_LOT":
-            return action.payload;
-        case "GET_PARKINGLOT":
-            return action.payload;
+        case "UPDATE_PARKING_LOT": // x
+            return action.payload; 
+        case "INIT_PARKINGLOT":
+            return action.payload; 
+        // case "GET_PARKINGLOT":
+        //     return action.payload;
         default:
             return state;
     }
@@ -56,8 +62,8 @@ const tickets = (state = defaultTicket, action) => {
     switch (action.type) {
         case "UPDATE_TICKET":
             return action.payload;
-        case "GET_TICKET":
-            return action.payload;
+        // case "GET_TICKET":
+        //     return action.payload;
         default:
             return state;
     }

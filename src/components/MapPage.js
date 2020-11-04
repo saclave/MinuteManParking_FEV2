@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import ReactMapGL, { Marker, Popup, GeolocateControl } from "react-map-gl";
+import ReactMapGL, { Marker, Popup, GeolocateControl, NavigationControl } from "react-map-gl";
 import * as parkDate from "../data/Manila-ParkingLot.json";
 import * as towingZone from "../data/Manila-Towing.json";
+import { getParkingLots } from '../apis/accounts';
 
 class MapV4Page extends Component {
 
@@ -16,19 +17,27 @@ class MapV4Page extends Component {
         }
     }
 
+    componentDidMount(){
+        getParkingLots().then(response => {
+            console.log(response.data);
+            this.props.initParkinglots(response.data)
+        })
+    }
+
     addReserveParking = () => {
         console.log("qweqwe");
         // this.props.history.push('/reserve');
     }
 
     onCloseParking = () => {
-        this.setState({selectedPark: null})
-        this.setState({towingPark: null})
+        this.setState({ selectedPark: null })
+        this.setState({ towingPark: null })
     }
 
     render() {
-        const {viewport}  = this.state;
-        // const parkingLot = [{selectedPark}];
+        const { viewport } = this.state;
+        // console.log("OOOOOOOOOOOOOOOOOOOOOOOOOO", this.props);
+        // const parkingLotList = this.props.parkinglot
         return (
             <ReactMapGL {...viewport}
                 mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
@@ -37,10 +46,10 @@ class MapV4Page extends Component {
                 mapStyle="mapbox://styles/charlieborbz18/ckh0kaipu07ks19obt4p8jtff"
                 onViewportChange={viewport => this.setState({ viewport })}>
 
-                {parkDate.features.map(park => (
-                    <Marker key={park.properties.PARK_ID}
-                        latitude={park.geometry.coordinates[1]}
-                        longitude={park.geometry.coordinates[0]}
+                {this.props.parkinglots.map(parkinglot => (
+                    <Marker key={parkinglot.id}
+                        latitude={parkinglot.latitude}
+                        longitude={parkinglot.longitude}
                     >
                         <button
                             id="blue-btn"
@@ -49,11 +58,9 @@ class MapV4Page extends Component {
                                 e.preventDefault();
                                 // this.setState( {setSelectedPark: park} )
                                 // this.setState( {setTowingPark: null} )
-                                this.setState( {selectedPark: park} )
-                                
+                                this.setState({ selectedPark: parkinglot })
                             }}
                         >
-                            
                             <img id="car-logo" src="/car-front.svg" alt="Parking Lot Icon" />
                         </button>
                     </Marker>
@@ -70,7 +77,7 @@ class MapV4Page extends Component {
                             className="marker-btn"
                             onClick={e => {
                                 e.preventDefault();
-                                this.setState( {towingPark: towing} )
+                                this.setState({ towingPark: towing })
                             }}>
                             <img id="x-mark" src="/x-mark.svg" alt="Towing Icon" />
                         </button>
@@ -97,28 +104,29 @@ class MapV4Page extends Component {
 
                 {this.state.selectedPark ? (
                     <Popup
-                        latitude={this.state.selectedPark.geometry.coordinates[1]}
-                        longitude={this.state.selectedPark.geometry.coordinates[0]}
+                        latitude={this.state.selectedPark.latitude}
+                        longitude={this.state.selectedPark.longitude}
                         // onClose={() => {
                         //     // setSelectedPark(null);
                         //     // this.setState({selectedPark: null} )
                         //     // setTowingPark(null);
                         // }}
-                        // onClose={this.onCloseParking}
                         closeButton={false}
                     >
-                        <h2>{this.state.selectedPark.properties.NAME}</h2>
-                        <p>{this.state.selectedPark.properties.ADDRESS}</p>
+                        <h2>{this.state.selectedPark.name}</h2>
+                        <p>{this.state.selectedPark.address}</p>
                         <button id="blue-btn" onClick={this.addReserveParking}>Reserve</button>
                         <button id="red-btn" onClick={this.onCloseParking}>Close</button>
                     </Popup>
                 ) : null}
 
-
-                <GeolocateControl
-                    positionOptions={{ enableHighAccuracy: true }}
-                    trackUserLocation={true}
-                />
+                <div style={{ position: 'absolute', right: 0 }}>
+                    <NavigationControl />
+                    <GeolocateControl
+                        positionOptions={{ enableHighAccuracy: true }}
+                        trackUserLocation={true}
+                    />
+                </div>
             </ReactMapGL>
         );
     }

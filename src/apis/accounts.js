@@ -17,6 +17,10 @@ const getAll = () => {
     return api.get(`/users`);
 }
 
+const getParkingLots = () => {
+    return api.get(`/lots`);
+}
+
 export {
-    addUser, updateUser, getUserByUsernameAndPassword, getAll
+    addUser, updateUser, getUserByUsernameAndPassword, getAll, getParkingLots
 }
