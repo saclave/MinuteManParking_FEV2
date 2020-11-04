@@ -42,7 +42,7 @@ class ApplicationRoutes extends Component {
                     <ProtectedRoute path="/login" component={LoginPageContainer} />
                     <ProtectedRoute path="/register" component={CreatePageContainer} />
                     <PrivateRoute path="/park" component={LetsParkPage} />
-                    <PrivateRoute path="/update" component={UpdateUserProfileContainer} />
+                    <PrivateRoute path="/edit" component={UpdateUserProfileContainer} />
                     <PrivateRoute path="/view" component={ViewPageContainer} />
                     <PrivateRoute path="/viewMap" component={MapPage} />
                     <PrivateRoute path="/ticket" component={ViewTicketContainer} />

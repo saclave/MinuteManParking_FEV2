@@ -1,34 +1,101 @@
 import React, { Component } from 'react';
-import { Card } from 'antd';
-import { EditOutlined, SettingOutlined } from '@ant-design/icons';
-// import QRCode from 'qrcode.react';
+import { Link, Redirect } from 'react-router-dom';
+
+import {
+    Modal, Button, Table,
+    Divider, Row, Col, Image
+} from 'antd';
+
+import { EditOutlined } from '@ant-design/icons';
 
 class ViewPage extends Component {
     constructor(props) {
         super(props);
-    }
-    render() {
-        const { Meta } = Card;
-        return (
-            <div>
 
-                <Card
-                    className="viewCard"
-                    style={{ width: 250 }}
-                    //   cover={
-                    //     <QRCode value={this.state.ticket} size='1000'/>
-                    //   }
-                    actions={[
-                        //<SettingOutlined key="setting" style={{color: "blue"}}/>,
-                        <EditOutlined key="edit" style={{ color: "blue" }} />,
-                    ]}
+        this.state = { visible: false, redirect: false };
+    }
+
+    showModal = () => {
+        this.setState({
+            visible: true,
+        });
+    };
+
+    handleOk = e => {
+        console.log(e);
+        this.setState({
+            visible: false,
+        });
+    };
+
+    handleCancel = e => {
+        console.log(e);
+        this.setState({
+            visible: false,
+        });
+    };
+
+    onEdit = () => {
+        this.setState({ redirect: true });
+    }
+
+    renderRedirect = () => {
+        if (this.state.redirect) {
+            return <Redirect to='/edit' />
+        }
+    }
+
+    render() {
+        const columns = [
+            { title: 'Plate No.', dataIndex: 'plateNumber' },
+            { title: 'Brand', dataIndex: 'brand' },
+            { title: 'Color', dataIndex: 'color' },
+        ];
+
+        const data = [];
+        this.props.account.carList.map((car, i) => {
+            data.push({
+                key: i,
+                plateNumber: car.plateNumber,
+                brand: car.brand,
+                color: car.color,
+            })
+        })
+
+        return (
+            <>
+                {this.renderRedirect()}
+                <Link onClick={this.showModal}>
+                    Profile
+                </Link>
+                <Modal
+                    title="Profile"
+                    visible={this.state.visible}
+                    onCancel={this.handleCancel}
+                    footer={<Button key="back" onClick={this.handleCancel}>Close</Button>}
                 >
-                    <Meta title={this.props.account.firstName + " " + this.props.account.lastName}
-                        description={this.props.account.age + " yrs old"} />
-                    <Meta description={this.props.account.email} />
-                    <Meta description={this.props.account.birthday} />
-                </Card>
-            </div>
+                    <Row align="middle">
+                        <Col span={12}>
+                            <div className="profile-image">
+                                <Image src={this.props.account.imgSrc} />
+                            </div>
+                        </Col>
+                        <Col span={12}>
+                            <p>{this.props.account.username}</p>
+                            <p>{`${this.props.account.firstName} ${this.props.account.lastName}`}</p>
+                            <p>{`${this.props.account.age} yrs old`}</p>
+                            <p>{this.props.account.email}</p>
+                            <Button icon={<EditOutlined />}
+                                onClick={this.onEdit}>Edit</Button>
+                        </Col>
+                        <Col span={24}>
+                            <Divider orientation="left">Registered cars:</Divider>
+                            <Table columns={columns} dataSource={data}
+                                pagination={false} scroll={{ y: 240 }} />
+                        </Col>
+                    </Row>
+                </Modal>
+            </>
         );
     }
 }

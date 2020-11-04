@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import ViewPageContainer from '../container/ViewPageContainer';
+
 import { Col, Row, Layout, Menu } from 'antd';
 import {
     QuestionCircleOutlined, AndroidOutlined, OrderedListOutlined,
@@ -56,6 +58,9 @@ class MPHeader extends Component {
                                         <Menu.Item key="5" icon={<LogoutOutlined />}>
                                             <a onClick={this.onLogout}>Logout</a>
                                         </Menu.Item>
+                                        <Menu.Item key="6" icon={<UserOutlined />}>
+                                            <ViewPageContainer />
+                                        </Menu.Item>
                                     </SubMenu>
                                     :
                                     <SubMenu key="sub1" icon={<UserOutlined />} title="User">
@@ -67,7 +72,6 @@ class MPHeader extends Component {
                                         </Menu.Item>
                                     </SubMenu>
                             }
-
                         </Menu>
                     </Col>
                 </Row>
