@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import { Col, Row, Layout, Menu } from 'antd';
 import {
     QuestionCircleOutlined, AndroidOutlined, OrderedListOutlined,
-    LoginOutlined, UserAddOutlined, UserOutlined, AreaChartOutlined
+    LoginOutlined, UserAddOutlined, UserOutlined, AreaChartOutlined,
+    LogoutOutlined
 } from '@ant-design/icons';
 
 import { Link } from 'react-router-dom';
@@ -13,6 +14,10 @@ const { Header } = Layout;
 const { SubMenu } = Menu;
 
 class MPHeader extends Component {
+    onLogout = () => {
+        this.props.logout();
+    }
+
     render() {
         return (
             <Header className="mp-header">
@@ -44,14 +49,25 @@ class MPHeader extends Component {
                             mode="horizontal"
                             className="header-menu header-menu-right"
                         >
-                            <SubMenu key="sub1" icon={<UserOutlined />} title="User">
-                                <Menu.Item key="5" icon={<LoginOutlined />}>
-                                    <Link to={{ pathname: '/login' }}>Login</Link>
-                                </Menu.Item>
-                                <Menu.Item key="6" icon={<UserAddOutlined />}>
-                                    <Link to={{ pathname: '/register' }}>Register</Link>
-                                </Menu.Item>
-                            </SubMenu>
+                            {
+                                this.props.authenticated
+                                    ?
+                                    <SubMenu key="sub2" icon={<UserOutlined />} title={this.props.account.firstName}>
+                                        <Menu.Item key="5" icon={<LogoutOutlined />}>
+                                            <a onClick={this.onLogout}>Logout</a>
+                                        </Menu.Item>
+                                    </SubMenu>
+                                    :
+                                    <SubMenu key="sub1" icon={<UserOutlined />} title="User">
+                                        <Menu.Item key="5" icon={<LoginOutlined />}>
+                                            <Link to={{ pathname: '/login' }}>Login</Link>
+                                        </Menu.Item>
+                                        <Menu.Item key="6" icon={<UserAddOutlined />}>
+                                            <Link to={{ pathname: '/register' }}>Register</Link>
+                                        </Menu.Item>
+                                    </SubMenu>
+                            }
+
                         </Menu>
                     </Col>
                 </Row>
