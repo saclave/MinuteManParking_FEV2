@@ -27,12 +27,14 @@ const getParkingLots = () => {
 
 const getParkingLotById = (id) => {
     return api.get(`/lots/${id}`);
-const getHazardZones = () => {
-    return api.get(`/hazards`);
-const getTicketsByUserId = (id) => {
-    return api.get(`/users/${id}/ticketList`);
 }
 
+const getHazardZones = () => {
+    return api.get(`/hazards`);
+}
+
+const getTicketsByUserId = (id) => {
+    return api.get(`/users/${id}/ticketList`);
 }
 
 const addTicket = (ticket) => {
@@ -40,9 +42,8 @@ const addTicket = (ticket) => {
 }
 
 const updateAvailability = (id, availability) => {
-    return api.put(`/slots/${id}`, {availability: !availability});
-} 
-
+    return api.put(`/slots/${id}`, { availability: !availability });
+}
 
 export {
     addUser,
@@ -51,5 +52,9 @@ export {
     getAll,
     getParkingLots,
     addCar,
-    getTicketsByUserId
+    getTicketsByUserId,
+    getParkingLotById,
+    getHazardZones,
+    addTicket,
+    updateAvailability,
 }

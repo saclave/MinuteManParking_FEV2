@@ -1,6 +1,5 @@
 import { combineReducers } from "redux";
-import { AUTHENTICATE, LOGOUT } from './actions';
-import { AUTHENTICATE, SELECTED_PARKINGLOT } from './actions';
+import { AUTHENTICATE, LOGOUT, SELECTED_PARKINGLOT } from './actions';
 
 const defaultAccounts = [
     {
@@ -68,7 +67,7 @@ const parkinglots = (state = defaultParkingLot, action) => {
             return state;
     }
 }
-const tickets = (state = [], action) => {
+
 const hazards = (state = defaultHazard, action) => {
     switch (action.type) {
         case "INIT_HAZARD":
@@ -78,7 +77,7 @@ const hazards = (state = defaultHazard, action) => {
     }
 }
 
-const tickets = (state = defaultTicket, action) => {
+const tickets = (state = [], action) => {
     switch (action.type) {
         case "ADD_TICKET":
             return [...state, action.payload];
@@ -133,6 +132,6 @@ export default combineReducers({
     parkinglots,
     tickets,
     cars,
-    selectedParkingLot
+    selectedParkingLot,
     hazards
 });

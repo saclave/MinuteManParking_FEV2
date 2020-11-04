@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
-import { initParkinglots, getParkingLotById, selectedParkingLot } from '../actions';
-import { initParkinglots, initHazards } from '../actions';
+import { initParkinglots, initHazards, selectedParkingLot } from '../actions';
 import MapPage from '../components/MapPage';
 import { getParkingLots } from '../apis/accounts';
 
 
-const mapDispatchToProps = (dispatch) =>({
-    initParkinglots: (parkinglots) => {dispatch(initParkinglots(parkinglots))},
-    initHazards: (hazards) => {dispatch(initHazards(hazards))}
+const mapDispatchToProps = (dispatch) => ({
+    initParkinglots: (parkinglots) => { dispatch(initParkinglots(parkinglots)) },
+    initHazards: (hazards) => { dispatch(initHazards(hazards)) },
+    selectedParkingLot: (parkinglot) => { dispatch(selectedParkingLot(parkinglot)) }
 })
 
-const mapStateToProps = state =>({
+const mapStateToProps = state => ({
     parkinglots: state.parkinglots,
     hazards: state.hazards
 })

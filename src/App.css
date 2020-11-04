@@ -297,20 +297,20 @@ a:hover {
 
 #div-map {
   position: absolute;
-  left: 220px; 
+  left: 220px;
 }
 
-#geocoder-div{
+#geocoder-div {
   position: absolute;
   top: 60px;
-  left: 25px; 
+  left: 25px;
 }
 
-.react-geocoder{
+.react-geocoder {
   /* background-color: #61dafb; */
 }
 
-.react-geocoder-results{
+.react-geocoder-results {
   background-color: #ffcccc;
 }
 

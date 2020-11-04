@@ -14,6 +14,7 @@ import ReservePageContainer from '../container/ReservePageContainer';
 import PaymentPageContainer from '../container/PaymentPageContainer';
 import MapPageContainer from '../container/MapPageContainer';
 import TopUpPageContainer from '../container/TopupPageContainer';
+import ViewProfileContainer from '../containers/ViewProfileContainer';
 
 class ApplicationRoutes extends Component {
     render() {
