@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Form, Input, Button, Typography, notification, Layout } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { getUserByUsernameAndPassword } from '../apis/accounts'
+import HeaderlessPageContent from './HeaderlessPageContent';
 
 const { Title } = Typography;
 
@@ -43,8 +44,8 @@ class LoginPage extends Component {
 
     render() {
         return (
-            <div>
-                <Title>Log In</Title>
+            <HeaderlessPageContent>
+                <Title>Log into your account</Title>
                 <Form
                     name="normal_login"
                     className="login-form"
@@ -87,7 +88,7 @@ class LoginPage extends Component {
                         or create an account <Link to="/register">here</Link>
                     </Form.Item>
                 </Form>
-            </div>
+            </HeaderlessPageContent>
         );
     }
 }
