@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import ViewPageContainer from '../container/ViewPageContainer';
+import ViewProfileContainer from '../containers/ViewPageContainer';
 
 import { Col, Row, Layout, Menu } from 'antd';
 import {
@@ -59,7 +59,7 @@ class MPHeader extends Component {
                                             <a onClick={this.onLogout}>Logout</a>
                                         </Menu.Item>
                                         <Menu.Item key="6" icon={<UserOutlined />}>
-                                            <ViewPageContainer />
+                                            <ViewProfileContainer />
                                         </Menu.Item>
                                     </SubMenu>
                                     :

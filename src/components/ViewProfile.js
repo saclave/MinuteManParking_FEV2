@@ -8,7 +8,7 @@ import {
 
 import { EditOutlined } from '@ant-design/icons';
 
-class ViewPage extends Component {
+class ViewProfile extends Component {
     constructor(props) {
         super(props);
 
@@ -100,4 +100,4 @@ class ViewPage extends Component {
     }
 }
 
-export default ViewPage;
+export default ViewProfile;

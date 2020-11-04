@@ -6,7 +6,7 @@ import LetsParkPage from './LetsParkPage';
 import LoginPageContainer from '../containers/LoginPageContainer';
 import CreatePageContainer from '../container/CreatePageContainer';
 import UpdateUserProfileContainer from '../container/UpdateUserProfileContainer';
-import ViewPageContainer from '../container/ViewPageContainer';
+import ViewProfileContainer from '../containers/ViewPageContainer';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import ViewTicketContainer from '../container/ViewTicketContainer';
 import MapPage from './MapPage';
@@ -43,7 +43,7 @@ class ApplicationRoutes extends Component {
                     <ProtectedRoute path="/register" component={CreatePageContainer} />
                     <PrivateRoute path="/park" component={LetsParkPage} />
                     <PrivateRoute path="/edit" component={UpdateUserProfileContainer} />
-                    <PrivateRoute path="/view" component={ViewPageContainer} />
+                    <PrivateRoute path="/view" component={ViewProfileContainer} />
                     <PrivateRoute path="/viewMap" component={MapPage} />
                     <PrivateRoute path="/ticket" component={ViewTicketContainer} />
                     <PrivateRoute path="/reserve" component={ReservePageContainer} />
