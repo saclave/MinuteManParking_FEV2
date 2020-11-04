@@ -9,24 +9,26 @@ class ViewTransactionHistory extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { visible: false, redirect: null, data: [] };
+        this.state = { visible: false, redirect: null, data: [], loading: true };
     }
 
     showModal = () => {
         getTicketsByUserId(this.props.account.id)
             .then(response => {
-                const data = response.data.map((transaction, i) => ({
-                    key: i,
-                    parkingLotName: transaction.parkingLotName,
-                    ticketId: transaction.id,
-                    reservedTime: transaction.timeIn,
-                    timeOut: transaction.timeOut,
-                    rate: transaction.amount
-                }))
+                const data = response.data
+                    .map((ticket, i) => ({
+                        key: i,
+                        parkingLotName: ticket.parkingLotName,
+                        ticketId: ticket.id,
+                        reservedTime: ticket.timeIn,
+                        timeOut: ticket.timeOut,
+                        rate: ticket.amount
+                    }))
 
                 this.setState({
                     visible: true,
-                    data
+                    data,
+                    loading: false
                 });
 
             }).catch(error => {
@@ -82,6 +84,7 @@ class ViewTransactionHistory extends Component {
                         dataSource={this.state.data}
                         pagination={{ pageSize: 10 }}
                         scroll={{ y: 400 }}
+                        loading={this.state.loading}
                         simple
                         bordered />
                 </Modal>
