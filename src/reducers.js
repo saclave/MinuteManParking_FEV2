@@ -49,7 +49,7 @@ const accounts = (state = defaultAccounts, action) => {
 const parkinglots = (state = defaultParkingLot, action) => {
     switch (action.type) {
         case "UPDATE_PARKING_LOT":
-            return action.payload;
+            return [...state, action.payload];
         case "GET_PARKINGLOT":
             return action.payload;
         default:
@@ -58,8 +58,8 @@ const parkinglots = (state = defaultParkingLot, action) => {
 }
 const tickets = (state = defaultTicket, action) => {
     switch (action.type) {
-        case "UPDATE_TICKET":
-            return action.payload;
+        case "ADD_TICKET":
+            return [...state, action.payload];
         case "GET_TICKET":
             return action.payload;
         default:

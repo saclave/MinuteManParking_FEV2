@@ -58,7 +58,12 @@ class PaymentPage extends Component {
             this.props.updateParkinglot({...this.props.parkinglot, availability});
             this.props.updateUser({...this.props.account, load});
 
-            this.props.updateTicket({...this.props.ticket, date, time});
+
+
+            const slot = "1233";
+            const ticket = {slot: slot, date:date,time:time};
+
+            this.props.addTicket(ticket);
 
             console.log(this.props.parkinglot)
             this.setState({
@@ -82,10 +87,12 @@ class PaymentPage extends Component {
                             <List.Item>
                                 <List.Item.Meta
                                 avatar={<Avatar src={item.logo} />}
-                                title={<a href="" onClick={onClick}>{item.title}</a>}
+                                title={item.title}
                                 description={item.description}
                                 />
+                                <Button onClick={onClick}>Click me</Button>
                             </List.Item>
+                            
                             )}
                         />
                         </div>
