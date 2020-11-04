@@ -1,9 +1,41 @@
 import React, { Component } from 'react';
-import { Form, Input, Button, DatePicker, Select } from 'antd';
-import { updateUser, getAll } from '../apis/accounts';
-
+import { Form, Input, Button, DatePicker, Select, Modal, Row, Col } from 'antd';
+import { updateUser, getAll, addCar } from '../apis/accounts';
+import HeaderlessPageComponent from '../components/HeaderlessPageContent'
+import Draggable from 'react-draggable';
+import { Redirect } from "react-router-dom";
 class UpdateUserProfile extends Component {
+    state = { visible: false,redirect: false };
 
+    showModal = () => {
+        this.setState({
+          visible: true,
+        });
+      };
+    
+      handleOk = e => {
+        console.log(e);
+        this.setState({
+          visible: false,
+        });
+      };
+    
+      handleCancel = e => {
+        console.log(e);
+        this.setState({
+          visible: false,
+        });
+      };
+      goBack =() =>{
+        this.setState({
+            redirect: true
+          });
+      }
+      renderRedirect = () => {
+        if (this.state.redirect) {
+          return <Redirect to='/' />
+        }
+      }
     render() {
         const layout = {
             labelCol: { span: 8 },
@@ -28,11 +60,32 @@ class UpdateUserProfile extends Component {
                 this.props.updateUser(values);
             });
         };
+        const onCarFinish = values => {
+            const id = this.props.account.id;
+            const car = {
+                plateNumber: values.platenumber, brand: values.brand,
+                color: values.color, userId: id
+            };
+            addCar(car).then(() => {
+                this.props.addCar(car);
+            });
+                this.setState({
+                    visible: false,
+                  });
+        };
 
         const { Option } = Select;
 
         return (
-            <div>
+            
+                     <Row align="middle" className="headerless-page-content">
+                         {this.renderRedirect()}
+                     <Col xs={{ span: 14, offset: 5 }}
+                             sm={{ span: 12, offset: 6 }}
+                             md={{ span: 10, offset: 7 }}
+                             lg={{ span: 8, offset: 8 }}
+                             xl={{ span: 6, offset: 9 }}>
+                                                     
                 <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
                     <Form.Item name='firstName' label="First Name" rules={[{ required: true }]} >
                         <Input />
@@ -63,12 +116,61 @@ class UpdateUserProfile extends Component {
                         <DatePicker />
                     </Form.Item>
                     <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
+
+                        <Button type="primary" htmlType="submit">
+                            Update
+                    </Button>
+                    <Button onClick={this.goBack}>
+                            Back
+                    </Button>
+                    
+                    </Form.Item>
+                </Form>
+                </Col>
+                <Col>
+                <Row  align = 'top'>
+                    <Col span={24}>
+                <Button type="primary" onClick={this.showModal}>
+                          Open Modal
+                        </Button>
+               
+                        <Modal className="modal"
+              title={
+                <div >
+                  Ticket:  aawdawd
+                </div>
+              }
+              visible={this.state.visible}
+              onOk={this.handleOk}
+              modalRender={modal => <Draggable disabled={this.state.disabled}>{modal}</Draggable>}
+              footer={[
+                <Button key="back" onClick={this.handleCancel}>
+              Cancel
+            </Button>,
+              ]}
+            >
+                   <Form {...layout} name="nest-messages" onFinish={onCarFinish} validateMessages={validateMessages}>
+                    <Form.Item name='platenumber' label="Plate Number" rules={[{ required: true }]} >
+                        <Input />
+                    </Form.Item>
+                    <Form.Item name='brand' label="Brand" rules={[{ required: true }]}>
+                        <Input />
+                    </Form.Item>
+                    <Form.Item name='color' label="Color" rules={[{ required: true }]}>
+                        <Input />
+                    </Form.Item>
+                    <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
                         <Button type="primary" htmlType="submit">
                             Update
                     </Button>
                     </Form.Item>
-                </Form>
-            </div>
+                    </Form>
+
+                </Modal>
+                </Col>
+                </Row>
+                </Col>
+                </Row>
         );
     }
 }

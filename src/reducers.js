@@ -28,6 +28,12 @@ const defaultTicket = [{
     date: '',
 }
 ]
+const defaultCar = [{
+    platenumber: 'WTP231',
+    brand: 'Honda',
+    color: 'Red',
+}
+]
 const accounts = (state = defaultAccounts, action) => {
     switch (action.type) {
         case "ADD_ACCOUNT":
@@ -62,6 +68,14 @@ const tickets = (state = defaultTicket, action) => {
             return state;
     }
 }
+const cars = (state = defaultCar, action) => {
+    switch (action.type) {
+        case "ADD_CAR":
+            return [...state, action.payload];
+        default:
+            return state;
+    }
+}
 
 const defaultAuthentication = {
     authenticated: false,
@@ -79,5 +93,6 @@ export default combineReducers({
     accounts,
     authentication,
     parkinglots,
-    tickets
+    tickets,
+    cars
 });
