@@ -213,7 +213,7 @@ h5.ant-typography {
 }
 
 .available {
-  margin: 0px auto 1px;
+  margin: 0px auto 5px;
   text-align: center;
   font-size: 20px;
   width: 40%;
@@ -224,6 +224,20 @@ h5.ant-typography {
   text-align: center;
   font-size: 20px;
   width: 40%;
+}
+
+.remaining-balance{
+  margin: 0px 0px 1px 47px;
+  text-align: center;
+  font-size: 20px;
+  width: 60%;
+}
+
+.parking-fee{
+  margin: 0px 0px 5px 82px;
+  text-align: center;
+  font-size: 20px;
+  width: 60%;
 }
 
 #reserveValues {

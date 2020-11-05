@@ -103,6 +103,14 @@ class ReservePage extends Component {
             <label for="availableSize">Available: </label>
             <input type="text" id="reserveValues" value={this.props.parkinglot.available} size="6" disabled /><br />
           </div>
+          <div className="parking-fee">
+            <label name="reserveLabel">Parking Fee: </label>
+            <input type="text" id="reserveValues" value={this.props.parkinglot.price} size="6" disabled /><br />
+          </div>
+          <div className="remaining-balance">
+            <label name="reserveLabel">Remaining Balance: </label>
+            <input type="text" id="reserveValues" value={this.props.account.cash} size="6" disabled /><br />
+          </div>
           <br />
         </Modal>
       </div>
