@@ -4,6 +4,10 @@ node_js:
 - node
 git:
   quiet: true
+script:
+  - npm run build
+env:
+  process.env.CI : false 
 deploy:
   provider: heroku
   api_key:
