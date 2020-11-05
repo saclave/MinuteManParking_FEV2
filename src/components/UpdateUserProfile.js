@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
-import { Form, Input, Button, DatePicker, Select, Modal, Row, Col, notification } from 'antd';
+import { Form, Input, Button, DatePicker, Select, Modal, Row, Col, notification, Image } from 'antd';
 import { updateUser, getAll, addCar } from '../apis/accounts';
 import HeaderlessPageComponent from '../components/HeaderlessPageContent'
 import Draggable from 'react-draggable';
 import { Redirect } from "react-router-dom";
 class UpdateUserProfile extends Component {
-    state = { visible: false,redirect: false };
+    state = { visible: false,redirect: false ,
+        defaultpic : "https://snworksceo.imgix.net/dtc/3f037af6-87ce-4a37-bb37-55b48029727d.sized-1000x1000.jpg?w=1000"
+    
+    };
+
+     
 
     showModal = () => {
         this.setState({
@@ -27,14 +32,7 @@ class UpdateUserProfile extends Component {
         });
       };
       goBack =() =>{
-        this.setState({
-            redirect: true
-          });
-      }
-      renderRedirect = () => {
-        if (this.state.redirect) {
-          return <Redirect to='/' />
-        }
+        this.props.history.push('/');
       }
     render() {
         const layout = {
@@ -59,9 +57,8 @@ class UpdateUserProfile extends Component {
                 username: values.username, 
                 password: values.password, 
                 email: values.email, 
-                gender: values.gender, 
-                birthdate: values.birthday, 
-                cash: this.props.account.cash
+                cash: this.props.account.cash,
+                imgSrc: values.imgSrc
             }).then((response) => {
                 if(response.data.usernameExist){
                     notification.open({
@@ -76,7 +73,7 @@ class UpdateUserProfile extends Component {
                     });
                 }
                 if(response.data.emailExist === undefined && response.data.usernameExist === undefined){
-                    this.props.updateUser(values);
+                    this.props.updateUser(response.data);
                     notification.open({
                         message: 'Update Successful',
                     });
@@ -89,8 +86,8 @@ class UpdateUserProfile extends Component {
                 plateNumber: values.platenumber, brand: values.brand,
                 color: values.color, userId: id
             };
-            addCar(car).then(() => {
-                this.props.addCar(car);
+            addCar(car).then((response) => {
+                this.props.addCar(response.data);
             });
                 this.setState({
                     visible: false,
@@ -98,18 +95,35 @@ class UpdateUserProfile extends Component {
         };
 
         const { Option } = Select;
-
+        console.log(this.props.account.imgSrc);
+        if(this.props.account.imgSrc === undefined){
+           // this.props.account.imgSrc = this.state.defaultpic;
+        }
         return (
             
                      <Row align="middle" className="headerless-page-content">
-                         {this.renderRedirect()}
+                         
                      <Col xs={{ span: 14, offset: 5 }}
                              sm={{ span: 12, offset: 6 }}
                              md={{ span: 10, offset: 7 }}
                              lg={{ span: 8, offset: 8 }}
                              xl={{ span: 6, offset: 9 }}>
-                                                     
-                <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
+                
+                <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}
+                initialValues={{
+                    firstName:this.props.account.firstName,
+                    lastName:this.props.account.lastName,
+                    username:this.props.account.username,
+                    password:this.props.account.password,
+                    email:this.props.account.email,
+                    imgSrc: this.props.account.imgSrc             
+                }}
+                >
+                    
+                <Image src={this.props.account.imgSrc} alt='pic' width={200} style={{ padding : '50px'}}/>  
+                <Form.Item name='imgSrc' label="Image Link" rules={[{ required: false }]} >
+                        <Input />
+                    </Form.Item>
                     <Form.Item name='firstName' label="First Name" rules={[{ required: true }]} >
                         <Input />
                     </Form.Item>
@@ -124,19 +138,6 @@ class UpdateUserProfile extends Component {
                     </Form.Item>
                     <Form.Item name='email' label="Email" rules={[{ type: 'email' }]}>
                         <Input />
-                    </Form.Item>
-                    <Form.Item name='gender' label="Gender" rules={[{ required: true }]}>
-                        <Select
-                            placeholder="Select a option and change input text above"
-                            allowClear
-                        >
-                            <Option value="male">male</Option>
-                            <Option value="female">female</Option>
-                            <Option value="other">other</Option>
-                        </Select>
-                    </Form.Item>
-                    <Form.Item name='birthDate' label="Birthdate" {...config}>
-                        <DatePicker />
                     </Form.Item>
                     <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
 
@@ -154,13 +155,13 @@ class UpdateUserProfile extends Component {
                 <Row  align = 'top'>
                     <Col span={24}>
                 <Button type="primary" onClick={this.showModal}>
-                          Open Modal
+                          Add Car
                         </Button>
                
                         <Modal className="modal"
               title={
                 <div >
-                  Ticket:  aawdawd
+                  Add Car
                 </div>
               }
               visible={this.state.visible}

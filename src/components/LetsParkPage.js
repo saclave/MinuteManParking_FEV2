@@ -28,6 +28,7 @@ class LetsParkPage extends Component {
                 <Link smooth to={{ pathname: '/topup' }}> Topup </Link>
                 <Link to={{ pathname: '/history' }}>history</Link>
                 <Link smooth to={{ pathname: '/viewMap' }}>MAP</Link>
+                <Link smooth to={{ pathname: '/ticket' }}>ticket</Link>
             </>
         );
     }

@@ -9,8 +9,9 @@ import HomePageSteps from './HomePageSteps';
 import { Layout } from 'antd';
 
 const { Content } = Layout;
-
+this.forceUpdate();
 class AuthenticatedHomePage extends Component {
+    
     render() {
         return (
             <Layout>
