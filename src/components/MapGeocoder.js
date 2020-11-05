@@ -7,8 +7,8 @@ class MapGeocoder extends Component {
             <div id="geocoder-div">
                 <Geocoder
                     mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-                    onSelected={this.props.updateViewPort}
-                    viewport={this.props.viewPort}
+                    onSelected={this.props.updateViewport}
+                    viewport={this.props.viewport}
                     updateInputOnSelect={true}
                     hideOnSelect={true}
                     initialInputValue="Enter Location..."

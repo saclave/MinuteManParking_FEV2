@@ -21,7 +21,7 @@ class Map extends Component {
             this.props.initHazards(response.data)
         });
 
-        this.props.initViewPort();
+        this.props.initViewport();
     }
 
     addReserveParking = () => {
@@ -58,7 +58,7 @@ class Map extends Component {
     }
 
     render() {
-        const viewport = this.props.viewPort;
+        const viewport = this.props.viewport;
         return (
             <>
                 <div id="div-map">
@@ -67,7 +67,7 @@ class Map extends Component {
                         width="100vw"
                         height="100vh"
                         mapStyle="mapbox://styles/charlieborbz18/ckh0kaipu07ks19obt4p8jtff"
-                        onViewportChange={viewport => this.props.updateViewPort(viewport)}>
+                        onViewportChange={viewport => this.props.updateViewport(viewport)}>
 
                         {this.props.parkinglots.map(parkinglot => (
                             <Marker key={parkinglot.id}

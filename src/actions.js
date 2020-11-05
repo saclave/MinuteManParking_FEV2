@@ -2,8 +2,8 @@ export const GET_ACCOUNT_BY_USERNAME_AND_PASSWORD = "GET_ACCOUNT_BY_USERNAME_AND
 export const AUTHENTICATE = "AUTHENTICATE";
 export const LOGOUT = "LOGOUT";
 export const SELECTED_PARKINGLOT = "SELECTED_PARKINGLOT";
-export const UPDATE_VIEW_PORT = "UPDATE_VIEW_PORT";
-export const INIT_VIEW_PORT = "INIT_VIEW_PORT"
+export const UPDATE_VIEWPORT = "UPDATE_VIEWPORT";
+export const INIT_VIEWPORT = "INIT_VIEWPORT"
 
 export const getAccount = accounts => {
     return { type: "GET_ACCOUNT", payload: accounts };
@@ -49,21 +49,21 @@ export const addCar = cars => {
 }
 
 export const getParkingLotById = (id) => {
-    return{ type: "GET_PARKINGLOT_ID", payload: id}
+    return { type: "GET_PARKINGLOT_ID", payload: id }
 }
 
 export const initParkinglots = parkinglots => {
-    return{ type: "INIT_PARKINGLOT", payload: parkinglots}
+    return { type: "INIT_PARKINGLOT", payload: parkinglots }
 }
 
 export const initHazards = hazards => {
-    return{ type: "INIT_HAZARD", payload: hazards}
+    return { type: "INIT_HAZARD", payload: hazards }
 }
 
-export const updateViewPort = viewPort => {
-    return { type: UPDATE_VIEW_PORT, payload: viewPort }
+export const updateViewport = viewport => {
+    return { type: UPDATE_VIEWPORT, payload: viewport }
 }
 
-export const initViewPort = () => {
-    return { type: INIT_VIEW_PORT, payload: { latitude: 14.5371, longitude: 120.9835, zoom: 18 } }
+export const initViewport = () => {
+    return { type: INIT_VIEWPORT, payload: { latitude: 14.5371, longitude: 120.9835, zoom: 18 } }
 }

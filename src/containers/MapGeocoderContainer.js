@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
-import { updateViewPort } from '../actions';
+import { updateViewport } from '../actions';
 import MapGeocoder from '../components/MapGeocoder';
 
 
 const mapDispatchToProps = (dispatch) => ({
-    updateViewPort: (viewPort) => { dispatch(updateViewPort(viewPort)) }
+    updateViewport: (viewport) => { dispatch(updateViewport(viewport)) }
 })
 
 const mapStateToProps = state => ({
-    viewPort: state.viewPort
+    viewport: state.viewport
 })
 
 const MapGeocoderContainer = connect(mapStateToProps, mapDispatchToProps)(MapGeocoder);
