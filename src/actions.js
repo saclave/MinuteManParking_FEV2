@@ -26,6 +26,10 @@ export const updateUser = account => {
     return { type: "UPDATE_ACCOUNT", payload: account }
 }
 
+export const updateAuthenticatedUser = account => {
+    return { type: "UPDATE_AUTH_ACCOUNT", payload: account }
+}
+
 export const addParkinglot = parkinglot => {
     return { type: "ADD_PARKING_LOT", payload: parkinglot }
 }

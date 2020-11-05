@@ -109,6 +109,8 @@ const authentication = (state = defaultAuthentication, action) => {
     switch (action.type) {
         case AUTHENTICATE:
             return { authenticated: true, account: action.payload };
+        case "UPDATE_AUTH_ACCOUNT":
+            return { authenticated: state.authenticated, account : action.payload } ;
         case LOGOUT:
             return { authenticated: false, account: null };
         default:
