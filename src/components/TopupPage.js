@@ -55,6 +55,7 @@ class TopupPage extends Component {
               cash: toppedUpCash
             }).then((response) => {
               this.props.updateUser(response.data);
+              this.props.updateAuthenticatedUser(response.data);
             });
             
             console.log("After: "+this.props.account.cash);
