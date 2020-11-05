@@ -1,10 +1,9 @@
 import {connect} from "react-redux";
 import TopupPage from "../components/TopupPage";
-import { updateUser,updateAuthenticatedUser } from "../actions";
+import { updateUser } from "../actions";
 
 const mapDispatchToProps = (dispatch) =>({
     updateUser: (account) => {dispatch(updateUser(account))},
-    updateAuthenticatedUser: (account) => {dispatch(updateAuthenticatedUser(account))}
 })
 
 const mapStateToProps = state =>({

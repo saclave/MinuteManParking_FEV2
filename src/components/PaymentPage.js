@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { List, Avatar } from 'antd';
-import MPHeader from './MPHeader';
-import { Menu, Dropdown, Button, message, Typography } from 'antd';
+import { Avatar } from 'antd';
+import { Menu, Button, message, Typography } from 'antd';
 import { DollarCircleOutlined } from '@ant-design/icons';
 import gcash from '../images/gcash.png'
 import cards from '../images/cards.png'
@@ -10,7 +9,6 @@ import { Card, Col, Row } from 'antd';
 import { addTicket, updateUser, updateAvailability } from "../apis/accounts"
 import HeaderlessPageContent from './HeaderlessPageContent';
 
-import { Layout } from 'antd';
 const { Title } = Typography;
 
 class PaymentPage extends Component {
