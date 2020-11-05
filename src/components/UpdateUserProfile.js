@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Form, Input, Button, DatePicker, Select, Modal, Row, Col, notification, Image } from 'antd';
-import { updateUser, getAll, addCar } from '../apis/accounts';
-import HeaderlessPageComponent from '../components/HeaderlessPageContent'
+import { Form, Input, Button, Space, Select, Modal, Row, Col, notification, Image } from 'antd';
+import { updateUser, addCar } from '../apis/accounts';
 import Draggable from 'react-draggable';
-import { Redirect } from "react-router-dom";
+
 class UpdateUserProfile extends Component {
     state = {
         visible: false, redirect: false,
@@ -144,14 +143,14 @@ class UpdateUserProfile extends Component {
                             <Input />
                         </Form.Item>
                         <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-
-                            <Button type="primary" htmlType="submit">
-                                Update
-                    </Button>
-                            <Button onClick={this.goBack}>
-                                Back
-                    </Button>
-
+                            <Space size={4}>
+                                <Button type="primary" htmlType="submit">
+                                    Update
+                                </Button>
+                                <Button onClick={this.goBack}>
+                                    Back
+                                </Button>
+                            </Space>
                         </Form.Item>
                     </Form>
                 </Col>
