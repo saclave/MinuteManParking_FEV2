@@ -66,20 +66,6 @@ class PaymentPage extends Component {
       const remaining = this.props.account.cash - this.props.parkinglot.price
 
       if (remaining >= 0) {
-
-        updateUser(id, {
-          firstName: this.props.account.firstName,
-          lastName: this.props.account.lastName,
-          username: this.props.account.username,
-          password: this.props.account.password,
-          email: this.props.account.email,
-          gender: this.props.account.gender,
-          birthdate: this.props.account.birthday,
-          cash: remaining
-        }).then((response) => {
-          this.props.updateUser(response.data);
-        });
-
         try {
           var carId = this.props.account.carList[0].id;
         } catch{
@@ -89,48 +75,46 @@ class PaymentPage extends Component {
           for (var i = 0; i < this.props.parkinglot.parkingSlotList.length; i++) {
             if (this.props.parkinglot.parkingSlotList[i].availability) {
               parkingSlotId = this.props.parkinglot.parkingSlotList[i].id;
-              updateAvailability(parkingSlotId, this.props.parkinglot.parkingSlotList[i].availability).then((response) => {
-
+              updateAvailability(parkingSlotId, this.props.parkinglot.parkingSlotList[i].availability).then(() => {
               });
               break;
             }
           }
-
           if (parkingSlotId !== null) {
-
-
-
-
             const ticket = { parkingSlotId: parkingSlotId, carId: carId, timeIn: time, timeOut: time, amount: this.props.parkinglot.price };
-
             addTicket(ticket).then((response) => {
               console.log(response.data);
               this.props.addTicket(response.data);
             });
-
+            updateUser(id, {
+              firstName: this.props.account.firstName,
+              lastName: this.props.account.lastName,
+              username: this.props.account.username,
+              password: this.props.account.password,
+              email: this.props.account.email,
+              gender: this.props.account.gender,
+              birthdate: this.props.account.birthday,
+              cash: remaining
+            }).then((response) => {
+              this.props.updateUser(response.data);
+            });
             alert("you paid!");
-
-
-
-
             this.setState({
               redirect: true
             });
           } else {
-            alert("you have no cars!");
-            this.props.history.push('/update');
+            alert("no more parking");
+            this.props.history.push('/viewMap');
           }
         }
         else {
-          alert("no more parking");
-          this.props.history.push('/viewMap');
+          alert("you have no cars!");
+          this.props.history.push('/update');
         }
       } else {
         alert("not enough cash");
         this.props.history.push('/viewMap');
       }
-
-
     }
     console.log(this.props.ticket)
     return (
