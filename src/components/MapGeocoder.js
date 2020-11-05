@@ -10,7 +10,6 @@ class MapGeocoder extends Component {
                 viewport={this.props.viewport}
                 updateInputOnSelect={true}
                 hideOnSelect={true}
-                initialInputValue="Enter Location..."
                 value=""
                 queryParams={{ country: "" }}
                 position="top-left"

@@ -292,14 +292,21 @@ a:hover {
 }
 
 .react-geocoder-results {
-  background-color: #ffcccc;
+  margin: 0 25px;
 }
 
 .react-geocoder-item {
-  width: 170px;
-  background-color: #61dafb;
-  border: 1px solid black;
-  cursor: context-menu;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  margin-bottom: 10px;
+  padding: 10px;
+  transition: 0.5s;
+}
+
+.react-geocoder-item:hover {
+  background-color: #f1f1f1;
 }
 
 .geocoder input {
