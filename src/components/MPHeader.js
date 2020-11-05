@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 
 import ViewProfileContainer from '../containers/ViewProfileContainer';
 import ViewTransactionHistoryContainer from '../containers/ViewTransactionHistoryContainer';
-
+import ViewTicketContainer from '../container/ViewTicketContainer'
 import { Col, Row, Layout, Menu } from 'antd';
 import {
     QuestionCircleOutlined, AndroidOutlined, OrderedListOutlined,
     LoginOutlined, UserAddOutlined, UserOutlined, AreaChartOutlined,
-    LogoutOutlined, HistoryOutlined
+    LogoutOutlined, HistoryOutlined, FilePptOutlined
 } from '@ant-design/icons';
 
 import { Link } from 'react-router-dom';
@@ -64,6 +64,10 @@ class MPHeader extends Component {
                                         <Menu.Item key="7" icon={<HistoryOutlined />}>
                                             <ViewTransactionHistoryContainer />
                                         </Menu.Item>
+                                        {this.props.ticket !== undefined && 
+                                        <Menu.Item key="8" icon={<FilePptOutlined />}>
+                                            <ViewTicketContainer />
+                                        </Menu.Item>}
                                         <Menu.Divider />
                                         <Menu.Item key="6" icon={<LogoutOutlined />}>
                                             <a onClick={this.onLogout}>Logout</a>

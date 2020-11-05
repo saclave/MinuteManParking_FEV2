@@ -6,6 +6,7 @@ import { logout } from '../actions';
 const mapStateToProps = state => ({
     authenticated: state.authentication.authenticated,
     account: state.authentication.account,
+    ticket: state.tickets[0]
 });
 
 const mapDispatchToProps = (dispatch) => ({

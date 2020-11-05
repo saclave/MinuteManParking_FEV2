@@ -55,7 +55,7 @@ class ViewProfile extends Component {
         const columns = [
             { title: 'Plate No.', dataIndex: 'plateNumber' },
             { title: 'Brand', dataIndex: 'brand' },
-            { title: 'Color', dataIndex: 'color' },
+            { title: 'Description', dataIndex: 'color' },
         ];
 
         const data = [];

@@ -3,25 +3,25 @@ import { EditOutlined, SettingOutlined } from '@ant-design/icons';
 import QRCode from 'qrcode.react';
 import Draggable from 'react-draggable';
 import { Modal, Button, Card, Space } from 'antd';
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 class ViewTicket extends Component {
     constructor(props) {
         super(props);
     } 
     state = {
-      visible: true,
+      visible: false,
       disabled:true,
       redirect: false
   }
-    // showModal = () => {
-    //     this.setState({
-    //       visible: true,
-    //     });
-    //   };
+    showModal = () => {
+        this.setState({
+          visible: true,
+        });
+      };
     renderRedirect = () => {
       if (this.state.redirect) {
-        return <Redirect to='/' />
+        return <Redirect to='/park' />
       }
     }
 
@@ -44,13 +44,16 @@ class ViewTicket extends Component {
 
     render() {
       console.log(this.props.ticket);
-      if(this.props.ticket === undefined){
-          return <Redirect to='/' />
-      }
+      // if(this.props.ticket === undefined){
+      //     return <Redirect to='/' />
+      // }
         const { Meta } = Card;
         return (
-            <div>
+            <>
             {/* <Button onClick={this.showModal}>Ticket</Button> */}
+            <Link onClick={this.showModal}>
+                    View Ticket
+            </Link>
             {this.renderRedirect()}
             <Modal className="modal"
               title={
@@ -76,7 +79,7 @@ class ViewTicket extends Component {
               </div>
               <br />
             </Modal>
-          </div>
+          </>
         );
     }
 }
