@@ -43,7 +43,7 @@ class ViewTicket extends Component {
         <Modal className="modal"
           title={
             <div >
-              Ticket:<div className="ticket-id">#{this.props.ticket.id}</div>
+              Ticket:<div className="ticket-id">{this.props.ticket.name}</div>
             </div>
           }
           visible={this.state.visible}
@@ -51,8 +51,8 @@ class ViewTicket extends Component {
           footer={<Button key="back" onClick={this.handleExit}>Close</Button>}
         >
           <div className="reserve">
-            <h2>Parking:<div className="ticket-details">{this.props.parkinglot.name}</div></h2>
-            <h4>Name: <div className="ticket-details">{this.props.ticket.name} </div></h4>
+            <h2>Parking Lot:<div className="ticket-details">{this.props.parkinglot.name}</div></h2>
+            <h4>Slot Name: <div className="ticket-details">{this.props.parkinglot.parkingSlotList.find(slot => slot.id === this.props.ticket.parkingSlotId).name} </div></h4>
             <h4>Time in: <div className="ticket-details">{this.props.ticket.timeIn}</div></h4>
             <h4>Amount: <div className="ticket-details">{this.props.parkinglot.price}</div></h4>
           </div>
