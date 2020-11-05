@@ -73,11 +73,11 @@ class MapPage extends Component {
         if (hazardType === "NORIGHT") {
             return "/no-right-turn.png";
         }
-        
+
     }
 
     render() {
-        const  viewport  = this.props.viewPort;
+        const viewport = this.props.viewPort;
         return (
             <div>
                 <div id="div-map">
@@ -86,7 +86,7 @@ class MapPage extends Component {
                         width="100vw"
                         height="100vh"
                         mapStyle="mapbox://styles/charlieborbz18/ckh0kaipu07ks19obt4p8jtff"
-                        onViewportChange={viewport => this.props.updateViewPort( viewport )}>
+                        onViewportChange={viewport => this.props.updateViewPort(viewport)}>
 
                         {this.props.parkinglots.map(parkinglot => (
                             <Marker key={parkinglot.id}
@@ -131,7 +131,7 @@ class MapPage extends Component {
                                 closeButton={false}
                             >
                                 <div className="towing-pop">
-                                    <h2>{this.state.towingPark.type}</h2>
+                                    <h2>{this.state.towingPark.name}</h2>
                                     <p>{this.state.towingPark.address}</p>
                                     <button id="red-btn" onClick={this.onCloseParking}>Close</button>
                                 </div>
@@ -144,10 +144,12 @@ class MapPage extends Component {
                                 longitude={this.state.selectedPark.longitude}
                                 closeButton={false}
                             >
-                                <h2>{this.state.selectedPark.name}</h2>
-                                <p>{this.state.selectedPark.address}</p>
-                                <button id="blue-btn" onClick={this.addReserveParking}>Reserve</button>
-                                <button id="red-btn" onClick={this.onCloseParking}>Close</button>
+                                <div className="car-pop">
+                                    <h2>{this.state.selectedPark.name}</h2>
+                                    <p>{this.state.selectedPark.address}</p>
+                                    <button id="blue-btn" onClick={this.addReserveParking}>Reserve</button>
+                                    <button id="red-btn" onClick={this.onCloseParking}>Close</button>
+                                </div>
                             </Popup>
                         ) : null}
 
@@ -160,7 +162,7 @@ class MapPage extends Component {
                         </div>
                     </ReactMapGL>
                 </div>
-                    <GeocodersContainer />
+                <GeocodersContainer />
             </div>
         );
     }
