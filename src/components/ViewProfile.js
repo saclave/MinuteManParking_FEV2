@@ -83,13 +83,13 @@ class ViewProfile extends Component {
                     <Row align="middle">
                         <Col span={12}>
                             <div className="profile-image">
-                                <Image src={this.props.account.imgSrc} />
+                                <Image src={this.props.account.image} />
                             </div>
                         </Col>
                         <Col span={12}>
                             <Title level={4}>{`${this.props.account.firstName} ${this.props.account.lastName}`}</Title>
                             <p>{`${this.props.account.username} / ${this.props.account.email}`}</p>
-                            <p>{`${this.props.account.age} years old`}</p>
+                            <br></br>
                             <Space size={4}>
                                 <Button icon={<EditOutlined />}
                                     onClick={this.onEdit}>Edit</Button>

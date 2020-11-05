@@ -48,8 +48,7 @@ class TopupPage extends Component {
               username: this.props.account.username,
               password: this.props.account.password,
               email: this.props.account.email,
-              gender: this.props.account.gender,
-              birthdate: this.props.account.birthday,
+              image: this.props.account.image,
               cash: toppedUpCash
             }).then((response) => {
               this.props.updateUser(response.data);

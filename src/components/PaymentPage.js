@@ -73,7 +73,7 @@ class PaymentPage extends Component {
           for (var i = 0; i < this.props.parkinglot.parkingSlotList.length; i++) {
             if (this.props.parkinglot.parkingSlotList[i].availability) {
               parkingSlotId = this.props.parkinglot.parkingSlotList[i].id;
-              updateAvailability(parkingSlotId, this.props.parkinglot.parkingSlotList[i].availability).then(() => {
+              updateAvailability(parkingSlotId, this.props.parkinglot.parkingSlotList[i].availability, this.props.parkinglot.parkingSlotList[i].name).then(() => {
               });
               break;
             }
@@ -90,8 +90,7 @@ class PaymentPage extends Component {
               username: this.props.account.username,
               password: this.props.account.password,
               email: this.props.account.email,
-              gender: this.props.account.gender,
-              birthdate: this.props.account.birthday,
+              image: this.props.account.image,
               cash: remaining
             }).then((response) => {
               this.props.updateUser(response.data);

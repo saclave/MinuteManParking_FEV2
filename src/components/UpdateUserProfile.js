@@ -180,10 +180,10 @@ class UpdateUserProfile extends Component {
                     <Form.Item name='platenumber' label="Plate Number" rules={[{ required: true }]} >
                         <Input />
                     </Form.Item>
-                    <Form.Item name='brand' label="Brand" rules={[{ required: true }]}>
+                    <Form.Item name='brand' label="Model" rules={[{ required: true }]}>
                         <Input />
                     </Form.Item>
-                    <Form.Item name='color' label="Color" rules={[{ required: true }]}>
+                    <Form.Item name='color' label="Description" rules={[{ required: true }]}>
                         <Input />
                     </Form.Item>
                     <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
