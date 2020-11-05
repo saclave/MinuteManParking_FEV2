@@ -46,8 +46,8 @@ const accounts = (state = defaultAccounts, action) => {
     switch (action.type) {
         case "ADD_ACCOUNT":
             return [...state, action.payload];
-        case "UPDATE_ACCOUNT":
-            return action.payload;
+        // case "UPDATE_ACCOUNT":
+        //     return action.payload;
         case "GET_ACCOUNT":
             return action.payload;
         default:
@@ -90,8 +90,8 @@ const tickets = (state = [], action) => {
 }
 const cars = (state = [], action) => {
     switch (action.type) {
-        case "ADD_CAR":
-            return [...state, action.payload];
+        // case "ADD_CAR":
+        //     return [...state, action.payload];
         default:
             return state;
     }
@@ -114,6 +114,11 @@ const authentication = (state = defaultAuthentication, action) => {
             return { authenticated: state.authenticated, account : action.payload } ;
         case LOGOUT:
             return { authenticated: false, account: null };
+        case "ADD_CAR":
+            let carList = [...state.account.carList, action.payload];
+            return { authenticated: state.authenticated, account: {...state.account, carList }};
+        case "UPDATE_ACCOUNT":
+            return { authenticated: state.authenticated, account: action.payload };
         default:
             return state;
     }
