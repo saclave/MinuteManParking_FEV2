@@ -112,7 +112,7 @@ class Map extends Component {
                                 closeButton={false}
                             >
                                 <div className="towing-pop">
-                                    <h2>{this.state.towingPark.type}</h2>
+                                    <h2>{this.state.towingPark.name}</h2>
                                     <p>{this.state.towingPark.address}</p>
                                     <button id="red-btn" onClick={this.onCloseParking}>Close</button>
                                 </div>
