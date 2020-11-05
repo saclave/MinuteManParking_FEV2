@@ -19,7 +19,12 @@ class ViewTicket extends Component {
     //       visible: true,
     //     });
     //   };
-    
+    renderRedirect = () => {
+      if (this.state.redirect) {
+        return <Redirect to='/' />
+      }
+    }
+
       handleOk = e => {
         console.log(e);
         this.setState({
