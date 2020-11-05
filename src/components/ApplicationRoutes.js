@@ -12,7 +12,7 @@ import ViewTransactionHistory from './ViewTransactionHistory';
 import ViewTicketContainer from '../container/ViewTicketContainer';
 import ReservePageContainer from '../container/ReservePageContainer';
 import PaymentPageContainer from '../container/PaymentPageContainer';
-import MapPageContainer from '../container/MapPageContainer';
+import MapContainer from '../containers/MapContainer';
 import TopUpPageContainer from '../container/TopupPageContainer';
 import ViewProfileContainer from '../containers/ViewProfileContainer';
 
@@ -47,7 +47,6 @@ class ApplicationRoutes extends Component {
                     <PrivateRoute path="/edit" component={UpdateUserProfileContainer} />
                     <PrivateRoute path="/update" component={UpdateUserProfileContainer} />
                     <PrivateRoute path="/view" component={ViewProfileContainer} />
-                    <PrivateRoute path="/viewMap" component={MapPageContainer} />
                     <PrivateRoute path="/ticket" component={ViewTicketContainer} />
                     <PrivateRoute path="/reserve" component={ReservePageContainer} />
                     <PrivateRoute path="/payment" component={PaymentPageContainer} />

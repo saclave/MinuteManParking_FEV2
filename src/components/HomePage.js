@@ -16,7 +16,7 @@ class HomePage extends Component {
     render() {
         return (
             <Layout>
-                <MPHeaderContainer />
+                <MPHeaderContainer fixed />
                 <Image className="home-page-banner" src={picHeader} preview={false} />
                 <Content className="site-layout-background"
                     style={{
