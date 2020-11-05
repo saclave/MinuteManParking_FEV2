@@ -4,7 +4,8 @@ import ReservePage from '../components/ReservePage';
 
 const mapStateToProps = state => ({
     //parkinglots: state.parkinglots
-    parkinglot: state.selectedParkingLot.parkinglot
+    parkinglot: state.selectedParkingLot.parkinglot,
+    account: state.authentication.account,
 });
 const ReservePageContainer = connect(mapStateToProps)(ReservePage);
 
