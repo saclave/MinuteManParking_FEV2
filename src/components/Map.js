@@ -34,46 +34,33 @@ class Map extends Component {
         this.setState({ towingPark: null })
     }
 
-    onSelected = (viewport, item) => {
-        this.setState({
-            viewport
-        })
-    }
-
     onSelectHazardType = (hazard) => {
-        const hazardType = hazard.type;
-        console.log(hazardType);
-        if (hazardType === "TRAFFIC") {
-            return "/traffic.png";
+        switch (hazard.type) {
+            case "TRAFFIC":
+                return "/traffic.png";
+            case "TOWAWAY":
+                return "/tow-away.png";
+            case "STOP":
+                return "/stop.png";
+            case "ROUNDABOUT":
+                return "/roundabout.png";
+            case "PARKING":
+                return "/public-parking.png";
+            case "NOPARK":
+                return "/no-parking.png";
+            case "OVERTAKE":
+                return "/no-overtaking.png";
+            case "NORIGHT":
+                return "/no-right-turn.png";
+            default:
+                return null;
         }
-        if (hazardType === "TOWAWAY") {
-            return "/tow-away.png";
-        }
-        if (hazardType === "STOP") {
-            return "/stop.png";
-        }
-        if (hazardType === "ROUNDABOUT") {
-            return "/roundabout.png";
-        }
-        if (hazardType === "PARKING") {
-            return "/public-parking.png";
-        }
-        if (hazardType === "NOPARK") {
-            return "/no-parking.png";
-        }
-        if (hazardType === "OVERTAKE") {
-            return "/no-overtaking.png";
-        }
-        if (hazardType === "NORIGHT") {
-            return "/no-right-turn.png";
-        }
-
     }
 
     render() {
         const viewport = this.props.viewPort;
         return (
-            <div>
+            <>
                 <div id="div-map">
                     <ReactMapGL {...viewport}
                         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
@@ -155,7 +142,7 @@ class Map extends Component {
                     </ReactMapGL>
                 </div>
                 <MapGeocoderContainer />
-            </div>
+            </>
         );
     }
 }
