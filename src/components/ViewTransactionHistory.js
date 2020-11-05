@@ -59,10 +59,6 @@ class ViewTransactionHistory extends Component {
                 dataIndex: 'reservedTime'
             },
             {
-                title: 'Time Out',
-                dataIndex: 'timeOut'
-            },
-            {
                 title: 'Rate',
                 dataIndex: 'rate'
             }

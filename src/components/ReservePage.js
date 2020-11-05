@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
-import { Modal, Button, Input, Label } from 'antd';
+import { Modal, Button, Typography, Input, Label } from 'antd';
 import Draggable from 'react-draggable';
 import { Redirect } from "react-router-dom";
+
+const { Title, Paragraph } = Typography;
+
 class ReservePage extends Component {
   constructor(props) {
-    super(props); 
+    super(props);
   }
   state = {
     visible: true,
     disabled: true,
-    redirect: false
+    redirect: null
   };
 
   showModal = () => {
@@ -23,30 +26,27 @@ class ReservePage extends Component {
     console.log(e);
     this.setState({
       visible: false,
-      redirect: true
+      redirect: "/payment"
     });
-    
+
   };
 
   handleCancel = e => {
     console.log(e);
+    this.props.updateInitViewport(false);
     this.setState({
       visible: false,
+      redirect: "/park"
     });
   };
 
-  setRedirect = () => {
-    this.setState({
-     
-    })
-  }
   renderRedirect = () => {
-    if (this.state.redirect) {
-      return <Redirect to='/payment' />
+    if (this.state.redirect !== null) {
+      return <Redirect to={this.state.redirect} />
     }
   }
   render() {
- 
+
     console.log(this.props.parkinglot)
     return (
       <div>
@@ -92,15 +92,25 @@ class ReservePage extends Component {
           ]}
         >
           <div className="reserve">
-            <h2>{this.props.parkinglot.name}</h2>
-            <h3>{this.props.parkinglot.address}</h3>
+            <h2><Title level={3}>{this.props.parkinglot.name}</Title></h2>
+            <h3><Paragraph>{this.props.parkinglot.address}</Paragraph></h3>
           </div>
 
-          <div className="available">
+          <div className="capacity">
             <label name="reserveLabel" for="capacity">Capacity: </label>
-            <input type="text" id="reserveValues" value={this.props.parkinglot.capacity} disabled /><br />
+            <input type="text" id="reserveValues" value={this.props.parkinglot.capacity} size="6" disabled /><br />
+          </div>
+          <div className="available">
             <label for="availableSize">Available: </label>
-            <input type="text" id="reserveValues" value={this.props.parkinglot.available} disabled /><br />
+            <input type="text" id="reserveValues" value={this.props.parkinglot.available} size="6" disabled /><br />
+          </div>
+          <div className="parking-fee">
+            <label name="reserveLabel">Parking Fee: </label>
+            <input type="text" id="reserveValues" value={this.props.parkinglot.price} size="6" disabled /><br />
+          </div>
+          <div className="remaining-balance">
+            <label name="reserveLabel">Remaining Balance: </label>
+            <input type="text" id="reserveValues" value={this.props.account.cash} size="6" disabled /><br />
           </div>
           <br />
         </Modal>

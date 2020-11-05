@@ -1,11 +1,16 @@
 import { connect } from 'react-redux';
-import { getParkinglot } from '../actions';
 import ReservePage from '../components/ReservePage';
+import { updateInitViewport } from '../actions';
 
 const mapStateToProps = state => ({
-    //parkinglots: state.parkinglots
-    parkinglot: state.selectedParkingLot.parkinglot
+    parkinglot: state.selectedParkingLot.parkinglot,
+    account: state.authentication.account,
 });
-const ReservePageContainer = connect(mapStateToProps)(ReservePage);
+
+const mapDispatchToProps = (dispatch) => ({
+    updateInitViewport: (isInitViewport) => { dispatch(updateInitViewport(isInitViewport)) },
+})
+
+const ReservePageContainer = connect(mapStateToProps, mapDispatchToProps)(ReservePage);
 
 export default ReservePageContainer;

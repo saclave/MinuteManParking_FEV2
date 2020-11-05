@@ -1,5 +1,9 @@
 import { combineReducers } from "redux";
-import { AUTHENTICATE, LOGOUT, SELECTED_PARKINGLOT } from './actions';
+import {
+    AUTHENTICATE, LOGOUT, SELECTED_PARKINGLOT,
+    UPDATE_VIEWPORT, INIT_VIEWPORT, UPDATE_INIT_VIEWPORT,
+    RESET_TICKETS
+} from './actions';
 
 const defaultAccounts = [
     {
@@ -41,12 +45,13 @@ const defaultCar = [{
     color: 'Red',
 }
 ]
+
 const accounts = (state = defaultAccounts, action) => {
     switch (action.type) {
         case "ADD_ACCOUNT":
             return [...state, action.payload];
-        case "UPDATE_ACCOUNT":
-            return action.payload;
+        // case "UPDATE_ACCOUNT":
+        //     return action.payload;
         case "GET_ACCOUNT":
             return action.payload;
         default:
@@ -83,14 +88,16 @@ const tickets = (state = [], action) => {
             return [...state, action.payload];
         case "GET_TICKET":
             return action.payload;
+        case RESET_TICKETS:
+            return [];
         default:
             return state;
     }
 }
 const cars = (state = [], action) => {
     switch (action.type) {
-        case "ADD_CAR":
-            return [...state, action.payload];
+        // case "ADD_CAR":
+        //     return [...state, action.payload];
         default:
             return state;
     }
@@ -109,8 +116,15 @@ const authentication = (state = defaultAuthentication, action) => {
     switch (action.type) {
         case AUTHENTICATE:
             return { authenticated: true, account: action.payload };
+        case "UPDATE_AUTH_ACCOUNT":
+            return { authenticated: state.authenticated, account: action.payload };
         case LOGOUT:
             return { authenticated: false, account: null };
+        case "ADD_CAR":
+            let carList = [...state.account.carList, action.payload];
+            return { authenticated: state.authenticated, account: { ...state.account, carList } };
+        case "UPDATE_ACCOUNT":
+            return { authenticated: state.authenticated, account: action.payload };
         default:
             return state;
     }
@@ -124,7 +138,25 @@ const selectedParkingLot = (state = defaultSelectedParking, action) => {
     }
 }
 
+const viewport = (state = {}, action) => {
+    switch (action.type) {
+        case UPDATE_VIEWPORT:
+            return action.payload;
+        case INIT_VIEWPORT:
+            return action.payload;
+        default:
+            return state;
+    }
+}
 
+const isInitViewport = (state = true, action) => {
+    switch (action.type) {
+        case UPDATE_INIT_VIEWPORT:
+            return action.payload;
+        default:
+            return state;
+    }
+}
 
 export default combineReducers({
     accounts,
@@ -133,5 +165,7 @@ export default combineReducers({
     tickets,
     cars,
     selectedParkingLot,
-    hazards
+    hazards,
+    viewport,
+    isInitViewport,
 });

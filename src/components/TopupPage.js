@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { List, Avatar } from 'antd';
-import { Menu, Dropdown, Button, message, Typography } from 'antd';
+import { Avatar } from 'antd';
+import { Button, Typography } from 'antd';
 import { DollarCircleOutlined } from '@ant-design/icons';
 import gcash from '../images/gcash.png'
 import cards from '../images/cards.png'
 import { Redirect } from "react-router-dom"; 
 import { Card, Col, Row } from 'antd';
 import HeaderlessPageContent from './HeaderlessPageContent';
+import { updateUser} from "../apis/accounts"
 
-import { Layout } from 'antd'; 
 const { Title } = Typography;
 
 class TopupPage extends Component {
@@ -18,7 +18,7 @@ class TopupPage extends Component {
   };
   renderRedirect = () => {
     if (this.state.redirect) {
-      return <Redirect to='/view' />
+      return <Redirect to='/park' />
     }
   }
     render() {
@@ -37,15 +37,30 @@ class TopupPage extends Component {
         const onClick = () => {
             alert("you topped up!")
             console.log(this.props.account.cash);
-            const cash = this.props.account.cash + 100;
-            this.props.updateUser({...this.props.account, cash});
+            const toppedUpCash = this.props.account.cash + 100;
+            const id = this.props.account.id;
 
-            console.log(this.props.account);
+            console.log("Before: "+this.props.account.cash);
+
+            updateUser(id, {
+              firstName: this.props.account.firstName,
+              lastName: this.props.account.lastName,
+              username: this.props.account.username,
+              password: this.props.account.password,
+              email: this.props.account.email,
+              image: this.props.account.image,
+              cash: toppedUpCash
+            }).then((response) => {
+              this.props.updateUser(response.data);
+            });
+            
+            console.log("After: "+this.props.account.cash);
+
             this.setState({
               redirect: true
             });
         }
-        console.log(this.props.ticket)
+
         return (
             <HeaderlessPageContent>
                {this.renderRedirect()}
@@ -57,7 +72,7 @@ class TopupPage extends Component {
                       <DollarCircleOutlined style={{ fontSize: '16px' }} /> <Button type="link" onClick={onClick}>G-Cash/Paymaya</Button>
                       </Card>
                       <Card bordered={true} className="payment-page">
-                      <DollarCircleOutlined style={{ fontSize: '16px' }} /> <Button type="link" onClick={onClick}>Credit Card</Button>
+                      <DollarCircleOutlined style={{ fontSize: '16px' }} /> <Button type="link" onClick={onClick}>Credit/Debit Card</Button>
                       </Card>
                     </Col>
                   </Row>

@@ -28,8 +28,6 @@ class CreatePage extends Component {
                 username: values.username, 
                 password: values.password, 
                 email: values.email, 
-                gender: values.gender, 
-                birthdate: values.birthday, 
                 cash: 100
             };
 
@@ -47,7 +45,7 @@ class CreatePage extends Component {
                     });
                 }
                 if(response.data.emailExist === undefined && response.data.usernameExist === undefined){
-                    this.props.addUser(account);
+                    this.props.addUser(response.data);
                     notification.open({
                         message: 'Registration Successful',
                         description: 'Please login to your account',
@@ -122,30 +120,6 @@ class CreatePage extends Component {
                             prefix={<MailOutlined />}
                             type="email"
                             placeholder="Email"
-                        />
-                    </Form.Item>
-
-                    <Form.Item
-                        name="gender"
-                        rules={[{ required: true, message: 'Please select your Gender!' }]}>
-                        <Select
-                            allowClear
-                            placeholder="Gender"
-                            style={{ textAlign: 'left' }}
-                            required
-                        >
-                            <Option value="Male">Male</Option>
-                            <Option value="Female">Female</Option>
-                            <Option value="Other">Other</Option>
-                        </Select>
-                    </Form.Item>
-
-                    <Form.Item name="birthDate"
-                        rules={[{ required: true, message: 'Please select your Birth Date!' }]}>
-                        <DatePicker
-                            style={{ width: '100%' }}
-                            placeholder="Birth Date"
-                            label="Birthdate"
                         />
                     </Form.Item>
 

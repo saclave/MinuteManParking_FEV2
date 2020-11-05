@@ -9,8 +9,9 @@ import HomePageSteps from './HomePageSteps';
 import { Layout } from 'antd';
 
 const { Content } = Layout;
-
+this.forceUpdate();
 class AuthenticatedHomePage extends Component {
+    
     render() {
         return (
             <Layout>
@@ -31,10 +32,6 @@ class AuthenticatedHomePage extends Component {
                             <HomePageAboutUs />
                         </Content>
                     </Layout>
-                    <Link smooth to={{ pathname: '/viewMap' }}>Map</Link>
-                    <Link smooth to={{ pathname: '/update' }}>update</Link>
-                    <Link smooth to={{ pathname: '/reserve' }}>Parking Lot</Link>
-                    <Link smooth to={{ pathname: '/ticket' }}>ticket</Link>
                 </Layout>
             </Layout>
         );

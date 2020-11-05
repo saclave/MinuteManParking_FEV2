@@ -41,8 +41,8 @@ const addTicket = (ticket) => {
     return api.post('/tickets', ticket);
 }
 
-const updateAvailability = (id, availability) => {
-    return api.put(`/slots/${id}`, { availability: !availability });
+const updateAvailability = (id, availability, name) => {
+    return api.put(`/slots/${id}`, { availability: !availability, name});
 }
 
 export {
