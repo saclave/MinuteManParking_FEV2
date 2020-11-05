@@ -77,10 +77,7 @@ class Map extends Component {
                                 <button
                                     id="blue-btn"
                                     className="marker-btn"
-                                    onClick={e => {
-                                        e.preventDefault();
-                                        this.setState({ selectedPark: parkinglot })
-                                    }}
+                                    onClick={() => { this.setState({ towingPark: null, selectedPark: parkinglot }) }}
                                 >
                                     <img id="car-logo" src="/car-front.svg" alt="Parking Lot Icon" />
                                 </button>
@@ -96,10 +93,7 @@ class Map extends Component {
                                 <button
                                     id="red-btn"
                                     className="marker-btn"
-                                    onClick={e => {
-                                        e.preventDefault();
-                                        this.setState({ towingPark: hazard })
-                                    }}>
+                                    onClick={() => { this.setState({ towingPark: hazard, selectedPark: null }) }}>
 
                                     <img id="x-mark" src={this.onSelectHazardType(hazard)} alt="Towing Icon" />
                                 </button>
