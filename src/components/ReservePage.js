@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import { Modal, Button, Input, Label } from 'antd';
+import { Modal, Button, Typography, Input, Label } from 'antd';
 import Draggable from 'react-draggable';
 import { Redirect } from "react-router-dom";
+
+const { Title, Paragraph } = Typography;
+
 class ReservePage extends Component {
   constructor(props) {
     super(props); 
@@ -92,15 +95,17 @@ class ReservePage extends Component {
           ]}
         >
           <div className="reserve">
-            <h2>{this.props.parkinglot.name}</h2>
-            <h3>{this.props.parkinglot.address}</h3>
+            <h2><Title level={3}>{this.props.parkinglot.name}</Title></h2>
+            <h3><Paragraph>{this.props.parkinglot.address}</Paragraph></h3>
           </div>
 
-          <div className="available">
+          <div className="capacity">
             <label name="reserveLabel" for="capacity">Capacity: </label>
-            <input type="text" id="reserveValues" value={this.props.parkinglot.capacity} disabled /><br />
+            <input type="text" id="reserveValues" value={this.props.parkinglot.capacity} size="6" disabled /><br />
+          </div>
+          <div className="available">
             <label for="availableSize">Available: </label>
-            <input type="text" id="reserveValues" value={this.props.parkinglot.available} disabled /><br />
+            <input type="text" id="reserveValues" value={this.props.parkinglot.available} size="6" disabled /><br />
           </div>
           <br />
         </Modal>
