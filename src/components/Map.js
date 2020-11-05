@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import ReactMapGL, { Marker, Popup, GeolocateControl, NavigationControl } from "react-map-gl";
 import { getParkingLots, getHazardZones } from '../apis/accounts';
+import { Button, Space } from 'antd';
 
 class Map extends Component {
     constructor(props) {
@@ -103,11 +104,9 @@ class Map extends Component {
                             longitude={this.state.towingPark.longitude}
                             closeButton={false}
                         >
-                            <div className="towing-pop">
-                                <h2>{this.state.towingPark.name}</h2>
-                                <p>{this.state.towingPark.address}</p>
-                                <button id="red-btn" onClick={this.onCloseParking}>Close</button>
-                            </div>
+                            <h2>{this.state.towingPark.name}</h2>
+                            <p>{this.state.towingPark.address}</p>
+                            <Button onClick={this.onCloseParking}>Close</Button>
                         </Popup>
                     ) : null}
 
@@ -119,8 +118,10 @@ class Map extends Component {
                         >
                             <h2>{this.state.selectedPark.name}</h2>
                             <p>{this.state.selectedPark.address}</p>
-                            <button id="blue-btn" onClick={this.addReserveParking}>Reserve</button>
-                            <button id="red-btn" onClick={this.onCloseParking}>Close</button>
+                            <Space size={4}>
+                                <Button type="primary" onClick={this.addReserveParking}>Reserve</Button>
+                                <Button onClick={this.onCloseParking}>Close</Button>
+                            </Space>
                         </Popup>
                     ) : null}
 
