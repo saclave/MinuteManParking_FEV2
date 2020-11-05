@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
-import { EditOutlined, SettingOutlined } from '@ant-design/icons';
-import QRCode from 'qrcode.react';
-import Draggable from 'react-draggable';
-import { Modal, Button, Card, Space } from 'antd';
+import { Modal, Button } from 'antd';
 import { Redirect, Link } from "react-router-dom";
 
 class ViewTicket extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      visible: false,
+      disabled: true,
+      redirect: false
+    };
   }
-  state = {
-    visible: false,
-    disabled: true,
-    redirect: false
-  }
+
   showModal = () => {
     this.setState({
       visible: true,
     });
   };
+
   renderRedirect = () => {
     if (this.state.redirect) {
       return <Redirect to='/park' />
@@ -32,16 +32,10 @@ class ViewTicket extends Component {
     });
   };
 
-
   render() {
     console.log(this.props.ticket);
-    // if(this.props.ticket === undefined){
-    //     return <Redirect to='/' />
-    // }
-    const { Meta } = Card;
     return (
       <>
-        {/* <Button onClick={this.showModal}>Ticket</Button> */}
         <Link onClick={this.showModal}>
           View Ticket
             </Link>
@@ -55,12 +49,6 @@ class ViewTicket extends Component {
           visible={this.state.visible}
           onCancel={this.handleExit}
           footer={<Button key="back" onClick={this.handleExit}>Close</Button>}
-        // modalRender={modal => <Draggable disabled={this.state.disabled}>{modal}</Draggable>}
-        // footer={[
-        //   <Button key="submit" type="primary" onClick={this.handleOk}>
-        //     Ok
-        //   </Button>
-        // ]}
         >
           <div className="reserve">
             <h2>Parking:<div className="ticket-details">{this.props.parkinglot.name}</div></h2>
