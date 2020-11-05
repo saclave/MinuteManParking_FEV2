@@ -208,7 +208,15 @@ h5.ant-typography {
 .towing-pop{
   padding: 5px;
   background-color: #FFCCCC;
+  font-family: Arial, Helvetica, sans-serif;
 }
+
+.car-pop{
+  padding: 5px;
+  background-color: #99FFFF;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 
 .reserve {
   text-align: center;
