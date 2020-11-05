@@ -65,13 +65,23 @@ class MapPage extends Component {
         if (hazardType === "PARKING") {
             return "/public-parking.png";
         }
+        if (hazardType === "NOPARK") {
+            return "/no-parking.png";
+        }
+        if (hazardType === "OVERTAKE") {
+            return "/no-overtaking.png";
+        }
+        if (hazardType === "NORIGHT") {
+            return "/no-right-turn.png";
+        }
+        
     }
 
     render() {
         const { viewport } = this.state;
         console.log("OOOOOOOOOOOOOOOOOOOOOOOOOO", this.state);
         const params = {
-            country: "ph"
+            country: ""
         }
 
         return (

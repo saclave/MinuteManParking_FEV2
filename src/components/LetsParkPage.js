@@ -23,6 +23,7 @@ class LetsParkPage extends Component {
                         <Image src={sampleMap}></Image>
                     </div>
                 </Layout>
+                <Link smooth to={{ pathname: '/ticket' }}>Ticket</Link>
                 <Link smooth to={{ pathname: '/reserve' }}>reserve</Link>
                 <Link smooth to={{ pathname: '/update' }}>update</Link>
                 <Link smooth to={{ pathname: '/topup' }}> Topup </Link>

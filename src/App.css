@@ -148,11 +148,6 @@ body {
   padding: 0 50px;
 }
 
-#car-logo {
-  width: 30px;
-  height: 20px;
-}
-
 .map-div {
   padding: 20px 50px 50px;
 }
@@ -184,26 +179,35 @@ h5.ant-typography {
   background: rgba(255, 255, 255, 0.5);
 }
 
-#x-mark {
-  width: 30px;
-  height: 20px;
+#car-logo{
+  width: 50px;
+  height: 30px;
+  align-content: center;
 }
 
-#blue-btn {
-  background-color: #00e6e6;
-}
-#red-btn {
-  background-color: #f08080;
+#x-mark{
+  width: 50px;
+  height: 30px;
+  text-align: center;
 }
 
-.towing-pop {
+#blue-btn{
+  background-color: #00E6E6;
+  width: 70px;
+  height: 40px;
+  margin-right: 20px;
+  font-weight: bold;
+}
+#red-btn{
+  background-color: #F08080;
+  width: 70px;
+  height: 40px;
+  font-weight: bold;
+}
+
+.towing-pop{
   padding: 5px;
-  background-color: #ffcccc;
-}
-
-.parking-pop {
-  padding: 5px;
-  background-color: #ccffff;
+  background-color: #FFCCCC;
 }
 
 .reserve {
@@ -308,6 +312,9 @@ a:hover {
 
 .react-geocoder {
   /* background-color: #61dafb; */
+  /* width: 200px;
+  padding: 0;
+  margin: 0; */
 }
 
 .react-geocoder-results {
