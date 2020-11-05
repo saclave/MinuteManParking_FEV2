@@ -292,7 +292,28 @@ a:hover {
 }
 
 .react-geocoder-results {
-  margin: 0 25px;
+  border-bottom: 1px solid #d9d9d9;
+  margin: 10px 5px 5px 0;
+  max-height: 400px;
+  overflow-y: scroll;
+  transition: 1s;
+}
+
+.react-geocoder-results::-webkit-scrollbar {
+  transition: 1s;
+  width: 5px;
+}
+
+.react-geocoder-results::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.react-geocoder-results::-webkit-scrollbar-thumb {
+  background: rgb(192, 192, 192);
+}
+
+.react-geocoder-results::-webkit-scrollbar-thumb:hover {
+  background: rgb(148, 148, 148);
 }
 
 .react-geocoder-item {
@@ -300,7 +321,7 @@ a:hover {
   border-radius: 2px;
   color: rgba(0, 0, 0, 0.85);
   cursor: pointer;
-  margin-bottom: 10px;
+  margin-bottom: 1px;
   padding: 10px;
   transition: 0.5s;
 }
@@ -309,10 +330,22 @@ a:hover {
   background-color: #f1f1f1;
 }
 
+.react-geocoder {
+  margin: 0;
+  padding: 0;
+}
+
+.map-geocoder {
+  margin: 25px;
+}
+
+.map-geocoder p {
+  text-align: left;
+}
+
 .geocoder input {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  margin: 20px;
   padding: 0;
   font-variant: tabular-nums;
   list-style: none;
@@ -320,7 +353,7 @@ a:hover {
   font-feature-settings: "tnum", "tnum";
   position: relative;
   display: inline-block;
-  width: 250px;
+  width: 100%;
   min-width: 0;
   padding: 4px 11px;
   color: rgba(0, 0, 0, 0.85);
@@ -332,4 +365,15 @@ a:hover {
   border-radius: 2px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+}
+
+.geocoder input:hover {
+  border: 1px solid #1890ff;
+}
+
+input:focus {
+  border: 1px solid #1890ff;
+  box-shadow: 0 0 3px #1890ff;
+  outline-offset: 0px !important;
+  outline: none !important;
 }
