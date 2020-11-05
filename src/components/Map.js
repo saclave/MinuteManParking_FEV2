@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import ReactMapGL, { Marker, Popup, GeolocateControl, NavigationControl } from "react-map-gl";
 import { getParkingLots, getHazardZones } from '../apis/accounts';
 
@@ -8,6 +9,7 @@ class Map extends Component {
         this.state = {
             selectedPark: null,
             towingPark: null,
+            redirect: null
         }
     }
 
@@ -20,16 +22,21 @@ class Map extends Component {
             this.props.initHazards(response.data)
         });
 
-        if (this.props.isInitViewport){
+        if (this.props.isInitViewport) {
             this.props.initViewport();
-            console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT")
         }
         this.props.updateInitViewport(true);
     }
 
+    renderRedirect = () => {
+        if (this.state.redirect) {
+            return <Redirect to='/reserve' />
+        }
+    }
+
     addReserveParking = () => {
         this.props.selectedParkingLot(this.state.selectedPark);
-        this.props.history.push('/reserve');
+        this.setState({ redirect: true });
     }
 
     onCloseParking = () => {
@@ -64,6 +71,7 @@ class Map extends Component {
         const viewport = this.props.viewport;
         return (
             <div id="div-map">
+                {this.renderRedirect()}
                 <ReactMapGL {...viewport}
                     mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
                     mapStyle="mapbox://styles/charlieborbz18/ckh0kaipu07ks19obt4p8jtff"
