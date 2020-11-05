@@ -422,3 +422,20 @@ a:hover {
   outline-offset: 0px !important;
   outline: none !important;
 }
+
+.map-icon {
+  cursor: pointer;
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+
+  height: 50px;
+  transition: 0.2s;
+}
+
+.map-icon:hover {
+  height: 52px;
+}
