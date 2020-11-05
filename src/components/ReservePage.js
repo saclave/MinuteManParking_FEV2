@@ -12,7 +12,7 @@ class ReservePage extends Component {
   state = {
     visible: true,
     disabled: true,
-    redirect: false
+    redirect: null
   };
 
   showModal = () => {
@@ -26,7 +26,7 @@ class ReservePage extends Component {
     console.log(e);
     this.setState({
       visible: false,
-      redirect: true
+      redirect: "/payment"
     });
     
   };
@@ -35,17 +35,13 @@ class ReservePage extends Component {
     console.log(e);
     this.setState({
       visible: false,
+      redirect: "/viewMap"
     });
   };
 
-  setRedirect = () => {
-    this.setState({
-     
-    })
-  }
   renderRedirect = () => {
-    if (this.state.redirect) {
-      return <Redirect to='/payment' />
+    if (this.state.redirect !== null) {
+      return <Redirect to= {this.state.redirect} />
     }
   }
   render() {
