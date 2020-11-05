@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import ReactMapGL, { Marker, Popup, GeolocateControl, NavigationControl } from "react-map-gl";
 import { getParkingLots, getHazardZones } from '../apis/accounts';
-import Geocoder from "react-mapbox-gl-geocoder";
-import Geocoders from './Geocoders';
 import GeocodersContainer from '../container/GeocodersContainer';
 
-class MapPage extends Component {
-
+class Map extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            // viewport: { latitude: 14.5371, longitude: 120.9835, zoom: 18 },
             selectedPark: null,
             towingPark: null,
         }
@@ -26,7 +22,6 @@ class MapPage extends Component {
         });
 
         this.props.initViewPort();
-        console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTT")
     }
 
     addReserveParking = () => {
@@ -44,7 +39,6 @@ class MapPage extends Component {
             viewport
         })
     }
-
 
     onSelectHazardType = (hazard) => {
         const hazardType = hazard.type;
@@ -73,11 +67,11 @@ class MapPage extends Component {
         if (hazardType === "NORIGHT") {
             return "/no-right-turn.png";
         }
-        
+
     }
 
     render() {
-        const  viewport  = this.props.viewPort;
+        const viewport = this.props.viewPort;
         return (
             <div>
                 <div id="div-map">
@@ -86,7 +80,7 @@ class MapPage extends Component {
                         width="100vw"
                         height="100vh"
                         mapStyle="mapbox://styles/charlieborbz18/ckh0kaipu07ks19obt4p8jtff"
-                        onViewportChange={viewport => this.props.updateViewPort( viewport )}>
+                        onViewportChange={viewport => this.props.updateViewPort(viewport)}>
 
                         {this.props.parkinglots.map(parkinglot => (
                             <Marker key={parkinglot.id}
@@ -160,10 +154,10 @@ class MapPage extends Component {
                         </div>
                     </ReactMapGL>
                 </div>
-                    <GeocodersContainer />
+                <GeocodersContainer />
             </div>
         );
     }
 }
 
-export default MapPage;
+export default Map;

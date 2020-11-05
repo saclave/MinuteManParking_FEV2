@@ -1,15 +1,13 @@
 import { connect } from 'react-redux';
 import { initParkinglots, initHazards, selectedParkingLot, updateViewPort, initViewPort } from '../actions';
-import MapPage from '../components/MapPage';
-import { getParkingLots } from '../apis/accounts';
-
+import Map from '../components/Map';
 
 const mapDispatchToProps = (dispatch) => ({
     initParkinglots: (parkinglots) => { dispatch(initParkinglots(parkinglots)) },
     initHazards: (hazards) => { dispatch(initHazards(hazards)) },
     selectedParkingLot: (parkinglot) => { dispatch(selectedParkingLot(parkinglot)) },
-    updateViewPort: (viewPort) => {dispatch(updateViewPort(viewPort))},
-    initViewPort: () => {dispatch(initViewPort())}
+    updateViewPort: (viewPort) => { dispatch(updateViewPort(viewPort)) },
+    initViewPort: () => { dispatch(initViewPort()) }
 })
 
 const mapStateToProps = state => ({
@@ -18,6 +16,6 @@ const mapStateToProps = state => ({
     viewPort: state.viewPort
 })
 
-const MapPageContainer = connect(mapStateToProps, mapDispatchToProps)(MapPage);
+const MapContainer = connect(mapStateToProps, mapDispatchToProps)(Map);
 
-export default MapPageContainer;
+export default MapContainer;
