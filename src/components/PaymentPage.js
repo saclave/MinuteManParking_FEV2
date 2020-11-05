@@ -79,26 +79,31 @@ class PaymentPage extends Component {
             }
           }
           if (parkingSlotId !== null) {
-            const ticket = { parkingSlotId: parkingSlotId, carId: carId, timeIn: time, timeOut: time, amount: this.props.parkinglot.price };
-            addTicket(ticket).then((response) => {
-              console.log(response.data);
-              this.props.addTicket(response.data);
-            });
-            updateUser(id, {
-              firstName: this.props.account.firstName,
-              lastName: this.props.account.lastName,
-              username: this.props.account.username,
-              password: this.props.account.password,
-              email: this.props.account.email,
-              image: this.props.account.image,
-              cash: remaining
-            }).then((response) => {
-              this.props.updateUser(response.data);
-            });
-            alert("you paid!");
-            this.setState({
-              redirect: true
-            });
+            if (this.props.ticket === undefined) {
+              const ticket = { parkingSlotId: parkingSlotId, carId: carId, timeIn: time, timeOut: time, amount: this.props.parkinglot.price };
+              addTicket(ticket).then((response) => {
+                console.log(response.data);
+                this.props.addTicket(response.data);
+              });
+              updateUser(id, {
+                firstName: this.props.account.firstName,
+                lastName: this.props.account.lastName,
+                username: this.props.account.username,
+                password: this.props.account.password,
+                email: this.props.account.email,
+                image: this.props.account.image,
+                cash: remaining
+              }).then((response) => {
+                this.props.updateUser(response.data);
+              });
+              alert("you paid!");
+              this.setState({
+                redirect: true
+              });
+            } else {
+              alert("you already parked");
+              this.props.history.push('/viewMap');
+            }
           } else {
             alert("no more parking");
             this.props.history.push('/viewMap');
