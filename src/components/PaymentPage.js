@@ -127,7 +127,7 @@ class PaymentPage extends Component {
           <Row gutter={16} >
             <Col span={24}>
               <Card bordered={true} className="payment-page" title={`Remaining Balance: ${this.props.account.cash}`}>
-                <DollarCircleOutlined style={{ fontSize: '16px' }} /> <Button type="link" onClick={onClick}>E-Load</Button>
+                <DollarCircleOutlined style={{ fontSize: '16px' }} /> <Button type="link" onClick={onClick}>MinuteMoney</Button>
               </Card>
             </Col>
           </Row>
