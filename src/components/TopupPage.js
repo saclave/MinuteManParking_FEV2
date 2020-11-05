@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { List, Avatar } from 'antd';
+import { Avatar } from 'antd';
 import { Button, Typography } from 'antd';
 import { DollarCircleOutlined } from '@ant-design/icons';
 import gcash from '../images/gcash.png'
@@ -9,8 +9,6 @@ import { Card, Col, Row } from 'antd';
 import HeaderlessPageContent from './HeaderlessPageContent';
 import { updateUser} from "../apis/accounts"
 
-import { Layout } from 'antd'; 
-import { updateAuthenticatedUser } from '../actions';
 const { Title } = Typography;
 
 class TopupPage extends Component {
