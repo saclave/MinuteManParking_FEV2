@@ -18,6 +18,7 @@ const { SubMenu } = Menu;
 
 class MPHeader extends Component {
     onLogout = () => {
+        this.props.resetTickets();
         this.props.logout();
     }
 
@@ -64,10 +65,12 @@ class MPHeader extends Component {
                                         <Menu.Item key="7" icon={<HistoryOutlined />}>
                                             <ViewTransactionHistoryContainer />
                                         </Menu.Item>
-                                        {this.props.ticket !== undefined && 
-                                        <Menu.Item key="8" icon={<FilePptOutlined />}>
-                                            <ViewTicketContainer />
-                                        </Menu.Item>}
+                                        {
+                                            this.props.ticket !== undefined &&
+                                            <Menu.Item key="8" icon={<FilePptOutlined />}>
+                                                <ViewTicketContainer />
+                                            </Menu.Item>
+                                        }
                                         <Menu.Divider />
                                         <Menu.Item key="6" icon={<LogoutOutlined />}>
                                             <a onClick={this.onLogout}>Logout</a>

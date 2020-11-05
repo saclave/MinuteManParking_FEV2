@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import MPHeader from '../components/MPHeader';
 
-import { logout } from '../actions';
+import { logout, resetTickets } from '../actions';
 
 const mapStateToProps = state => ({
     authenticated: state.authentication.authenticated,
@@ -10,9 +10,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    logout: () => {
-        dispatch(logout())
-    },
+    logout: () => dispatch(logout()),
+    resetTickets: () => dispatch(resetTickets()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MPHeader);

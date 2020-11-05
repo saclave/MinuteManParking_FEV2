@@ -1,6 +1,9 @@
 import { combineReducers } from "redux";
-import { AUTHENTICATE, LOGOUT, SELECTED_PARKINGLOT, 
-    UPDATE_VIEWPORT, INIT_VIEWPORT, UPDATE_INIT_VIEWPORT } from './actions';
+import {
+    AUTHENTICATE, LOGOUT, SELECTED_PARKINGLOT,
+    UPDATE_VIEWPORT, INIT_VIEWPORT, UPDATE_INIT_VIEWPORT,
+    RESET_TICKETS
+} from './actions';
 
 const defaultAccounts = [
     {
@@ -85,6 +88,8 @@ const tickets = (state = [], action) => {
             return [...state, action.payload];
         case "GET_TICKET":
             return action.payload;
+        case RESET_TICKETS:
+            return [];
         default:
             return state;
     }
@@ -112,12 +117,12 @@ const authentication = (state = defaultAuthentication, action) => {
         case AUTHENTICATE:
             return { authenticated: true, account: action.payload };
         case "UPDATE_AUTH_ACCOUNT":
-            return { authenticated: state.authenticated, account : action.payload } ;
+            return { authenticated: state.authenticated, account: action.payload };
         case LOGOUT:
             return { authenticated: false, account: null };
         case "ADD_CAR":
             let carList = [...state.account.carList, action.payload];
-            return { authenticated: state.authenticated, account: {...state.account, carList }};
+            return { authenticated: state.authenticated, account: { ...state.account, carList } };
         case "UPDATE_ACCOUNT":
             return { authenticated: state.authenticated, account: action.payload };
         default:
@@ -151,7 +156,7 @@ const isInitViewport = (state = true, action) => {
         default:
             return state;
     }
-}     
+}
 
 export default combineReducers({
     accounts,
@@ -162,5 +167,5 @@ export default combineReducers({
     selectedParkingLot,
     hazards,
     viewport,
-    isInitViewport
+    isInitViewport,
 });

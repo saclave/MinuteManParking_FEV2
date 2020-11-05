@@ -5,6 +5,7 @@ export const SELECTED_PARKINGLOT = "SELECTED_PARKINGLOT";
 export const UPDATE_VIEWPORT = "UPDATE_VIEWPORT";
 export const INIT_VIEWPORT = "INIT_VIEWPORT";
 export const UPDATE_INIT_VIEWPORT = "UPDATE_INIT_VIEWPORT"
+export const RESET_TICKETS = "RESET_TICKETS"
 
 export const getAccount = accounts => {
     return { type: "GET_ACCOUNT", payload: accounts };
@@ -83,4 +84,8 @@ export const initViewport = () => {
 
 export const updateInitViewport = isInitViewport => {
     return { type: UPDATE_INIT_VIEWPORT, payload: isInitViewport }
+}
+
+export const resetTickets = () => {
+    return { type: RESET_TICKETS }
 }
