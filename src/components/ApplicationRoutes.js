@@ -47,7 +47,6 @@ class ApplicationRoutes extends Component {
                     <PrivateRoute path="/edit" component={UpdateUserProfileContainer} />
                     <PrivateRoute path="/update" component={UpdateUserProfileContainer} />
                     <PrivateRoute path="/view" component={ViewProfileContainer} />
-                    <PrivateRoute path="/viewMap" component={MapContainer} />
                     <PrivateRoute path="/ticket" component={ViewTicketContainer} />
                     <PrivateRoute path="/reserve" component={ReservePageContainer} />
                     <PrivateRoute path="/payment" component={PaymentPageContainer} />

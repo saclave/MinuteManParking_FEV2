@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 
 import MPHeaderContainer from '../containers/MPHeaderContainer';
+import MapGeocoderContainer from '../containers/MapGeocoderContainer';
+import MapContainer from '../containers/MapContainer';
 
 import { Link } from 'react-router-dom';
-import { Layout, Input, Image } from 'antd';
-
-import sampleMap from '../images/sample-map.png';
+import { Layout } from 'antd';
 
 const { Sider } = Layout;
-const { Search } = Input;
 
 class LetsParkPage extends Component {
     render() {
@@ -17,10 +16,10 @@ class LetsParkPage extends Component {
                 <Layout>
                     <MPHeaderContainer />
                     <Sider theme="light" width={300} style={{ marginTop: 65 }}>
-                        <Search style={{ padding: 20 }} placeholder="Search for parking lots here" />
+                        <MapGeocoderContainer />
                     </Sider>
                     <div className="park-page-map-container" style={{ marginTop: 65 }}>
-                        <Image src={sampleMap}></Image>
+                        <MapContainer />
                     </div>
                 </Layout>
                 <Link smooth to={{ pathname: '/ticket' }}>Ticket</Link>
