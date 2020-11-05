@@ -10,20 +10,29 @@ class ViewTicket extends Component {
         super(props);
     } 
     state = {
-      visible: false,
+      visible: true,
       disabled:true,
-
+      redirect: false
   }
-    showModal = () => {
-        this.setState({
-          visible: true,
-        });
-      };
+    // showModal = () => {
+    //     this.setState({
+    //       visible: true,
+    //     });
+    //   };
     
       handleOk = e => {
         console.log(e);
         this.setState({
           visible: false,
+          redirect: true
+        });
+      };
+
+      handleCancel = e => {
+        console.log(e);
+        this.setState({
+          visible: false,
+          redirect: true
         });
       };
     
@@ -36,16 +45,18 @@ class ViewTicket extends Component {
         const { Meta } = Card;
         return (
             <div>
-            <Button onClick={this.showModal}>Ticket</Button>
+            {/* <Button onClick={this.showModal}>Ticket</Button> */}
+            {this.renderRedirect()}
             <Modal className="modal"
               title={
                 <div >
-                  Ticket:  aawdawd
+                  Ticket:<div className="ticket-id">#{this.props.ticket.id}</div>
                 </div>
               }
               visible={this.state.visible}
               onOk={this.handleOk}
-              modalRender={modal => <Draggable disabled={this.state.disabled}>{modal}</Draggable>}
+              onCancel={this.handleCancel}
+              // modalRender={modal => <Draggable disabled={this.state.disabled}>{modal}</Draggable>}
               // footer={[
               //   <Button key="submit" type="primary" onClick={this.handleOk}>
               //     Ok
@@ -53,11 +64,10 @@ class ViewTicket extends Component {
               // ]}
             >
               <div className="reserve">
-                <h2>Parking: {this.props.parkinglot.name} </h2>
-                <h4>slot: {this.props.ticket.parkingSlotId}</h4>
-                <h4>Time in: {this.props.ticket.timeIn}</h4>
-                <h4>Name: {this.props.ticket.name} </h4>
-                <h4>Amount: {this.props.parkinglot.price}/hr</h4>
+                <h2>Parking:<div className="ticket-details">{this.props.parkinglot.name}</div></h2>
+                <h4>Name: <div className="ticket-details">{this.props.ticket.name} </div></h4>
+                <h4>Time in: <div className="ticket-details">{this.props.ticket.timeIn}</div></h4>
+                <h4>Amount: <div className="ticket-details">{this.props.parkinglot.price}</div></h4>
               </div>
               <br />
             </Modal>
