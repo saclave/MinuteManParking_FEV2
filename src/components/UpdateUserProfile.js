@@ -58,7 +58,7 @@ class UpdateUserProfile extends Component {
                 password: values.password, 
                 email: values.email, 
                 cash: this.props.account.cash,
-                imgSrc: values.imgSrc
+                image: values.image
             }).then((response) => {
                 if(response.data.usernameExist){
                     notification.open({
@@ -95,9 +95,12 @@ class UpdateUserProfile extends Component {
         };
 
         const { Option } = Select;
-        console.log(this.props.account.imgSrc);
-        if(this.props.account.imgSrc === undefined){
-           // this.props.account.imgSrc = this.state.defaultpic;
+        console.log(this.props.account.image);
+        if(this.props.account.image === undefined){
+            this.props.account.image = this.state.defaultpic;
+        }
+        else if(this.props.account.image === null){
+            this.props.account.image = this.state.defaultpic;
         }
         return (
             
@@ -116,12 +119,12 @@ class UpdateUserProfile extends Component {
                     username:this.props.account.username,
                     password:this.props.account.password,
                     email:this.props.account.email,
-                    imgSrc: this.props.account.imgSrc             
+                    image: this.props.account.image             
                 }}
                 >
                     
-                <Image src={this.props.account.imgSrc} alt='pic' width={200} style={{ padding : '50px'}}/>  
-                <Form.Item name='imgSrc' label="Image Link" rules={[{ required: false }]} >
+                <Image src={this.props.account.image} alt='pic' width={200} style={{ padding : '50px'}}/>  
+                <Form.Item name='image' label="Image Link" rules={[{ required: false }]} >
                         <Input />
                     </Form.Item>
                     <Form.Item name='firstName' label="First Name" rules={[{ required: true }]} >
