@@ -2,6 +2,8 @@ export const GET_ACCOUNT_BY_USERNAME_AND_PASSWORD = "GET_ACCOUNT_BY_USERNAME_AND
 export const AUTHENTICATE = "AUTHENTICATE";
 export const LOGOUT = "LOGOUT";
 export const SELECTED_PARKINGLOT = "SELECTED_PARKINGLOT";
+export const UPDATE_VIEW_PORT = "UPDATE_VIEW_PORT";
+export const INIT_VIEW_PORT = "INIT_VIEW_PORT"
 
 export const getAccount = accounts => {
     return { type: "GET_ACCOUNT", payload: accounts };
@@ -56,4 +58,12 @@ export const initParkinglots = parkinglots => {
 
 export const initHazards = hazards => {
     return{ type: "INIT_HAZARD", payload: hazards}
+}
+
+export const updateViewPort = viewPort => {
+    return { type: UPDATE_VIEW_PORT, payload: viewPort }
+}
+
+export const initViewPort = () => {
+    return { type: INIT_VIEW_PORT, payload: { latitude: 14.5371, longitude: 120.9835, zoom: 18 } }
 }
