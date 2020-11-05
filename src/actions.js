@@ -75,8 +75,8 @@ export const initViewport = () => {
         type: INIT_VIEWPORT, payload: {
             width: '100vw',
             height: '93vh',
-            latitude: 14.5371,
-            longitude: 120.9835,
+            latitude: 14.5323,
+            longitude: 120.9843,
             zoom: 18
         }
     }
