@@ -7,7 +7,7 @@ const { Title, Paragraph } = Typography;
 
 class ReservePage extends Component {
   constructor(props) {
-    super(props); 
+    super(props);
   }
   state = {
     visible: true,
@@ -28,24 +28,25 @@ class ReservePage extends Component {
       visible: false,
       redirect: "/payment"
     });
-    
+
   };
 
   handleCancel = e => {
     console.log(e);
+    this.props.updateInitViewport(false);
     this.setState({
       visible: false,
-      redirect: "/viewMap"
+      redirect: "/park"
     });
   };
 
   renderRedirect = () => {
     if (this.state.redirect !== null) {
-      return <Redirect to= {this.state.redirect} />
+      return <Redirect to={this.state.redirect} />
     }
   }
   render() {
- 
+
     console.log(this.props.parkinglot)
     return (
       <div>
