@@ -82,13 +82,8 @@ class Map extends Component {
                             latitude={parkinglot.latitude}
                             longitude={parkinglot.longitude}
                         >
-                            <button
-                                id="blue-btn"
-                                className="marker-btn"
-                                onClick={() => { this.setState({ towingPark: null, selectedPark: parkinglot }) }}
-                            >
-                                <img id="car-logo" src="/car-front.svg" alt="Parking Lot Icon" />
-                            </button>
+                            <img className="map-icon" src="/car-front.svg" alt="Parking Lot Icon"
+                                onClick={() => { this.setState({ towingPark: null, selectedPark: parkinglot }) }} />
                         </Marker>
                     ))}
 
@@ -98,13 +93,8 @@ class Map extends Component {
                             latitude={hazard.latitude}
                             longitude={hazard.longitude}
                         >
-                            <button
-                                id="red-btn"
-                                className="marker-btn"
-                                onClick={() => { this.setState({ towingPark: hazard, selectedPark: null }) }}>
-
-                                <img id="x-mark" src={this.onSelectHazardType(hazard)} alt="Towing Icon" />
-                            </button>
+                            <img className="map-icon" src={this.onSelectHazardType(hazard)} alt="Towing Icon"
+                                onClick={() => { this.setState({ towingPark: hazard, selectedPark: null }) }} />
                         </Marker>
                     ))}
 
@@ -142,7 +132,7 @@ class Map extends Component {
                         />
                     </div>
                 </ReactMapGL>
-            </div>
+            </div >
         );
     }
 }
