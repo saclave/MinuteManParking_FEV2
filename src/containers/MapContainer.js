@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { initParkinglots, initHazards, selectedParkingLot, updateViewport, initViewport } from '../actions';
+import { initParkinglots, initHazards, selectedParkingLot, updateViewport, initViewport, updateInitViewport } from '../actions';
 import Map from '../components/Map';
 
 const mapDispatchToProps = (dispatch) => ({
@@ -7,13 +7,15 @@ const mapDispatchToProps = (dispatch) => ({
     initHazards: (hazards) => { dispatch(initHazards(hazards)) },
     selectedParkingLot: (parkinglot) => { dispatch(selectedParkingLot(parkinglot)) },
     updateViewport: (viewport) => { dispatch(updateViewport(viewport)) },
-    initViewport: () => { dispatch(initViewport()) }
+    initViewport: () => { dispatch(initViewport()) },
+    updateInitViewport: (isInitViewport) => { dispatch(updateInitViewport(isInitViewport))}
 })
 
 const mapStateToProps = state => ({
     parkinglots: state.parkinglots,
     hazards: state.hazards,
-    viewport: state.viewport
+    viewport: state.viewport,
+    isInitViewport: state.isInitViewport
 })
 
 const MapContainer = connect(mapStateToProps, mapDispatchToProps)(Map);

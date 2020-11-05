@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
-import { AUTHENTICATE, LOGOUT, SELECTED_PARKINGLOT, UPDATE_VIEWPORT, INIT_VIEWPORT } from './actions';
+import { AUTHENTICATE, LOGOUT, SELECTED_PARKINGLOT, 
+    UPDATE_VIEWPORT, INIT_VIEWPORT, UPDATE_INIT_VIEWPORT } from './actions';
 
 const defaultAccounts = [
     {
@@ -136,6 +137,14 @@ const viewport = (state = {}, action) => {
     }
 }
 
+const isInitViewport = (state = true, action) => {
+    switch (action.type) {
+        case UPDATE_INIT_VIEWPORT:
+            return action.payload;
+        default:
+            return state;
+    }
+}     
 
 export default combineReducers({
     accounts,
@@ -145,5 +154,6 @@ export default combineReducers({
     cars,
     selectedParkingLot,
     hazards,
-    viewport
+    viewport,
+    isInitViewport
 });

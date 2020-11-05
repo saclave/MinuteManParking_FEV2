@@ -3,7 +3,8 @@ export const AUTHENTICATE = "AUTHENTICATE";
 export const LOGOUT = "LOGOUT";
 export const SELECTED_PARKINGLOT = "SELECTED_PARKINGLOT";
 export const UPDATE_VIEWPORT = "UPDATE_VIEWPORT";
-export const INIT_VIEWPORT = "INIT_VIEWPORT"
+export const INIT_VIEWPORT = "INIT_VIEWPORT";
+export const UPDATE_INIT_VIEWPORT = "UPDATE_INIT_VIEWPORT"
 
 export const getAccount = accounts => {
     return { type: "GET_ACCOUNT", payload: accounts };
@@ -67,11 +68,15 @@ export const updateViewport = viewport => {
 export const initViewport = () => {
     return {
         type: INIT_VIEWPORT, payload: {
-            width: '83vw',
+            width: '100vw',
             height: '93vh',
             latitude: 14.5371,
             longitude: 120.9835,
             zoom: 18
         }
     }
+}
+
+export const updateInitViewport = isInitViewport => {
+    return { type: UPDATE_INIT_VIEWPORT, payload: isInitViewport }
 }

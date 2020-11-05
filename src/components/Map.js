@@ -20,7 +20,11 @@ class Map extends Component {
             this.props.initHazards(response.data)
         });
 
-        this.props.initViewport();
+        if (this.props.isInitViewport){
+            this.props.initViewport();
+            console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT")
+        }
+        this.props.updateInitViewport(true);
     }
 
     addReserveParking = () => {
@@ -122,7 +126,7 @@ class Map extends Component {
                         </Popup>
                     ) : null}
 
-                    <div style={{ position: 'absolute', right: 0 }}>
+                    <div style={{ position: 'absolute', left: 5, top: 5 }}>
                         <NavigationControl />
                         <GeolocateControl
                             positionOptions={{ enableHighAccuracy: true }}
