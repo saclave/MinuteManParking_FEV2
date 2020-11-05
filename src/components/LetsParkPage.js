@@ -6,19 +6,23 @@ import MapContainer from '../containers/MapContainer';
 
 import { Layout } from 'antd';
 
-const { Sider } = Layout;
+const { Sider, Content } = Layout;
 
 class LetsParkPage extends Component {
     render() {
         return (
             <Layout>
                 <MPHeaderContainer />
-                <Sider theme="light" width={300} style={{ marginTop: 65 }}>
-                    <MapGeocoderContainer />
-                </Sider>
-                <div className="park-page-map-container" style={{ marginTop: 65 }}>
-                    <MapContainer />
-                </div>
+                <Layout>
+                    <Sider theme="light" width={300} style={{ marginTop: 2 }}>
+                        <MapGeocoderContainer />
+                    </Sider>
+                    <Content style={{ marginTop: 2 }}>
+                        <div className="map-container">
+                            <MapContainer />
+                        </div>
+                    </Content>
+                </Layout>
             </Layout>
         );
     }

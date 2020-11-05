@@ -65,5 +65,13 @@ export const updateViewport = viewport => {
 }
 
 export const initViewport = () => {
-    return { type: INIT_VIEWPORT, payload: { latitude: 14.5371, longitude: 120.9835, zoom: 18 } }
+    return {
+        type: INIT_VIEWPORT, payload: {
+            width: '83vw',
+            height: '93vh',
+            latitude: 14.5371,
+            longitude: 120.9835,
+            zoom: 18
+        }
+    }
 }

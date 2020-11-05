@@ -62,8 +62,6 @@ class Map extends Component {
             <div id="div-map">
                 <ReactMapGL {...viewport}
                     mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-                    width="100vw"
-                    height="100vh"
                     mapStyle="mapbox://styles/charlieborbz18/ckh0kaipu07ks19obt4p8jtff"
                     onViewportChange={viewport => this.props.updateViewport(viewport)}>
 

@@ -22,8 +22,10 @@ class MPHeader extends Component {
     }
 
     render() {
+        const className = 'mp-header' + (this.props.fixed ? ' mp-header-fixed' : '');
+
         return (
-            <Header className="mp-header">
+            <Header className={className}>
                 <Row>
                     <Col flex="auto">
                         <Menu

@@ -103,10 +103,13 @@ body {
   padding: 20px;
 }
 
-.mp-header {
-  background: rgba(255, 255, 255, 0.95);
+.mp-header-fixed {
   position: fixed;
   z-index: 1;
+}
+
+.mp-header {
+  background: rgba(255, 255, 255, 0.95);
   width: 100%;
 }
 
@@ -168,10 +171,6 @@ h5.ant-typography {
   float: right;
 }
 
-.home-page-banner {
-  margin-top: 66px;
-}
-
 .payment-page {
   margin: 0 auto;
   width: 250px;
@@ -179,35 +178,35 @@ h5.ant-typography {
   background: rgba(255, 255, 255, 0.5);
 }
 
-#car-logo{
+#car-logo {
   width: 50px;
   height: 30px;
   align-content: center;
 }
 
-#x-mark{
+#x-mark {
   width: 50px;
   height: 30px;
   text-align: center;
 }
 
-#blue-btn{
-  background-color: #00E6E6;
+#blue-btn {
+  background-color: #00e6e6;
   width: 70px;
   height: 40px;
   margin-right: 20px;
   font-weight: bold;
 }
-#red-btn{
-  background-color: #F08080;
+#red-btn {
+  background-color: #f08080;
   width: 70px;
   height: 40px;
   font-weight: bold;
 }
 
-.towing-pop{
+.towing-pop {
   padding: 5px;
-  background-color: #FFCCCC;
+  background-color: #ffcccc;
 }
 
 .reserve {
@@ -292,31 +291,6 @@ a:hover {
   -ms-user-select: none;
 }
 
-.park-page-map-container {
-  min-height: 300px;
-  max-height: 880px;
-  object-fit: cover;
-  overflow: hidden;
-}
-
-#div-map {
-  position: absolute;
-  left: 220px;
-}
-
-#geocoder-div {
-  position: absolute;
-  top: 60px;
-  left: 25px;
-}
-
-.react-geocoder {
-  /* background-color: #61dafb; */
-  /* width: 200px;
-  padding: 0;
-  margin: 0; */
-}
-
 .react-geocoder-results {
   background-color: #ffcccc;
 }
@@ -326,4 +300,29 @@ a:hover {
   background-color: #61dafb;
   border: 1px solid black;
   cursor: context-menu;
+}
+
+.geocoder input {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 20px;
+  padding: 0;
+  font-variant: tabular-nums;
+  list-style: none;
+  -webkit-font-feature-settings: "tnum";
+  font-feature-settings: "tnum", "tnum";
+  position: relative;
+  display: inline-block;
+  width: 250px;
+  min-width: 0;
+  padding: 4px 11px;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 14px;
+  line-height: 1.5715;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
