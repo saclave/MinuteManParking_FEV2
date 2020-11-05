@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactMapGL, { Marker, Popup, GeolocateControl, NavigationControl } from "react-map-gl";
 import { getParkingLots, getHazardZones } from '../apis/accounts';
-import GeocodersContainer from '../container/GeocodersContainer';
+import MapGeocoderContainer from '../containers/MapGeocoderContainer';
 
 class Map extends Component {
     constructor(props) {
@@ -154,7 +154,7 @@ class Map extends Component {
                         </div>
                     </ReactMapGL>
                 </div>
-                <GeocodersContainer />
+                <MapGeocoderContainer />
             </div>
         );
     }
