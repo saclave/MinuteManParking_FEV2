@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Modal, Button } from 'antd';
-import { Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class ViewTicket extends Component {
   constructor(props) {
@@ -9,7 +9,6 @@ class ViewTicket extends Component {
     this.state = {
       visible: false,
       disabled: true,
-      redirect: false
     };
   }
 
@@ -19,16 +18,9 @@ class ViewTicket extends Component {
     });
   };
 
-  renderRedirect = () => {
-    if (this.state.redirect) {
-      return <Redirect to='/park' />
-    }
-  }
-
   handleExit = () => {
     this.setState({
       visible: false,
-      redirect: true
     });
   };
 
@@ -39,7 +31,6 @@ class ViewTicket extends Component {
         <Link onClick={this.showModal}>
           View Ticket
             </Link>
-        {this.renderRedirect()}
         <Modal className="modal"
           title={
             <div >

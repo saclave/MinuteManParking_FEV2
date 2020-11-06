@@ -12,7 +12,6 @@ import ViewTransactionHistory from './ViewTransactionHistory';
 import ViewTicketContainer from '../container/ViewTicketContainer';
 import ReservePageContainer from '../container/ReservePageContainer';
 import PaymentPageContainer from '../container/PaymentPageContainer';
-import MapContainer from '../containers/MapContainer';
 import TopUpPageContainer from '../container/TopupPageContainer';
 import ViewProfileContainer from '../containers/ViewProfileContainer';
 

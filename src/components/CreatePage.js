@@ -6,13 +6,12 @@ import Highlighter from './Highlighter';
 import HeaderlessPageContent from './HeaderlessPageContent';
 
 import {
-    Form, Input, Button, DatePicker,
-    Select, Typography, notification
+    Form, Input, Button,
+    Typography, notification
 } from 'antd';
 
 import { UserOutlined, LockOutlined, MailOutlined } from '@ant-design/icons';
 
-const { Option } = Select;
 const { Title } = Typography;
 
 class CreatePage extends Component {

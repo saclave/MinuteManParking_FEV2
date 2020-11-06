@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Link } from 'react-router-dom';
 
-import { Form, Input, Button, Typography, notification, Layout } from 'antd';
+import { Form, Input, Button, Typography, notification } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { getUserByUsernameAndPassword } from '../apis/accounts'
 import HeaderlessPageContent from './HeaderlessPageContent';

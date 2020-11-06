@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Input, Button, Space, Select, Modal, Row, Col, notification, Image } from 'antd';
+import { Form, Input, Button, Space, Modal, Row, Col, notification, Image } from 'antd';
 import { updateUser, addCar } from '../apis/accounts';
 import Draggable from 'react-draggable';
 
@@ -38,9 +38,6 @@ class UpdateUserProfile extends Component {
         const layout = {
             labelCol: { span: 8 },
             wrapperCol: { span: 9 },
-        };
-        const config = {
-            rules: [{ type: 'object', required: true, message: 'Please select birthday!' }],
         };
         const validateMessages = {
             required: '${label} is required!',
@@ -94,7 +91,6 @@ class UpdateUserProfile extends Component {
             });
         };
 
-        const { Option } = Select;
         console.log(this.props.account.image);
         if (this.props.account.image === undefined) {
             this.props.account.image = this.state.defaultpic;

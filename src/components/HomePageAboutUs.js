@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Highlighter from '../components/Highlighter';
 
-import { Image, Col, Row, Typography, Space } from 'antd';
+import { Image, Col, Row, Typography } from 'antd';
 import pcPic from '../images/pc.png';
 
 const { Paragraph, Title } = Typography;

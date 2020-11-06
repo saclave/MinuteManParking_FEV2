@@ -4,7 +4,6 @@ import MPHeader from './MPHeader';
 import HomePageAboutUs from './HomePageAboutUs';
 import HomePageMap from './HomePageMap';
 import HomePageServices from './HomePageServices';
-import { Link } from 'react-router-dom';
 import HomePageSteps from './HomePageSteps';
 import { Layout } from 'antd';
 

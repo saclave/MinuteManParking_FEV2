@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { getAccount } from '../actions';
 import ViewTicket from '../components/ViewTicket';
 
 const mapStateToProps = state =>({
