@@ -43,7 +43,8 @@ class ViewTicket extends Component {
         >
           <div className="reserve">
             <h2>Parking Lot:<div className="ticket-details">{this.props.parkinglot.name}</div></h2>
-            <h4>Slot Name: <div className="ticket-details">{this.props.parkinglot.parkingSlotList.find(slot => slot.id === this.props.ticket.parkingSlotId).name} </div></h4>
+            {/* <h4>Slot Name: <div className="ticket-details">{this.props.parkinglot.parkingSlotList.find(slot => slot.id === this.props.ticket.parkingSlotId).name} </div></h4> */}
+            <h4>Slot Name: <div className="ticket-details">{this.props.ticket.name.substring(this.props.ticket.name.indexOf("_")+1,this.props.ticket.name.indexOf("-"))} </div></h4>
             <h4>Time in: <div className="ticket-details">{this.props.ticket.timeIn}</div></h4>
             <h4>Amount: <div className="ticket-details">{this.props.parkinglot.price}</div></h4>
           </div>
