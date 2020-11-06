@@ -271,6 +271,10 @@ h5.ant-typography {
   border: 1px solid black;
 }
 
+.back-button {
+  margin: 20px auto 5px;
+}
+
 .ant-steps-item-process .ant-steps-item-icon {
   background: #29b7df;
   border-color: #29b7df;
