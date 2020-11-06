@@ -5,17 +5,6 @@ import {
     RESET_TICKETS
 } from './actions';
 
-const defaultAccounts = [
-    {
-        username: 'johnemmanuelb',
-        password: '123',
-        firstName: 'John Emmanuel',
-        lastName: 'Bacalla',
-        age: '24',
-        email: 'hello@hi.com',
-        cash: '50'
-    }
-]
 const defaultParkingLot = [
     {
         id: '01111',
@@ -39,19 +28,10 @@ const defaultHazard = [
     }
 ]
 
-const defaultCar = [{
-    platenumber: 'WTP231',
-    brand: 'Honda',
-    color: 'Red',
-}
-]
-
-const accounts = (state = defaultAccounts, action) => {
+const accounts = (state = [], action) => {
     switch (action.type) {
         case "ADD_ACCOUNT":
             return [...state, action.payload];
-        // case "UPDATE_ACCOUNT":
-        //     return action.payload;
         case "GET_ACCOUNT":
             return action.payload;
         default:
@@ -96,8 +76,6 @@ const tickets = (state = [], action) => {
 }
 const cars = (state = [], action) => {
     switch (action.type) {
-        // case "ADD_CAR":
-        //     return [...state, action.payload];
         default:
             return state;
     }

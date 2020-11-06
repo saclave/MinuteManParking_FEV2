@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import { Modal, Button, Typography, Input, Label } from 'antd';
+import { Modal, Button, Typography } from 'antd';
 import Draggable from 'react-draggable';
 import { Redirect } from "react-router-dom";
 
 const { Title, Paragraph } = Typography;
 
 class ReservePage extends Component {
-  constructor(props) {
-    super(props);
-  }
   state = {
     visible: true,
     disabled: true,

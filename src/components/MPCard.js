@@ -5,10 +5,6 @@ import { Card, Image } from 'antd';
 const { Meta } = Card;
 
 class MPCard extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const bordered = this.props.bordered;
         const hoverable = this.props.hoverable;

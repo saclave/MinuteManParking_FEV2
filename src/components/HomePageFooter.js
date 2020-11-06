@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { List, Layout, Typography, Image, Col, Row, Divider } from 'antd';
+import { Layout, Typography, Image, Col, Row, Divider } from 'antd';
 import Highlighter from '../components/Highlighter';
 import logo from '../images/logo.png';
 
 
 
 const { Footer } = Layout;
-const { Paragraph, Title } = Typography;
+const { Title } = Typography;
 
 
 class HomePageFooter extends Component {
